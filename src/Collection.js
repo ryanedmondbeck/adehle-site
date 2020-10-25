@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-// import { CollectionContext } from './contexts/CollectionContext';
-// import { ArtworkContext } from './contexts/ArtworkContext';
+import { ArtworkContext } from './contexts/ArtworkContext';
 import firebase from './firebase';
 
 function useCollection(collectionID) {
@@ -27,19 +26,19 @@ function useCollection(collectionID) {
 function Collection({ collectionID }) {
     // const [collections] = useContext(CollectionContext);
 
-    // const [, setArtwork] = useContext(ArtworkContext);
+    const [, setArtwork] = useContext(ArtworkContext);
 
-    // const passCurrent = (i, j) => {
-    //     // setArtwork({});
-    //     setArtwork({i, j});
-    //     // console.log(artwork);
-    // }
+    const handleClick = (image) => {
+        // console.log(image);
+        setArtwork(image);
+        // console.log("artwork: ", artwork)
+    }
 
     const collection = useCollection(collectionID);
     const renderCollection = () => {
         const artwork_list = collection.map(art => (
             <div key={art.id}>
-                <button>{art.title}</button>
+                <button onClick={() => handleClick(art.image)}>{art.title}</button>
                 {/* <p>{art.dimensions}</p>
                 <p>{art.materials}</p> */}
             </div>

@@ -33,17 +33,21 @@ function CollectionList() {
     // let collection_list_accordion = [];
     const [expanded, setExpanded] = useState(false);
 
-    const handleChange = (panel) => (event, isExpanded) => {
-        setExpanded(isExpanded ? panel : false);
-        setArtwork({});
-    };
+    // const handleChange = (panel) => (event, isExpanded) => {
+    //     setExpanded(isExpanded ? panel : false);
+    //     setArtwork({});
+    // };
+
+    const handleClick = () => {
+        setArtwork(null);
+    }
 
     const lists = useLists();
 
     const renderCollectionList = () => {
         const collection_list_accordion = lists.map(coll =>  (
             <div key={coll.id}>
-                <button>{coll.name}</button>
+                <button onClick={() => handleClick()}>{coll.name}</button>
                 <Collection collectionID={coll.id}/>
             </div>
         ));
