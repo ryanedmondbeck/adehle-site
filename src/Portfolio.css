@@ -1,0 +1,21 @@
+.portfolio {
+    /* border-style: solid; */
+    /* border-color: red; */
+    display: flex;
+    flex-direction: row;
+    padding: 100px;
+}
+.portfolio__list {
+    /* border-style: solid; */
+    display: flex;
+    max-width: 30%;
+    flex-basis: 100%;
+    /* position: absolute; */
+}
+.portfolio__image {
+    /* border-style: solid; */
+    max-width: 66%;
+    flex-basis: 100%;
+    /* padding-left: 30%; */
+}
+

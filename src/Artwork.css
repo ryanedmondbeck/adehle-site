@@ -1,0 +1,22 @@
+.artwork {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+img {
+    width: 100%;
+}
+p {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-top: 10px;
+}
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
