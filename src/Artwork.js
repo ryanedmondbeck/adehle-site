@@ -6,19 +6,24 @@ function Artwork() {
     const [artwork] = useContext(ArtworkContext);
     const [image, setImage] = useState();
     
-    if (artwork != null) {
-        const getURL = async () => {
-            const url = await firebase.storage().ref(artwork).getDownloadURL();
-            setImage(url);
-        }
+    const getURL = async () => {
+        const url = await firebase.storage().ref(artwork).getDownloadURL();
+        setImage(url);
+        // console.log("getURL rendered");
+    }
+    if (artwork) {
         getURL();
+        // console.log("rendered");
         return (
             <div className="artwork">
+                {/* <p>loading</p> */}
                 <img src={image} alt="" />
             </div>
+        
         )
-    }
-    else {
+    } else {
+        if (image) setImage(null);
+        // console.log("rendered");
         return (
             <div className="artwork"></div>
         )
