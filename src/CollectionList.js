@@ -2,11 +2,9 @@ import React, { useState, useContext, useEffect } from 'react';
 
 import Collection from './Collection';
 import './Collection.css';
-// import { CollectionContext } from './contexts/CollectionContext';
 import { ArtworkContext } from './contexts/ArtworkContext';
 
 import firebase from './firebase';
-
 
 function useLists() {
     const [collectionList, setCollectionList] = useState([]);
@@ -28,18 +26,22 @@ function useLists() {
 }
 
 function CollectionList() {
-    // const [collections] = useContext(CollectionContext);
     const [, setArtwork] = useContext(ArtworkContext);
-    // let collection_list_accordion = [];
-    const [expanded, setExpanded] = useState(false);
+    const [expanded, setExpanded] = useState({});
 
-    // const handleChange = (panel) => (event, isExpanded) => {
-    //     setExpanded(isExpanded ? panel : false);
-    //     setArtwork({});
-    // };
-
-    const handleClick = () => {
+    const handleClick = (id) => {
         setArtwork(null);
+        if (expanded[id] != null) {
+            if (expanded[id] === true) {
+                setExpanded({...expanded, [id]: false});
+            }
+            else {
+                setExpanded({...expanded, [id]: true});
+            }
+        } else {
+            setExpanded({...expanded, [id]: true});
+        }
+        // setTimeout(() => {console.log(expanded[id]);}, 2000);
     }
 
     const lists = useLists();
@@ -47,8 +49,8 @@ function CollectionList() {
     const renderCollectionList = () => {
         const collection_list_accordion = lists.map(coll =>  (
             <div key={coll.id}>
-                <button onClick={() => handleClick()}>{coll.name}</button>
-                <Collection collectionID={coll.id}/>
+                <button onClick={() => handleClick(coll.id)}>{coll.name}</button>
+                <Collection collectionID={coll.id} expanded={expanded[coll.id]} />
             </div>
         ));
         return collection_list_accordion;

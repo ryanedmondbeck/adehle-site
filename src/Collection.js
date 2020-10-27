@@ -23,8 +23,7 @@ function useCollection(collectionID) {
     return collection;
 }
 
-function Collection({ collectionID }) {
-
+function Collection({ collectionID, expanded }) {
     const [, setArtwork] = useContext(ArtworkContext);
 
     const handleClick = (collID, artID, materials, dimensions, images) => {
@@ -32,6 +31,7 @@ function Collection({ collectionID }) {
     }
 
     const collection = useCollection(collectionID);
+
     const renderCollection = () => {
         const artwork_list = collection.map(art => (
             <div key={art.id}>
@@ -42,14 +42,12 @@ function Collection({ collectionID }) {
                     art.dimensions, 
                     art.images
                 )}>{art.title}</button>
-                {/* <p>{art.dimensions}</p>
-                <p>{art.materials}</p> */}
             </div>
         ));
         return artwork_list;
     }
     return (
-        <div className="collection">
+        <div className={`collection ${expanded ? "" : "collapsed"}`}>
             {renderCollection()}
         </div>
     )
