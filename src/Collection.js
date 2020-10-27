@@ -24,21 +24,24 @@ function useCollection(collectionID) {
 }
 
 function Collection({ collectionID }) {
-    // const [collections] = useContext(CollectionContext);
 
     const [, setArtwork] = useContext(ArtworkContext);
 
-    const handleClick = (image) => {
-        // console.log(image);
-        setArtwork(image);
-        // console.log("artwork: ", artwork)
+    const handleClick = (collID, artID, materials, dimensions, images) => {
+        setArtwork({collID, artID, materials, dimensions, images});
     }
 
     const collection = useCollection(collectionID);
     const renderCollection = () => {
         const artwork_list = collection.map(art => (
             <div key={art.id}>
-                <button onClick={() => handleClick(art.image)}>{art.title}</button>
+                <button onClick={() => handleClick(
+                    collectionID, 
+                    art.id, 
+                    art.materials, 
+                    art.dimensions, 
+                    art.images
+                )}>{art.title}</button>
                 {/* <p>{art.dimensions}</p>
                 <p>{art.materials}</p> */}
             </div>
