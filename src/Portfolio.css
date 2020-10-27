@@ -1,9 +1,24 @@
 .portfolio {
+    border-style: solid;
+    border-color: green;
+    display: flex;
+    flex-direction: column;
+    padding: 0% 10%;
+    height: 100vh;
+}
+.portfolio__header {
     /* border-style: solid; */
-    /* border-color: red; */
     display: flex;
     flex-direction: row;
-    padding: 100px;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    font-size: 1.2em;
+}
+.portfolio__content {
+    /* border-style: solid; */
+    display: flex;
+    flex-direction: row;
 }
 .portfolio__list {
     /* border-style: solid; */
@@ -18,4 +33,7 @@
     flex-basis: 100%;
     /* padding-left: 30%; */
 }
+/* div {
+    border-style: solid;
+} */
 

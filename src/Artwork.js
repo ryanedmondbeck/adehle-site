@@ -1,24 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ArtworkContext } from './contexts/ArtworkContext';
 import firebase from './firebase';
-
-// const UseArtwork = async (artwork) => {
-//     const [a, setA] = useState();
-//     const art = await firebase
-//         .firestore()
-//         .collection('collection_list')
-//         .doc(artwork.collID)
-//         .collection('collection')
-//         .doc(artwork.artID)
-//         .get();
-//     console.log(art.data().title);
-//     // console.log(art);
-//     let artr = Promise.resolve(art.data());
-//     console.log("artr:", artr);
-//     // setA(art.data());
-
-//     return artr;
-// }
 
 function Artwork() {
     const [artwork] = useContext(ArtworkContext);
@@ -39,7 +21,6 @@ function Artwork() {
                 <p>{artwork.dimensions}</p>
                 <p>{artwork.materials}</p>
             </div>
-        
         )
     } else {
         if (image) setImage(null);
