@@ -1,19 +1,20 @@
 .portfolio {
-    border-style: solid;
-    border-color: green;
+    /* border-style: solid;
+    border-color: green; */
     display: flex;
     flex-direction: column;
     padding: 0% 10%;
     height: 100vh;
 }
 .portfolio__header {
+    font-family: 'UxumR';
     /* border-style: solid; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 10%;
-    font-size: 1.2em;
+    font-size: 1.4em;
 }
 .portfolio__content {
     /* border-style: solid; */
@@ -22,18 +23,15 @@
 }
 .portfolio__list {
     /* border-style: solid; */
-    display: flex;
-    max-width: 30%;
+    /* display: flex; */
+    max-width: 100%;
     flex-basis: 100%;
     /* position: absolute; */
 }
 .portfolio__image {
+    display: flex;
     /* border-style: solid; */
-    max-width: 66%;
-    flex-basis: 100%;
-    /* padding-left: 30%; */
+    width: 40%;
+    padding-top: 5%;
 }
-/* div {
-    border-style: solid;
-} */
 

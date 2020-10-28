@@ -50,7 +50,12 @@ function CollectionList() {
         const collection_list_accordion = lists.map(coll =>  (
             <div key={coll.id}>
                 <button onClick={() => handleClick(coll.id)}>{coll.name}</button>
-                <Collection collectionID={coll.id} expanded={expanded[coll.id]} />
+                {/* <p>{coll.description}</p> */}
+                <Collection 
+                    collectionID={coll.id} 
+                    description={coll.description} 
+                    expanded={expanded[coll.id]} 
+                />
             </div>
         ));
         return collection_list_accordion;

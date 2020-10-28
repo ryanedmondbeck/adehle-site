@@ -1,6 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { ArtworkContext } from './contexts/ArtworkContext';
 import firebase from './firebase';
+// import Artwork from './Artwork';
+// import './Artwork.css';
+
 
 function useCollection(collectionID) {
     const [collection, setCollection] = useState([]);
@@ -23,7 +26,7 @@ function useCollection(collectionID) {
     return collection;
 }
 
-function Collection({ collectionID, expanded }) {
+function Collection({ collectionID, description, expanded }) {
     const [, setArtwork] = useContext(ArtworkContext);
 
     const handleClick = (collID, artID, materials, dimensions, images) => {
@@ -47,8 +50,14 @@ function Collection({ collectionID, expanded }) {
         return artwork_list;
     }
     return (
-        <div className={`collection ${expanded ? "" : "collapsed"}`}>
-            {renderCollection()}
+        <div>
+            <div className={`description ${expanded ? "" : "description--collapsed"}`}>
+                {description}
+            </div>
+            <div className={`collection ${expanded ? "" : "collection--collapsed"}`}>
+                {/* <p>Artwork:</p> */}
+                {renderCollection()}
+            </div>
         </div>
     )
 }
