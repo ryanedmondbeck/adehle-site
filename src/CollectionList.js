@@ -28,33 +28,33 @@ function useLists() {
 function CollectionList() {
     const [, setArtwork] = useContext(ArtworkContext);
     const [expanded, setExpanded] = useState({});
-
+    
+    useEffect(() => {
+        setTimeout(() => {console.log(expanded);}, 2000);
+    })
+ 
     const handleClick = (id) => {
         setArtwork(null);
-        if (expanded[id] != null) {
-            if (expanded[id] === true) {
-                setExpanded({...expanded, [id]: false});
-            }
-            else {
-                setExpanded({...expanded, [id]: true});
-            }
-        } else {
-            setExpanded({...expanded, [id]: true});
+        if (expanded === id) {
+            setExpanded(null);
         }
-        // setTimeout(() => {console.log(expanded[id]);}, 2000);
+        else {
+            setExpanded(id);
+        }   
     }
-
     const lists = useLists();
 
     const renderCollectionList = () => {
         const collection_list_accordion = lists.map(coll =>  (
             <div key={coll.id}>
-                <button onClick={() => handleClick(coll.id)}>{coll.name}</button>
+                <button onClick={() => handleClick(coll.id)} >
+                    {coll.name}
+                </button>
                 {/* <p>{coll.description}</p> */}
                 <Collection 
                     collectionID={coll.id} 
                     description={coll.description} 
-                    expanded={expanded[coll.id]} 
+                    expanded={expanded} 
                 />
             </div>
         ));

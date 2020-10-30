@@ -51,10 +51,10 @@ function Collection({ collectionID, description, expanded }) {
     }
     return (
         <div>
-            <div className={`description ${expanded ? "" : "description--collapsed"}`}>
+            <div className={`description ${(expanded === collectionID) ? "" : "description--collapsed"}`}>
                 {description}
             </div>
-            <div className={`collection ${expanded ? "" : "collection--collapsed"}`}>
+            <div className={`collection ${(expanded === collectionID) ? "" : "collection--collapsed"}`}>
                 {/* <p>Artwork:</p> */}
                 {renderCollection()}
             </div>
