@@ -21,9 +21,7 @@ function App() {
         if (page === 'cms') {
             return (
                 <CMS />
-            )
-                
-            
+            )    
         }
     }
     return (
