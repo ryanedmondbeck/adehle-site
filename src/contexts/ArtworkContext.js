@@ -10,5 +10,4 @@ export const ArtworkProvider = (props) => {
             {props.children}
         </ArtworkContext.Provider>
     );
-
 }
