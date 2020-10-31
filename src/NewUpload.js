@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createRef } from 'react';
+import { db, storage } from './firebase';
 
 function NewUpload() {
 
@@ -12,9 +13,9 @@ function NewUpload() {
     const [image, setImage] = useState({});
     const fileInput = createRef();
 
-    useEffect(() => {
-        setTimeout(() => {console.log("image: ", image, "form: ", form);}, 3000);
-    })
+    // useEffect(() => {
+    //     setTimeout(() => {console.log("image: ", image, "form: ", form);}, 3000);
+    // })
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -23,7 +24,7 @@ function NewUpload() {
     }
     const handleImage = (e) => {
         e.preventDefault();
-        setImage({...image, ...fileInput.current.files});
+        setImage({...fileInput.current.files});
         let im = [];
         for (let i = 0; i < fileInput.current.files.length; i++) {
             im.push(fileInput.current.files[i].name);
@@ -31,14 +32,26 @@ function NewUpload() {
         setForm({ ...form, [e.target.name]: im});
         
     }
-    const handleSubmit = (e) => {
-        console.log("hello");
-        console.log("form: ", form);
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("image files: ", image);
+        const res = await db
+            .collection('collection_list')
+            .doc('vBNEWniAGFN6ufyBOL0i')
+            .collection('collection')
+            .add(form);
+        console.log(res);        
+        for (const i in image) {
+            console.log("im:", image[i], "image: ", image);
+            await storage.ref(image[i].name).put(image[i])
+                .then((snapshot) => {
+                    console.log(snapshot);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
     }
-    
-
-    console.log(form);
     return (
         <div className="upload">
             Create new artwork
