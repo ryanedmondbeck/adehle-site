@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, createRef } from 'react';
 
 function NewUpload() {
+
     const [form, setForm] = useState({
         title: '',
         dimensions: '',
@@ -8,6 +9,13 @@ function NewUpload() {
         index: 0,
         images: []
     });
+    const [image, setImage] = useState({});
+    const fileInput = createRef();
+
+    useEffect(() => {
+        setTimeout(() => {console.log("image: ", image, "form: ", form);}, 3000);
+    })
+
     const handleChange = (e) => {
         e.preventDefault();
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -15,18 +23,25 @@ function NewUpload() {
     }
     const handleImage = (e) => {
         e.preventDefault();
-        setForm({ ...form, [e.target.name]: e.target.value })
-        console.log("form: ", e.target.value);
+        setImage({...image, ...fileInput.current.files});
+        let im = [];
+        for (let i = 0; i < fileInput.current.files.length; i++) {
+            im.push(fileInput.current.files[i].name);
+        }
+        setForm({ ...form, [e.target.name]: im});
+        
     }
     const handleSubmit = (e) => {
         console.log("hello");
         console.log("form: ", form);
         e.preventDefault();
     }
+    
 
     console.log(form);
     return (
         <div className="upload">
+            Create new artwork
             <form onSubmit={handleSubmit} >
                 <label>
                     Title:
@@ -54,8 +69,8 @@ function NewUpload() {
                 </label>
                 <label>
                     Images:
-                    <input type="file" name="images" 
-                    value={form.images} 
+                    <input type="file" multiple name="images" 
+                    ref={fileInput} 
                     onChange={handleImage} />
                 </label>
                 <input type="submit" value="Submit" />
