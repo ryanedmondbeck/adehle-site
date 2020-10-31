@@ -1,6 +1,24 @@
 import React, { useState, useEffect, createRef } from 'react';
 import { db, storage } from './firebase';
 
+function useLists() {
+    const [collectionList, setCollectionList] = useState([]);
+    useEffect(() => {
+        const unsubscribe = db
+            .collection('collection_list')
+            .orderBy('index')
+            .onSnapshot((snapshot) => {
+                const newList = snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data()
+                }))
+                setCollectionList(newList);
+            })
+        return () => unsubscribe();
+    }, []) // need empty array so that this function isn't repeatedly called
+    return collectionList;
+}
+
 function NewUpload() {
 
     const [form, setForm] = useState({
@@ -11,16 +29,29 @@ function NewUpload() {
         images: []
     });
     const [image, setImage] = useState({});
+    const [collection, setCollection] = useState({});
     const fileInput = createRef();
 
     // useEffect(() => {
     //     setTimeout(() => {console.log("image: ", image, "form: ", form);}, 3000);
     // })
-
+    const list = useLists();
+    const createList = () => {
+        const options = list.map(coll =>  (
+            <option value={coll.id} key={coll.id}>{coll.name}</option>
+        ));
+        // console.log("options:", options);
+        return options;
+    }
+    const chooseCollection = (e) => {
+        console.log(e);
+        // setCollection(e.target.value);
+        console.log("after setCollection: ", collection);
+    }
     const handleChange = (e) => {
         e.preventDefault();
         setForm({ ...form, [e.target.name]: e.target.value })
-        console.log("form: ", e.target.value);
+        // console.log("form: ", e.target.value);
     }
     const handleImage = (e) => {
         e.preventDefault();
@@ -42,7 +73,7 @@ function NewUpload() {
             .add(form);
         console.log(res);        
         for (const i in image) {
-            console.log("im:", image[i], "image: ", image);
+            // console.log("im:", image[i], "image: ", image);
             await storage.ref(image[i].name).put(image[i])
                 .then((snapshot) => {
                     console.log(snapshot);
@@ -56,6 +87,12 @@ function NewUpload() {
         <div className="upload">
             Create new artwork
             <form onSubmit={handleSubmit} >
+                <label>
+                    Choose a Collection:
+                    <select value={collection} onChange={chooseCollection}>
+                        {createList()}
+                    </select> 
+                </label>            
                 <label>
                     Title:
                     <input type="text" name="title"
