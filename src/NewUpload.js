@@ -88,37 +88,34 @@ function NewUpload() {
             Create new artwork
             <form onSubmit={handleSubmit} >
                 <label>
-                    Choose a Collection:
+                    {/* Choose a Collection: */}
                     <select value={collection} onChange={chooseCollection}>
                         {createList()}
                     </select> 
                 </label>            
                 <label>
-                    Title:
-                    <input type="text" name="title"
+                    <input type="text" name="title" placeholder="Title"
                     value={form.title} 
                     onChange={handleChange}/>
                 </label>
                 <label>
-                    Dimensions:
-                    <input type="text" name="dimensions"
+                    <input type="text" name="dimensions" placeholder="Dimensions"
                     value={form.dimensions} 
                     onChange={handleChange}/>
                 </label>
                 <label>
-                    Materials:
-                    <input type="text" name="materials" 
+                    <input type="text" name="materials" placeholder="Materials"
                     value={form.materials} 
                     onChange={handleChange} />
                 </label>
                 <label>
-                    Index:
+                    Index
                     <input type="number" name="index" 
                     value={form.index} 
                     onChange={handleChange} />
                 </label>
                 <label>
-                    Images:
+                    Images
                     <input type="file" multiple name="images" 
                     ref={fileInput} 
                     onChange={handleImage} />
