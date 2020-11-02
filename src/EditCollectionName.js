@@ -11,13 +11,14 @@ function EditCollectionName({ id, name }) {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log(i
+        try {
         const res = await db
-            .collection('collection_list')
-            .doc(id)
-            .set(data, { merge: true });
-        console.log(res);
-        setEdit(false);
+                .collection('collection_list')
+                .doc(id)
+                .set(data, { merge: true });
+            console.log(res);
+            setEdit(false);
+        } catch (error) { console.log(error); }
     }
 
     const renderEditName = () => {
@@ -26,7 +27,7 @@ function EditCollectionName({ id, name }) {
                 <div>
                     <form onSubmit={handleSubmit}>
                         <label>
-                            <input type="text" name="name" placeholder="Collection Name"
+                            <input type="text" name="name" placeholder={name}
                                 value={data.name} 
                                 onChange={handleChange}/>
                         </label>

@@ -20,10 +20,12 @@ function NewCollection() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await db
+        try {
+            const res = await db
                 .collection('collection_list')
                 .add(form); 
-        console.log(res);        
+            console.log(res);  
+        } catch (error) { console.log(error); }   
     }
 
     return (

@@ -12,12 +12,14 @@ function EditCollectionDescription({ id, description }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // console.log(i
-        const res = await db
-            .collection('collection_list')
-            .doc(id)
-            .set(data, { merge: true });
-        console.log(res);
-        setEdit(false);
+        try {
+            const res = await db
+                .collection('collection_list')
+                .doc(id)
+                .set(data, { merge: true });
+            console.log(res);
+            setEdit(false);
+        } catch (error) { console.log(error); }
     }
 
     const renderEditDescription = () => {
@@ -26,9 +28,9 @@ function EditCollectionDescription({ id, description }) {
                 <div>
                     <form onSubmit={handleSubmit}>
                         <label>
-                            <textarea type="text" name="description" placeholder="Collection Description"
+                            <textarea type="text" name="description" 
                                 value={data.description} 
-                                onChange={handleChange}/>
+                                onChange={handleChange}>{description}</textarea>
                         </label>
                         <input type="submit" value="Save" />
                     </form>

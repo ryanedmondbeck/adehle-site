@@ -11,13 +11,14 @@ function EditCollectionIndex({ id, index }) {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log(i
-        const res = await db
-            .collection('collection_list')
-            .doc(id)
-            .set(data, { merge: true });
-        console.log(res);
-        setEdit(false);
+        try {
+            const res = await db
+                .collection('collection_list')
+                .doc(id)
+                .set(data, { merge: true });
+            console.log(res);
+            setEdit(false);
+        } catch (error) { console.log(error); }
     }
 
     const renderEditIndex = () => {

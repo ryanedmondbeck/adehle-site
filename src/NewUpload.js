@@ -76,12 +76,14 @@ function NewUpload() {
         }
         else {
             console.log("collection: ", collection);
-            const res = await db
-                .collection('collection_list')
-                .doc(collection)
-                .collection('collection')
-                .add(form);
-            console.log(res);        
+            try {
+                const res = await db
+                    .collection('collection_list')
+                    .doc(collection)
+                    .collection('collection')
+                    .add(form);
+                console.log(res);     
+            } catch (error) { console.log(error); }  
             for (const i in image) {
                 // console.log("im:", image[i], "image: ", image);
                 await storage.ref(image[i].name).put(image[i])

@@ -26,6 +26,20 @@ function EditCollection() {
 
     const list = useLists();
 
+    const handleDelete = async (id, e) => {
+        e.preventDefault();
+        // console.log(id);
+        if (window.confirm('Are you sure you want to delete this collection?')) {
+            try {
+                const res = await db
+                    .collection('collection_list')
+                    .doc(id)
+                    .delete();
+                console.log(res);
+            } catch (error) { console.log(error); }
+        }
+    }
+
     const renderCollections = () => {
         const collection_list = list.map(coll => (
             <div key={coll.id} className="edit-collection__collection">
@@ -41,6 +55,7 @@ function EditCollection() {
                     <p>Index:</p>
                     <EditCollectionIndex id={coll.id} index={coll.index} />
                 </div>
+                <button onClick={(e) => handleDelete(coll.id, e)}>Delete</button>
             </div> 
         ));
         return collection_list;
