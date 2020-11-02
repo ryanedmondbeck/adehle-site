@@ -4,6 +4,9 @@ import EditCollectionDescription from './EditCollectionDescription';
 import EditCollectionIndex from './EditCollectionIndex';
 import { db } from './firebase';
 
+import EditArtwork from './EditArtwork';
+import './EditArtwork.css';
+
 function useLists() {
     const [collectionList, setCollectionList] = useState([]);
     useEffect(() => {
@@ -56,6 +59,7 @@ function EditCollection() {
                     <EditCollectionIndex id={coll.id} index={coll.index} />
                 </div>
                 <button onClick={(e) => handleDelete(coll.id, e)}>Delete</button>
+                <EditArtwork collectionID={coll.id}/>
             </div> 
         ));
         return collection_list;

@@ -1,9 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { ArtworkContext } from './contexts/ArtworkContext';
 import firebase from './firebase';
-// import Artwork from './Artwork';
-// import './Artwork.css';
-
 
 function useCollection(collectionID) {
     const [collection, setCollection] = useState([]);
