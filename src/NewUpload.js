@@ -36,16 +36,12 @@ function NewUpload() {
     //     setTimeout(() => {console.log("image: ", image, "form: ", form);}, 3000);
     // })
     const list = useLists();
-    // useEffect(() => {
-    //     const ids = list.map(coll => (coll.id));
-    //     console.log("init:", ids[0]);
-    //     setCollection(ids[0]);
-    //     console.log(collection)
-    // }, []);
+
     const createList = () => {
         const options = list.map(coll =>  (
             <option value={coll.id} key={coll.id}>{coll.name}</option>
         ));
+        options.unshift(<option value={'empty'} key={'empty'} selected >Choose a Collection...</option>);
         return options;
     }
     const chooseCollection = (e) => {
@@ -96,12 +92,12 @@ function NewUpload() {
     }
     return (
         <div className="upload">
-            Create new artwork
+            Upload New Artwork
             <form onSubmit={handleSubmit} >
                 <label>
                     {/* Choose a Collection: */}
                     <select value={collection} onChange={chooseCollection}>
-                        <option value={'empty'} selected >Choose a Collection</option>
+                        
                         {createList()}
                     </select> 
                 </label>            

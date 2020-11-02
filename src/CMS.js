@@ -3,6 +3,8 @@ import NewUpload from './NewUpload';
 import './NewUpload.css';
 import NewCollection from './NewCollection';
 import './NewCollection.css';
+import EditCollection from './EditCollection';
+import './EditCollection.css';
 import { PageContext } from './contexts/PageContext';
 
 function CMS() {
@@ -12,6 +14,7 @@ function CMS() {
             <p>CMS:</p>
             <NewUpload />
             <NewCollection />
+            <EditCollection />
             <button onClick={() => setPage('portfolio')}>Portfolio</button>
         </div>
     )

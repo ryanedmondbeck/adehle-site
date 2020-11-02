@@ -24,7 +24,7 @@ function NewCollection() {
 
     return (
         <div className="new-collection">
-            Create new collection
+            Create New Collection
             <form onSubmit={handleSubmit} >
                 <label>
                     <input type="text" name="name" placeholder="Collection Name"
