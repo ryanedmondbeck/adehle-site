@@ -36,17 +36,22 @@ function NewUpload() {
     //     setTimeout(() => {console.log("image: ", image, "form: ", form);}, 3000);
     // })
     const list = useLists();
+    // useEffect(() => {
+    //     const ids = list.map(coll => (coll.id));
+    //     console.log("init:", ids[0]);
+    //     setCollection(ids[0]);
+    //     console.log(collection)
+    // }, []);
     const createList = () => {
         const options = list.map(coll =>  (
             <option value={coll.id} key={coll.id}>{coll.name}</option>
         ));
-        // console.log("options:", options);
         return options;
     }
     const chooseCollection = (e) => {
         console.log(e);
-        // setCollection(e.target.value);
-        console.log("after setCollection: ", collection);
+        setCollection(e.target.value);
+        // console.log("after setCollection: ", collection);
     }
     const handleChange = (e) => {
         e.preventDefault();
@@ -65,22 +70,28 @@ function NewUpload() {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("image files: ", image);
-        const res = await db
-            .collection('collection_list')
-            .doc('vBNEWniAGFN6ufyBOL0i')
-            .collection('collection')
-            .add(form);
-        console.log(res);        
-        for (const i in image) {
-            // console.log("im:", image[i], "image: ", image);
-            await storage.ref(image[i].name).put(image[i])
-                .then((snapshot) => {
-                    console.log(snapshot);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+        if (Object.keys(collection).length === 0) {
+            alert("Choose a collection before submitting.");
+            return;
+        }
+        else {
+            console.log("collection: ", collection);
+            const res = await db
+                .collection('collection_list')
+                .doc(collection)
+                .collection('collection')
+                .add(form);
+            console.log(res);        
+            for (const i in image) {
+                // console.log("im:", image[i], "image: ", image);
+                await storage.ref(image[i].name).put(image[i])
+                    .then((snapshot) => {
+                        console.log(snapshot);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
         }
     }
     return (
@@ -90,6 +101,7 @@ function NewUpload() {
                 <label>
                     {/* Choose a Collection: */}
                     <select value={collection} onChange={chooseCollection}>
+                        <option value={'empty'} selected >Choose a Collection</option>
                         {createList()}
                     </select> 
                 </label>            
