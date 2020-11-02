@@ -1,0 +1,51 @@
+import React, { useState } from 'react';
+import { db } from './firebase';
+
+function NewCollection() {
+    const [form, setForm] = useState({
+        name: '',
+        description: '',
+        index: 0
+    });
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        setForm({ ...form, [e.target.name]: e.target.value })
+        // console.log("form: ", e.target.value);
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const res = await db
+                .collection('collection_list')
+                .add(form); 
+        console.log(res);        
+    }
+
+    return (
+        <div className="new-collection">
+            Create new collection
+            <form onSubmit={handleSubmit} >
+                <label>
+                    <input type="text" name="name" placeholder="Collection Name"
+                    value={form.name} 
+                    onChange={handleChange}/>
+                </label>
+                <label>
+                    <textarea name="description" placeholder="Description"
+                    value={form.description} 
+                    onChange={handleChange} />
+                </label>
+                <label>
+                    Index
+                    <input type="number" name="index" 
+                    value={form.index} 
+                    onChange={handleChange} />
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    )
+}
+
+export default NewCollection;
