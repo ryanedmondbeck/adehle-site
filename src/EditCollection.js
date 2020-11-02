@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import EditCollectionName from './EditCollectionName';
 import { db } from './firebase';
 
 function useLists() {
@@ -23,52 +24,52 @@ function EditCollection() {
 
     const list = useLists();
 
-    const [editName, sEditName] = useState(false);
+    // const [editName, sEditName] = useState(false);
     const [editDescription, sEditDescription] = useState(false);
     const [editIndex, sEditIndex] = useState(false);
-    const [form, setForm] = useState({});
+    // const [form, setForm] = useState({});
         
-    const handleChange = (e) => {
-        e.preventDefault();
-        setForm({[e.target.name]: e.target.value })
-        // console.log("form: ", e.target.value);
-    }
-    const handleNameSave = async (e, id) => {
-        console.log(id);
-        // const res = await db
-        //     .collection('collection_list')
-        //     .doc(id)
-        //     .collection('collection')
-        //     .add(form);
-        // console.log(res);
-    }
+    // const handleChange = (e) => {
+    //     e.preventDefault();
+    //     setForm({[e.target.name]: e.target.value })
+    //     // console.log("form: ", e.target.value);
+    // }
+    // const handleNameSave = async (e, id) => {
+    //     console.log(id);
+    //     // const res = await db
+    //     //     .collection('collection_list')
+    //     //     .doc(id)
+    //     //     .collection('collection')
+    //     //     .add(form);
+    //     // console.log(res);
+    // }
 
-    const renderEditName = (id, name) => {
-        // console.log("editName: ", editName);
-        if (editName) {
-            return (
-                <div>
-                    <form onSubmit={(e) => handleNameSave(id)}>
-                        <label>
-                            <input type="text" name="name" placeholder="Collection Name"
-                                value={form.name} 
-                                onChange={handleChange}/>
-                        </label>
-                        <input type="submit" value="Save" />
-                    </form>
-                    <button onClick={() => sEditName(false)}>Save</button>
-                </div>
-            )
-        }
-        else {
-            return (
-                <div>
-                    <p>{name}</p>
-                    <button onClick={() => sEditName(true)}>Edit</button>
-                </div>   
-            )
-        }
-    }
+    // const renderEditName = (id, name) => {
+    //     // console.log("editName: ", editName);
+    //     if (editName) {
+    //         return (
+    //             <div>
+    //                 <form onSubmit={(e) => handleNameSave(id)}>
+    //                     <label>
+    //                         <input type="text" name="name" placeholder="Collection Name"
+    //                             value={form.name} 
+    //                             onChange={handleChange}/>
+    //                     </label>
+    //                     <input type="submit" value="Save" />
+    //                 </form>
+    //                 <button onClick={() => sEditName(false)}>Save</button>
+    //             </div>
+    //         )
+    //     }
+    //     else {
+    //         return (
+    //             <div>
+    //                 <p>{name}</p>
+    //                 <button onClick={() => sEditName(true)}>Edit</button>
+    //             </div>   
+    //         )
+    //     }
+    // }
 
 
     const renderCollections = () => {
@@ -76,7 +77,7 @@ function EditCollection() {
             <div key={coll.id} className="edit-collection__collection">
                 <div>
                     <p>Name:</p>
-                    {renderEditName(coll.id, coll.name)}
+                    <EditCollectionName id={coll.id} name={coll.name} />
                 </div>
                 <div>
                     <p>Description:</p>
