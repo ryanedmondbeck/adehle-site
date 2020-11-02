@@ -54,6 +54,10 @@ function NewUpload() {
         setForm({ ...form, [e.target.name]: e.target.value })
         // console.log("form: ", e.target.value);
     }
+    const handleNumChange = (e) => {
+        e.preventDefault();
+        setForm({ ...form, [e.target.name]: parseInt(e.target.value) })
+    }
     const handleImage = (e) => {
         e.preventDefault();
         setImage({...fileInput.current.files});
@@ -120,7 +124,7 @@ function NewUpload() {
                     Index
                     <input type="number" name="index" 
                     value={form.index} 
-                    onChange={handleChange} />
+                    onChange={handleNumChange} />
                 </label>
                 <label>
                     Images

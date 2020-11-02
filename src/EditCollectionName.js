@@ -11,14 +11,13 @@ function EditCollectionName({ id, name }) {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(id);
-        console.log(data.name);
+        // console.log(i
         const res = await db
             .collection('collection_list')
             .doc(id)
-            // .collection('collection')
-            .set(data);
+            .set(data, { merge: true });
         console.log(res);
+        sEditName(false);
     }
 
     const renderEditName = () => {

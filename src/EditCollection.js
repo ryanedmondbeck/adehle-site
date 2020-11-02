@@ -24,54 +24,6 @@ function EditCollection() {
 
     const list = useLists();
 
-    // const [editName, sEditName] = useState(false);
-    const [editDescription, sEditDescription] = useState(false);
-    const [editIndex, sEditIndex] = useState(false);
-    // const [form, setForm] = useState({});
-        
-    // const handleChange = (e) => {
-    //     e.preventDefault();
-    //     setForm({[e.target.name]: e.target.value })
-    //     // console.log("form: ", e.target.value);
-    // }
-    // const handleNameSave = async (e, id) => {
-    //     console.log(id);
-    //     // const res = await db
-    //     //     .collection('collection_list')
-    //     //     .doc(id)
-    //     //     .collection('collection')
-    //     //     .add(form);
-    //     // console.log(res);
-    // }
-
-    // const renderEditName = (id, name) => {
-    //     // console.log("editName: ", editName);
-    //     if (editName) {
-    //         return (
-    //             <div>
-    //                 <form onSubmit={(e) => handleNameSave(id)}>
-    //                     <label>
-    //                         <input type="text" name="name" placeholder="Collection Name"
-    //                             value={form.name} 
-    //                             onChange={handleChange}/>
-    //                     </label>
-    //                     <input type="submit" value="Save" />
-    //                 </form>
-    //                 <button onClick={() => sEditName(false)}>Save</button>
-    //             </div>
-    //         )
-    //     }
-    //     else {
-    //         return (
-    //             <div>
-    //                 <p>{name}</p>
-    //                 <button onClick={() => sEditName(true)}>Edit</button>
-    //             </div>   
-    //         )
-    //     }
-    // }
-
-
     const renderCollections = () => {
         const collection_list = list.map(coll => (
             <div key={coll.id} className="edit-collection__collection">

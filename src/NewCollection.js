@@ -11,7 +11,11 @@ function NewCollection() {
     const handleChange = (e) => {
         e.preventDefault();
         setForm({ ...form, [e.target.name]: e.target.value })
-        // console.log("form: ", e.target.value);
+    }
+
+    const handleNumChange = (e) => {
+        e.preventDefault();
+        setForm({ ...form, [e.target.name]: parseInt(e.target.value) })
     }
 
     const handleSubmit = async (e) => {
@@ -40,7 +44,7 @@ function NewCollection() {
                     Index
                     <input type="number" name="index" 
                     value={form.index} 
-                    onChange={handleChange} />
+                    onChange={handleNumChange} />
                 </label>
                 <input type="submit" value="Submit" />
             </form>
