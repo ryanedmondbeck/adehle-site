@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { db } from './firebase';
 
-function EditCollectionName({ id, name }) {
+function EditCollectionDescription({ id, description }) {
     const [edit, setEdit] = useState(false);
     const [data, setData] = useState({});
         
@@ -20,14 +20,14 @@ function EditCollectionName({ id, name }) {
         setEdit(false);
     }
 
-    const renderEditName = () => {
+    const renderEditDescription = () => {
         if (edit) {
             return (
                 <div>
                     <form onSubmit={handleSubmit}>
                         <label>
-                            <input type="text" name="name" placeholder="Collection Name"
-                                value={data.name} 
+                            <textarea type="text" name="description" placeholder="Collection Description"
+                                value={data.description} 
                                 onChange={handleChange}/>
                         </label>
                         <input type="submit" value="Save" />
@@ -38,15 +38,15 @@ function EditCollectionName({ id, name }) {
         else {
             return (
                 <div>
-                    <p>{name}</p>
+                    <p>{description}</p>
                     <button onClick={() => setEdit(true)}>Edit</button>
                 </div>   
             )
         }
     }
     return (
-        <div>{renderEditName()}</div>
+        <div>{renderEditDescription()}</div>
     )
 }
 
-export default EditCollectionName;
+export default EditCollectionDescription;

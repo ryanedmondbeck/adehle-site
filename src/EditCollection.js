@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import EditCollectionName from './EditCollectionName';
+import EditCollectionDescription from './EditCollectionDescription';
+import EditCollectionIndex from './EditCollectionIndex';
 import { db } from './firebase';
 
 function useLists() {
@@ -33,13 +35,11 @@ function EditCollection() {
                 </div>
                 <div>
                     <p>Description:</p>
-                    <p>{coll.description}</p>
-                    <button>Edit</button>
+                    <EditCollectionDescription id={coll.id} description={coll.description} />
                 </div>
                 <div>
                     <p>Index:</p>
-                    <p>{coll.index}</p>
-                    <button>Edit</button>
+                    <EditCollectionIndex id={coll.id} index={coll.index} />
                 </div>
             </div> 
         ));
