@@ -53,7 +53,7 @@ function EditArtwork({ collectionID }) {
                 </div>
                 <div>
                     <p>Images:</p>
-                    
+                    {/* <EditArtworkImages collID={collectionID} artID={art.id} images={art.images}/> */}
                 </div>
             </div>
         ));
