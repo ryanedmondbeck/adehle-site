@@ -26,9 +26,11 @@ function NewUpload() {
         dimensions: '',
         materials: '',
         index: 0,
-        images: []
+        images: [],
+        imurl: []
     });
     const [image, setImage] = useState({});
+    const [urls, setUrls] = useState([]);
     const [collection, setCollection] = useState({});
     const fileInput = createRef();
 
@@ -68,6 +70,7 @@ function NewUpload() {
         setForm({ ...form, [e.target.name]: im});
         
     }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (Object.keys(collection).length === 0) {
@@ -76,24 +79,48 @@ function NewUpload() {
         }
         else {
             console.log("collection: ", collection);
+
+            // Upload the images and get download IDs
+            const imurl = [];
+            for (const i in image) {
+                // console.log("im:", image[i], "image: ", image);
+                await storage.ref(image[i].name).put(image[i])
+                    .then(async (snapshot) => {
+                        console.log(snapshot);
+                        const url = await storage.ref(image[i].name).getDownloadURL();
+                        // setTimeout(() => {
+                            console.log("download url:", url);
+                        // }, 7000);
+                        imurl.push(url);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });     
+            }
+            setTimeout(() => {
+                console.log("urls state:", urls);
+                console.log("form:", form);
+            }, 7000);
+            
             try {
                 const res = await db
                     .collection('collection_list')
                     .doc(collection)
                     .collection('collection')
                     .add(form);
-                console.log(res);     
+                console.log(res);
+                console.log(res.id);
+                const res2 = await db
+                    .collection('collection_list')
+                    .doc(collection)
+                    .collection('collection')
+                    .doc(res.id)
+                    .set({
+                        imurl: imurl
+                    }, { merge: true });
+                console.log(res2);
+
             } catch (error) { console.log(error); }  
-            for (const i in image) {
-                // console.log("im:", image[i], "image: ", image);
-                await storage.ref(image[i].name).put(image[i])
-                    .then((snapshot) => {
-                        console.log(snapshot);
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                    });
-            }
         }
     }
     return (
