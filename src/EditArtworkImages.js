@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, createRef } from 'react';
 import { db, storage } from './firebase';
 
 function EditArtworkImages({ collID, artID, images, urls }) {
@@ -39,7 +39,6 @@ function EditArtworkImages({ collID, artID, images, urls }) {
                 }); 
         }
     }
-
     const renderImages = () => {
         const image_list = [];
         for (let i in urls) {
@@ -55,9 +54,68 @@ function EditArtworkImages({ collID, artID, images, urls }) {
         return image_list;        
     }
 
+    const fileInput = createRef();
+    const [image, setImage] = useState({});
+
+    const handleImage = (e) => {
+        e.preventDefault();
+        setImage({...fileInput.current.files});
+        // let im = [];
+        for (let i = 0; i < fileInput.current.files.length; i++) {
+            images.push(fileInput.current.files[i].name);
+        }
+        // setForm({ ...form, [e.target.name]: im});
+    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // Upload the images and get download IDs
+        // const imurl = [];
+        for (const i in image) {
+            // console.log("im:", image[i], "image: ", image);
+            await storage.ref(image[i].name).put(image[i])
+                .then(async (snapshot) => {
+                    console.log(snapshot);
+                    const url = await storage.ref(image[i].name).getDownloadURL();
+                    urls.push(url);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });     
+        }
+        // now add the object to firestore
+        try {
+            const res = await db
+            .collection('collection_list')
+            .doc(collID)
+            .collection('collection')
+            .doc(artID)
+            .set({
+                images: images,
+                imurl: urls
+            }, { merge: true });
+            // console.log(res);
+        } catch (error) { console.log(error); }   
+    }
+    
+    const updateImages = () => {
+        return (
+            <form onSubmit={handleSubmit}>
+                <label >
+                    Add images
+                    <input type="file" multiple name="images" 
+                    ref={fileInput} 
+                    onChange={handleImage} />
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
+        )
+        
+    }
+
     return (
         <div>
             {renderImages()}
+            {updateImages()}
         </div>
     )
 }
