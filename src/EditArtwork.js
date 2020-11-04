@@ -5,7 +5,7 @@ import EditArtworkMaterials from './EditArtworkMaterials';
 import EditArtworkIndex from './EditArtworkIndex';
 import EditArtworkImages from './EditArtworkImages';
 
-import firebase from './firebase';
+import firebase, { db } from './firebase';
 
 function useCollection(collectionID) {
     const [collection, setCollection] = useState([]);
@@ -29,8 +29,23 @@ function useCollection(collectionID) {
 }
 function EditArtwork({ collectionID }) {
 
+    const handleDelete = async (collID, artID, e) => {
+        e.preventDefault();
+        // console.log(id);
+        if (window.confirm('Are you sure you want to delete this artwork?')) {
+            try {
+                const res = await db
+                    .collection('collection_list')
+                    .doc(collID)
+                    .collection('collection')
+                    .doc(artID)
+                    .delete();
+                // console.log(res);
+            } catch (error) { console.log(error); }
+        }
+    }
+
     const collection = useCollection(collectionID);
-    // console.log(collection);
 
     const renderCollection = () => {
         const artwork = collection.map(art => (
@@ -55,6 +70,7 @@ function EditArtwork({ collectionID }) {
                     <p>Images:</p>
                     <EditArtworkImages collID={collectionID} artID={art.id} images={art.images} urls={art.imurl}/>
                 </div>
+                <button onClick={(e) => handleDelete(collectionID, art.id, e)}>Delete Artwork</button>
             </div>
         ));
         return artwork;
