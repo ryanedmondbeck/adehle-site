@@ -1,31 +1,19 @@
-import React, { useState } from 'react';
-import firebase from './firebase';
+import React from 'react';
 
-function EditArtworkImages({ collID, artID, images }) {
-    const [imageState, setImageState] = useState();
-
-    const getURL = async (image) => {
-        // let a = artwork; //this should stop setState when artwork changes
-        const url = await firebase.storage().ref(image).getDownloadURL();  
-        // setImageState(url);
-    }
+function EditArtworkImages({ collID, artID, images, urls }) {
+    
     const renderImages = () => {
         const image_list = [];
-        for (let i in images) {
-            const url = getURL(images[i])
+        for (let i in urls) {
+            console.log("url:", urls[i]);
             image_list.push(
                 <div key={i}>
-                    {/* <img src={url} alt="" /> */}
+                    <p>{images[i]}</p>
+                    <img src={urls[i]} alt="" />
                 </div>
             )
         }
-    
-        // console.log("imageState:", imageState);
-        // return image_list;
-
-        // getURL(images[0]);
-        // return (<div><img src={imageState} alt=""/></div>);
-        
+        return image_list;        
     }
 
     return (

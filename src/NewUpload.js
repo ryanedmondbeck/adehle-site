@@ -30,7 +30,6 @@ function NewUpload() {
         imurl: []
     });
     const [image, setImage] = useState({});
-    const [urls, setUrls] = useState([]);
     const [collection, setCollection] = useState({});
     const fileInput = createRef();
 
@@ -47,7 +46,7 @@ function NewUpload() {
         return options;
     }
     const chooseCollection = (e) => {
-        console.log(e);
+        // console.log(e);
         setCollection(e.target.value);
         // console.log("after setCollection: ", collection);
     }
@@ -78,8 +77,6 @@ function NewUpload() {
             return;
         }
         else {
-            console.log("collection: ", collection);
-
             // Upload the images and get download IDs
             const imurl = [];
             for (const i in image) {
@@ -88,20 +85,13 @@ function NewUpload() {
                     .then(async (snapshot) => {
                         console.log(snapshot);
                         const url = await storage.ref(image[i].name).getDownloadURL();
-                        // setTimeout(() => {
-                            console.log("download url:", url);
-                        // }, 7000);
                         imurl.push(url);
                     })
                     .catch((error) => {
                         console.log(error);
                     });     
             }
-            setTimeout(() => {
-                console.log("urls state:", urls);
-                console.log("form:", form);
-            }, 7000);
-            
+            // now add the object to firestore
             try {
                 const res = await db
                     .collection('collection_list')
@@ -109,7 +99,8 @@ function NewUpload() {
                     .collection('collection')
                     .add(form);
                 console.log(res);
-                console.log(res.id);
+                // console.log(res.id); 
+                // add the download url array to the object
                 const res2 = await db
                     .collection('collection_list')
                     .doc(collection)
@@ -119,7 +110,6 @@ function NewUpload() {
                         imurl: imurl
                     }, { merge: true });
                 console.log(res2);
-
             } catch (error) { console.log(error); }  
         }
     }
