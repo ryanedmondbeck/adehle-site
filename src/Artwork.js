@@ -16,7 +16,7 @@ function Artwork() {
             </div>
         );
         if (artwork.imurl.length > 1) {
-            for (let i = 1; i < (artwork.imurl.length - 1); i++) {
+            for (let i = 1; i < (artwork.imurl.length); i++) {
                 artwork_display.push(
                     <div>
                         <img src={artwork.imurl[i]} alt="" />
