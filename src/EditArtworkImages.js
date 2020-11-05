@@ -109,7 +109,6 @@ function EditArtworkImages({ collID, artID, images, urls }) {
                 <input type="submit" value="Submit" />
             </form>
         )
-        
     }
 
     return (

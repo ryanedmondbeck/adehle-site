@@ -120,7 +120,6 @@ function NewUpload() {
                 <label>
                     {/* Choose a Collection: */}
                     <select value={collection} onChange={chooseCollection}>
-                        
                         {createList()}
                     </select> 
                 </label>            

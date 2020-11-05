@@ -26,8 +26,8 @@ function useCollection(collectionID) {
 function Collection({ collectionID, description, expanded }) {
     const [, setArtwork] = useContext(ArtworkContext);
 
-    const handleClick = (collID, artID, materials, dimensions, images) => {
-        setArtwork({collID, artID, materials, dimensions, images});
+    const handleClick = (collID, artID, materials, dimensions, images, imurl) => {
+        setArtwork({collID, artID, materials, dimensions, images, imurl});
     }
 
     const collection = useCollection(collectionID);
@@ -40,7 +40,8 @@ function Collection({ collectionID, description, expanded }) {
                     art.id, 
                     art.materials, 
                     art.dimensions, 
-                    art.images
+                    art.images,
+                    art.imurl
                 )}>{art.title}</button>
             </div>
         ));

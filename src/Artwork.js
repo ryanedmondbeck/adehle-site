@@ -5,23 +5,26 @@ import firebase from './firebase';
 function Artwork() {
     const [artwork] = useContext(ArtworkContext);
     const [image, setImage] = useState();
-    
-    const getURL = async () => {
-        // let a = artwork; //this should stop setState when artwork changes
-        const url = await firebase.storage().ref(artwork.images[0]).getDownloadURL();
-        setImage(url);
-    }
 
+    const artwork_display = [];
     if (artwork) {
-        // console.log("image:", artwork.images[0]);
-        getURL();
-        return (
-            <div className="artwork">
-                <img src={image} alt="" />
+        artwork_display.push(
+            <div>
+                <img src={artwork.imurl[0]} alt="" />
                 <p>{artwork.dimensions}</p>
                 <p>{artwork.materials}</p>
             </div>
-        )
+        );
+        if (artwork.imurl.length > 1) {
+            for (let i = 1; i < (artwork.imurl.length - 1); i++) {
+                artwork_display.push(
+                    <div>
+                        <img src={artwork.imurl[i]} alt="" />
+                    </div>
+                );
+            }
+        }
+        return (<div className="artwork">{artwork_display}</div>);
     } else {
         if (image) setImage(null);
         return (
