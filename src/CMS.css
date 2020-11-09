@@ -1,3 +1,6 @@
 .cms {
     font-family: Arial;
 }
+.cms > button {
+    font-family: Arial;
+}

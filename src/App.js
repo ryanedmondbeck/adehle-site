@@ -7,9 +7,10 @@ import './CMS.css';
 import { ArtworkProvider } from './contexts/ArtworkContext';
 import { PageContext } from './contexts/PageContext';
 import { render } from '@testing-library/react';
+import { CMSPageProvider } from './contexts/CMSPageContext';
 
 function App() {
-    const [page, setPage] = useContext(PageContext);
+    const [page] = useContext(PageContext);
     const showPage = () => {
         if (page === 'portfolio') {
             return (
@@ -20,7 +21,10 @@ function App() {
         }
         if (page === 'cms') {
             return (
-                <CMS />
+                <CMSPageProvider>
+                    <CMS />
+                </CMSPageProvider>
+                
             )    
         }
     }
