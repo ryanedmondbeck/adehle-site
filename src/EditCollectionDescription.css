@@ -1,3 +1,12 @@
 .edit-collection-description > button {
     padding: 0;
 }
+.edit-collection-description {
+    padding-bottom: 1em;
+}
+.edit-collection-description > label {
+    width: 100%;
+}
+.edit-collection-description__text-area {
+    width: 100%;
+}

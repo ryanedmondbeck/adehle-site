@@ -50,23 +50,23 @@ function EditArtwork({ collectionID }) {
     const renderCollection = () => {
         const artwork = collection.map(art => (
             <div key={art.id} className="edit-artwork__artwork">
-                <div>
-                    <p>Title:</p>
-                    <EditArtworkTitle collID={collectionID} artID={art.id} title={art.title}/>
+                <div className="edit-artwork__top">
+                    <div className="edit-artwork__index">
+                        <EditArtworkIndex collID={collectionID} artID={art.id} index={art.index}/>
+                    </div>
+                    <div className="edit-artwork__right">
+                        <div>
+                            <EditArtworkTitle collID={collectionID} artID={art.id} title={art.title}/>
+                        </div>
+                        <div>
+                            <EditArtworkDimensions collID={collectionID} artID={art.id} dimensions={art.dimensions}/>
+                        </div>
+                        <div>
+                            <EditArtworkMaterials collID={collectionID} artID={art.id} materials={art.materials}/>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <p>Dimensions:</p>
-                    <EditArtworkDimensions collID={collectionID} artID={art.id} dimensions={art.dimensions}/>
-                </div>
-                <div>
-                    <p>Materials:</p>
-                    <EditArtworkMaterials collID={collectionID} artID={art.id} materials={art.materials}/>
-                </div>
-                <div>
-                    <p>Index:</p>
-                    <EditArtworkIndex collID={collectionID} artID={art.id} index={art.index}/>
-                </div>
-                <div>
+                <div className="edit-artwork__images">
                     <p>Images:</p>
                     <EditArtworkImages collID={collectionID} artID={art.id} images={art.images} urls={art.imurl}/>
                 </div>

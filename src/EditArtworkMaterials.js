@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { db } from './firebase';
+import './EditArtworkMaterials.css';
 
 function EditArtworkMaterials({ collID, artID, materials}) {
     const [edit, setEdit] = useState(false);
@@ -26,7 +27,7 @@ function EditArtworkMaterials({ collID, artID, materials}) {
     const renderEditMaterials = () => {
         if (edit) {
             return (
-                <div>
+                <div className="edit-artwork-materials">
                     <form onSubmit={handleSubmit}>
                         <label>
                             <textarea type="text" name="materials" 
@@ -40,7 +41,8 @@ function EditArtworkMaterials({ collID, artID, materials}) {
         }
         else {
             return (
-                <div>
+                <div className="edit-artwork-materials">
+                    <p>Materials:</p>
                     <p>{materials}</p>
                     <button onClick={() => setEdit(true)}>Edit</button>
                 </div>   

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { db } from './firebase';
+import './EditArtworkTitle.css';
 
 function EditArtworkTitle({ collID, artID, title}) {
     const [edit, setEdit] = useState(false);
@@ -26,7 +27,7 @@ function EditArtworkTitle({ collID, artID, title}) {
     const renderEditTitle = () => {
         if (edit) {
             return (
-                <div>
+                <div className="edit-artwork-title">
                     <form onSubmit={handleSubmit}>
                         <label>
                             <textarea type="text" name="title" 
@@ -40,7 +41,8 @@ function EditArtworkTitle({ collID, artID, title}) {
         }
         else {
             return (
-                <div>
+                <div className="edit-artwork-title">
+                    <p>Title:</p>
                     <p>{title}</p>
                     <button onClick={() => setEdit(true)}>Edit</button>
                 </div>   

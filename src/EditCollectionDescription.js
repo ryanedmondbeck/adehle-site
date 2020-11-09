@@ -29,7 +29,9 @@ function EditCollectionDescription({ id, description }) {
                 <div className="edit-collection-description">
                     <form onSubmit={handleSubmit}>
                         <label>
-                            <textarea type="text" name="description" 
+                            <textarea 
+                                className="edit-collection-description__text-area"
+                                type="text" name="description" 
                                 value={data.description} 
                                 onChange={handleChange}>{description}</textarea>
                         </label>

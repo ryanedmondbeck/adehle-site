@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { db } from './firebase';
+import './EditArtworkIndex.css';
 
 function EditArtworkIndex({ collID, artID, index}) {
     const [edit, setEdit] = useState(false);
@@ -41,7 +42,7 @@ function EditArtworkIndex({ collID, artID, index}) {
         else {
             return (
                 <div>
-                    <p>{index}</p>
+                    <p className="edit-artwork-index__index">{index}</p>
                     <button onClick={() => setEdit(true)}>Edit</button>
                 </div>   
             )

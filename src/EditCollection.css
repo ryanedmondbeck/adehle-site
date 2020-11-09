@@ -27,6 +27,7 @@
     flex-direction: column;
     width: 90%;
 }
-/* .edit-collection__collection__right > button {
-    color: red;
-} */
+.edit-collection__collection__right > button {
+    padding: 0;
+    padding-bottom: 1em;
+}

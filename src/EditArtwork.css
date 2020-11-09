@@ -4,7 +4,17 @@
     padding: 20px;
 }
 .edit-artwork__artwork {
-    border-style: solid;
+    /* border-style: solid;
     border-color: green;
-    border-width: 1px;
+    border-width: 1px; */
+    display: flex;
+    flex-direction: column;
+}
+.edit-artwork__top {
+    display: flex;
+    flex-direction: row;
+}
+.edit-artwork__index {
+    width: 10%;
+    margin-right: 10px;
 }
