@@ -46,20 +46,21 @@ function EditCollection() {
     const renderCollections = () => {
         const collection_list = list.map(coll => (
             <div key={coll.id} className="edit-collection__collection">
-                <div>
-                    <p>Name:</p>
-                    <EditCollectionName id={coll.id} name={coll.name} />
-                </div>
-                <div>
-                    <p>Description:</p>
-                    <EditCollectionDescription id={coll.id} description={coll.description} />
-                </div>
-                <div>
-                    <p>Index:</p>
+                <div className="edit-collection__collection__index">
+                    {/* <p>Index:</p> */}
                     <EditCollectionIndex id={coll.id} index={coll.index} />
                 </div>
-                <button onClick={(e) => handleDelete(coll.id, e)}>Delete</button>
-                <EditArtwork collectionID={coll.id}/>
+                <div className="edit-collection__collection__right">
+                    <div>
+                        <EditCollectionName id={coll.id} name={coll.name} />
+                    </div>
+                    <div>
+                        <EditCollectionDescription id={coll.id} description={coll.description} />
+                    </div>
+                    <button onClick={(e) => handleDelete(coll.id, e)}>Delete Collection</button>
+                    <EditArtwork collectionID={coll.id}/>
+                </div>
+                
             </div> 
         ));
         return collection_list;

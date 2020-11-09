@@ -24,7 +24,6 @@ function App() {
                 <CMSPageProvider>
                     <CMS />
                 </CMSPageProvider>
-                
             )    
         }
     }

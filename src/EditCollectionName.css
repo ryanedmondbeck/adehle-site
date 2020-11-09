@@ -1,0 +1,8 @@
+.edit-collection-name {
+    /* border-style: solid;
+    border-width: 1px; */
+    padding-bottom: 15px;
+}
+.edit-collection-name > button {
+    padding: 0;
+}

@@ -14,46 +14,23 @@ import { CMSPageContext } from './contexts/CMSPageContext';
 function CMS() {
     const [, setPage] = useContext(PageContext);
     const [cmsPage] = useContext(CMSPageContext);
-    console.log(cmsPage);
+
     const renderCMS = () => {
-        if (cmsPage === 'menu') {
-            return(
-                <CMSMenu />
-            )
-        }
         if (cmsPage === 'artwork') {
-            return (
-                <div>
-                    <CMSMenu />
-                    <NewUpload />
-                </div>
-                
-            )
+            return (<NewUpload />)
         }
         if (cmsPage === 'collection') {
-            return (
-                <div>
-                    <CMSMenu />
-                    <NewCollection />
-                </div>
-                
-            )
+            return (<NewCollection />)
         }
         if (cmsPage === 'edit') {
-            return (
-                <div>
-                    <CMSMenu />
-                    <EditCollection />
-                </div>
-                
-            )
-        }
-        
+            return (<EditCollection />)
+        }   
     }
     return ( 
         <div className="cms">
+            <CMSMenu />
             {renderCMS()}
-            <button onClick={() => setPage('portfolio')}>Portfolio</button>
+            <button onClick={() => setPage('portfolio')}>Return to Portfolio</button>
         </div>
     )
 }

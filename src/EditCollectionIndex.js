@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { db } from './firebase';
+import './EditCollectionIndex.css';
 
 function EditCollectionIndex({ id, index }) {
     const [edit, setEdit] = useState(false);
@@ -38,8 +39,8 @@ function EditCollectionIndex({ id, index }) {
         }
         else {
             return (
-                <div>
-                    <p>{index}</p>
+                <div className="edit-collection-index">
+                    <p className="edit-collection-index__index">{index}</p>
                     <button onClick={() => setEdit(true)}>Edit</button>
                 </div>   
             )
