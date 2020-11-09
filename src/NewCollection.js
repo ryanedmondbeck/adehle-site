@@ -30,7 +30,6 @@ function NewCollection() {
 
     return (
         <div className="new-collection">
-            <p>Create New Collection</p>
             <form onSubmit={handleSubmit} >
                 <label>
                     <input type="text" name="name" placeholder="Collection Name"

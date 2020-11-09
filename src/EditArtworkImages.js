@@ -67,10 +67,13 @@ function EditArtworkImages({ collID, artID, images, urls }) {
         }
         // setForm({ ...form, [e.target.name]: im});
     }
+    const [loading, setLoading] = useState(false);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // change loading state
+        setLoading(true);
         // Upload the images and get download IDs
-        // const imurl = [];
         for (const i in image) {
             // console.log("im:", image[i], "image: ", image);
             await storage.ref(image[i].name).put(image[i])
@@ -94,22 +97,30 @@ function EditArtworkImages({ collID, artID, images, urls }) {
                 images: images,
                 imurl: urls
             }, { merge: true });
+            setLoading(false);
             // console.log(res);
         } catch (error) { console.log(error); }   
     }
     
     const updateImages = () => {
-        return (
-            <form onSubmit={handleSubmit}>
-                <label >
-                    Add images
-                    <input type="file" multiple name="images" 
-                    ref={fileInput} 
-                    onChange={handleImage} />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-        )
+        if (loading === false) {
+            return (
+                <form onSubmit={handleSubmit}>
+                    <label >
+                        Add images
+                        <input type="file" multiple name="images" 
+                        ref={fileInput} 
+                        onChange={handleImage} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+            )
+        }
+        if (loading === true) {
+            return (
+                <p>Uploading image(s)...</p>
+            )
+        }
     }
 
     return (

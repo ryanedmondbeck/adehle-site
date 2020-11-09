@@ -4,7 +4,7 @@ import './NewUploadLoading.css';
 function NewUploadLoading() {
     return (
         <div className="new-upload-loading">
-            <p>Uploading new photo...</p>
+            <p>Uploading new artwork...</p>
         </div>
     )
 }

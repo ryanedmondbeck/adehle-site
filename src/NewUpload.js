@@ -119,7 +119,6 @@ function NewUpload() {
     }
     return (
         <div className="upload">
-            <p>Upload New Artwork</p>
             <form onSubmit={handleSubmit} >
                 <label>
                     {/* Choose a Collection: */}
