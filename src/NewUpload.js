@@ -115,8 +115,14 @@ function NewUpload() {
     }
     return (
         <div className="upload">
-            Upload New Artwork
+            <p>Upload New Artwork</p>
             <form onSubmit={handleSubmit} >
+                <label>
+                    <p>Index</p>
+                    <input type="number" name="index" 
+                    value={form.index} 
+                    onChange={handleNumChange} />
+                </label>
                 <label>
                     {/* Choose a Collection: */}
                     <select value={collection} onChange={chooseCollection}>
@@ -138,21 +144,17 @@ function NewUpload() {
                     value={form.materials} 
                     onChange={handleChange} />
                 </label>
+                
                 <label>
-                    Index
-                    <input type="number" name="index" 
-                    value={form.index} 
-                    onChange={handleNumChange} />
-                </label>
-                <label>
-                    Images
+                    <p>Images</p>
                     <input type="file" multiple name="images" 
                     ref={fileInput} 
                     onChange={handleImage} />
                 </label>
-                <input type="submit" value="Submit" />
-            </form>
-            
+                <div className="submit">
+                    <input  type="submit" value="Submit" />
+                </div>
+            </form>  
         </div>
     )
 }

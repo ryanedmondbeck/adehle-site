@@ -30,7 +30,7 @@ function NewCollection() {
 
     return (
         <div className="new-collection">
-            Create New Collection
+            <p>Create New Collection</p>
             <form onSubmit={handleSubmit} >
                 <label>
                     <input type="text" name="name" placeholder="Collection Name"
@@ -43,12 +43,15 @@ function NewCollection() {
                     onChange={handleChange} />
                 </label>
                 <label>
-                    Index
+                    <p>Index</p>
                     <input type="number" name="index" 
                     value={form.index} 
                     onChange={handleNumChange} />
                 </label>
-                <input type="submit" value="Submit" />
+                <div className="submit">
+                    <input type="submit" value="Submit" />  
+                </div>
+                
             </form>
         </div>
     )
