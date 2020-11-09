@@ -5,10 +5,16 @@
     padding-right: 10%;
     padding-top: 10px;
     padding-bottom: 10px;
+    /* text-decoration: none; */
 
 }
 .cms-menu > button {
-
     /* width: 100%; */
     padding-top: 10px;
+}
+.cms-menu__button {
+    text-decoration: none;
+}
+.cms-menu__button--selected {
+    text-decoration: underline;
 }
