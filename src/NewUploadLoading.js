@@ -1,0 +1,12 @@
+import React from 'react';
+import './NewUploadLoading.css';
+
+function NewUploadLoading() {
+    return (
+        <div className="new-upload-loading">
+            <p>Uploading new photo...</p>
+        </div>
+    )
+}
+
+export default NewUploadLoading;

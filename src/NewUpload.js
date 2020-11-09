@@ -1,5 +1,6 @@
-import React, { useState, useEffect, createRef } from 'react';
+import React, { useState, useEffect, createRef, useContext } from 'react';
 import { db, storage } from './firebase';
+import { CMSPageContext } from './contexts/CMSPageContext';
 
 function useLists() {
     const [collectionList, setCollectionList] = useState([]);
@@ -32,6 +33,7 @@ function NewUpload() {
     const [image, setImage] = useState({});
     const [collection, setCollection] = useState({});
     const fileInput = createRef();
+    const [, setCmsPage] = useContext(CMSPageContext);
 
     // useEffect(() => {
     //     setTimeout(() => {console.log("image: ", image, "form: ", form);}, 3000);
@@ -69,7 +71,7 @@ function NewUpload() {
         setForm({ ...form, [e.target.name]: im});
         
     }
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (Object.keys(collection).length === 0) {
@@ -77,6 +79,7 @@ function NewUpload() {
             return;
         }
         else {
+            setCmsPage('loading');
             // Upload the images and get download IDs
             const imurl = [];
             for (const i in image) {
@@ -110,6 +113,7 @@ function NewUpload() {
                         imurl: imurl
                     }, { merge: true });
                 console.log(res2);
+                setCmsPage('edit');
             } catch (error) { console.log(error); }  
         }
     }

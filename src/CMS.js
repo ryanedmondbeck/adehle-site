@@ -9,6 +9,7 @@ import CMSMenu from './CMSMenu';
 import './CMSMenu.css';
 import { PageContext } from './contexts/PageContext';
 import { CMSPageContext } from './contexts/CMSPageContext';
+import NewUploadLoading from './NewUploadLoading';
 
 
 function CMS() {
@@ -24,7 +25,10 @@ function CMS() {
         }
         if (cmsPage === 'edit') {
             return (<EditCollection />)
-        }   
+        } 
+        if (cmsPage === 'loading') {
+            return(<NewUploadLoading />)
+        }
     }
     return ( 
         <div className="cms">
