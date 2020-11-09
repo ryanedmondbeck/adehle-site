@@ -27,7 +27,7 @@ function useCollection(collectionID) {
     }, [])
     return collection;
 }
-function EditArtwork({ collectionID }) {
+function EditArtwork({ collectionID, expanded }) {
 
     const handleDelete = async (collID, artID, e) => {
         e.preventDefault();
@@ -77,7 +77,9 @@ function EditArtwork({ collectionID }) {
     }
 
     return (
-        <div className="edit-artwork">
+        <div 
+            className={`edit-artwork ${(expanded === collectionID) ? "" : "edit-artwork--collapsed"}`}
+        >
             {renderCollection()}
         </div>
     )

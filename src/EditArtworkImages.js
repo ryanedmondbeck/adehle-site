@@ -1,5 +1,6 @@
 import React, { useState, createRef } from 'react';
 import { db, storage } from './firebase';
+import './EditArtworkImages.css';
 
 function EditArtworkImages({ collID, artID, images, urls }) {
     
@@ -44,7 +45,7 @@ function EditArtworkImages({ collID, artID, images, urls }) {
         for (let i in urls) {
             console.log("url:", urls[i]);
             image_list.push(
-                <div key={i}>
+                <div key={i} className="edit-artwork-images__image">
                     <p>{images[i]}</p>
                     <img src={urls[i]} alt="" />
                     <button onClick={() => handleDelete(i)}>Delete</button>
@@ -112,8 +113,11 @@ function EditArtworkImages({ collID, artID, images, urls }) {
     }
 
     return (
-        <div>
-            {renderImages()}
+        <div className="edit-artwork-images">
+            <div className="edit-artwork-images__images">
+                {renderImages()}
+            </div>
+            
             {updateImages()}
         </div>
     )

@@ -1,0 +1,13 @@
+.edit-artwork-images__images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.edit-artwork-images__image {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+.edit-artwork-images__image > img {
+    padding-right: 10px;
+}

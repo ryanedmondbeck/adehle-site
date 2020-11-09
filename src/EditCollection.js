@@ -43,6 +43,16 @@ function EditCollection() {
         }
     }
 
+    const [expanded, setExpanded] = useState({});
+    const handleClick = (id) => {
+        if (expanded === id) {
+            setExpanded(null);
+        }
+        else {
+            setExpanded(id);
+        }   
+    }
+
     const renderCollections = () => {
         const collection_list = list.map(coll => (
             <div key={coll.id} className="edit-collection__collection">
@@ -58,9 +68,11 @@ function EditCollection() {
                         <EditCollectionDescription id={coll.id} description={coll.description} />
                     </div>
                     <button onClick={(e) => handleDelete(coll.id, e)}>Delete Collection</button>
-                    <EditArtwork collectionID={coll.id}/>
-                </div>
-                
+                    <button onClick={() => handleClick(coll.id)}>Show Artwork</button>
+                    <div>
+                        <EditArtwork collectionID={coll.id} expanded={expanded}/>
+                    </div>
+                </div> 
             </div> 
         ));
         return collection_list;
