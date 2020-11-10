@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { ArtworkContext } from './contexts/ArtworkContext';
 import firebase from './firebase';
+import ArtworkInfo from './ArtworkInfo';
 
 function useCollection(collectionID) {
     const [collection, setCollection] = useState([]);
@@ -25,9 +26,16 @@ function useCollection(collectionID) {
 
 function Collection({ collectionID, description, expanded }) {
     const [, setArtwork] = useContext(ArtworkContext);
+    const [show, setShow] = useState({});
 
     const handleClick = (collID, artID, materials, dimensions, images, imurl) => {
         setArtwork({collID, artID, materials, dimensions, images, imurl});
+        if (show === artID) {
+            setShow(null);
+        }
+        else {
+            setShow(artID);
+        }
     }
 
     const collection = useCollection(collectionID);
@@ -43,6 +51,11 @@ function Collection({ collectionID, description, expanded }) {
                     art.images,
                     art.imurl
                 )}>{art.title}</button>
+                <ArtworkInfo 
+                    dimensions={art.dimensions} 
+                    materials={art.materials} 
+                    id={art.id}
+                    show={show} />
             </div>
         ));
         return artwork_list;
