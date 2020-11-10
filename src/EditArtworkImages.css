@@ -4,10 +4,14 @@
     flex-wrap: wrap;
 }
 .edit-artwork-images__image {
-    display: flex;
+    display: flex; 
     flex-direction: column;
     width: 25%;
+ 
 }
 .edit-artwork-images__image > img {
     padding-right: 10px;
+    height: 20vh;
+    /* height: 25%; */
+    object-fit: contain;
 }
