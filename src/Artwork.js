@@ -1,33 +1,24 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { ArtworkContext } from './contexts/ArtworkContext';
+import CrossfadeImage from 'react-crossfade-image';
 
 function Artwork() {
     const [artwork] = useContext(ArtworkContext);
     const [image, setImage] = useState();
 
-    const artwork_display = [];
+    useEffect(() => {
+        console.log("Artwork component mounted or updated");
+    });
     if (artwork) {
-        artwork_display.push(
-            <div>
-                <img src={artwork.imurl[0]} alt="" />
-            </div>
-        );
-        if (artwork.imurl.length > 1) {
-            for (let i = 1; i < (artwork.imurl.length); i++) {
-                artwork_display.push(
-                    <div>
-                        <img src={artwork.imurl[i]} alt="" />
-                    </div>
-                );
-            }
-        }
-        return (<div className="artwork">{artwork_display}</div>);
-    } else {
-        if (image) setImage(null);
         return (
-            <div className="artwork"></div>
+            <div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}>
+                <CrossfadeImage src={artwork.imurl[0]} duration={1200}/>
+            </div>
         )
-    }  
+    }
+    else {
+        return(<div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}></div>)
+    }   
 }
 
 export default Artwork;

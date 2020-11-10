@@ -1,7 +1,12 @@
 .artwork {
     display: flex;
     flex-direction: column;
-   
+    opacity: 1;
+    transition: opacity 1.2s;
+}
+.artwork--hidden {
+    opacity: 0.01;
+    transition: opacity 1s;
 }
 img {
     /* max-width: 40vw; */
@@ -14,3 +19,4 @@ p {
     margin-block-end: 0em;
     padding-top: 10px;
 }
+

@@ -29,9 +29,9 @@ function CollectionList() {
     const [, setArtwork] = useContext(ArtworkContext);
     const [expanded, setExpanded] = useState({});
     
-    useEffect(() => {
-        setTimeout(() => {console.log(expanded);}, 2000);
-    })
+    // useEffect(() => {
+    //     setTimeout(() => {console.log(expanded);}, 2000);
+    // })
  
     const handleClick = (id) => {
         setArtwork(null);
