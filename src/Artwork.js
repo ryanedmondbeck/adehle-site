@@ -3,16 +3,27 @@ import { ArtworkContext } from './contexts/ArtworkContext';
 import CrossfadeImage from 'react-crossfade-image';
 
 function Artwork() {
-    const [artwork] = useContext(ArtworkContext);
-    const [image, setImage] = useState();
+    const [artwork, setArtwork] = useContext(ArtworkContext);
 
+    const handlClick = () => {
+        let i = (artwork.index + 1) % artwork.imurl.length;
+        setArtwork({...artwork, index: i});
+    }
     useEffect(() => {
-        console.log("Artwork component mounted or updated");
-    });
+        console.log(artwork);
+    })
+    const renderNext = () => {
+        if (artwork.imurl.length > 1) {
+            return (
+                <button onClick={() => handlClick()}className="artwork__next">next</button>
+            )
+        }
+    }
     if (artwork) {
         return (
             <div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}>
-                <CrossfadeImage src={artwork.imurl[0]} duration={1200}/>
+                <CrossfadeImage src={artwork.imurl[artwork.index]} duration={1200}/>
+                {renderNext()}
             </div>
         )
     }

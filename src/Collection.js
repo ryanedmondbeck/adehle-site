@@ -29,7 +29,7 @@ function Collection({ collectionID, description, expanded }) {
     const [show, setShow] = useState({});
 
     const handleClick = (collID, artID, materials, dimensions, images, imurl) => {
-        setArtwork({collID, artID, materials, dimensions, images, imurl});
+        setArtwork({collID, artID, materials, dimensions, images, imurl, index: 0});
         if (show === artID) {
             setShow(null);
         }
