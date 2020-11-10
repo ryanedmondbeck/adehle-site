@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { db } from './firebase';
+import { CMSPageContext } from './contexts/CMSPageContext';
 
 function NewCollection() {
     const [form, setForm] = useState({
@@ -7,6 +8,7 @@ function NewCollection() {
         description: '',
         index: 0
     });
+    const [, setCmsPage] = useContext(CMSPageContext);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -20,11 +22,13 @@ function NewCollection() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setCmsPage('uploading-collection');
         try {
             const res = await db
                 .collection('collection_list')
                 .add(form); 
             console.log(res);  
+            setCmsPage('edit');
         } catch (error) { console.log(error); }   
     }
 

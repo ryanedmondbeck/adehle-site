@@ -10,6 +10,7 @@ import './CMSMenu.css';
 import { PageContext } from './contexts/PageContext';
 import { CMSPageContext } from './contexts/CMSPageContext';
 import NewUploadLoading from './NewUploadLoading';
+import NewCollectionLoading from './NewCollectionLoading';
 
 
 function CMS() {
@@ -28,6 +29,9 @@ function CMS() {
         } 
         if (cmsPage === 'loading') {
             return(<NewUploadLoading />)
+        }
+        if (cmsPage === 'uploading-collection') {
+            return(<NewCollectionLoading />)
         }
     }
     return ( 

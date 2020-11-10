@@ -19,7 +19,7 @@ function Portfolio() {
             <Contact contact={contact} />
             <div className="portfolio__header">
                 <p>Adehle Daley</p>
-                <button onClick={() => handleClick()}>Contact</button>
+                <button onClick={() => handleClick()}>info</button>
                 
             </div>
             <div className="portfolio__content">

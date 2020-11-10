@@ -3,7 +3,7 @@
     border-color: green; */
     display: flex;
     flex-direction: column;
-    padding: 0% 10%;
+    padding: 2%;
     height: 100vh;
 }
 .portfolio__header {
@@ -13,7 +13,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 10%;
+    height: 5%;
+
+}
+.portfolio__header > p {
     font-size: 1.4em;
 }
 .portfolio__content {
@@ -31,7 +34,13 @@
 .portfolio__image {
     display: flex;
     /* border-style: solid; */
-    width: 40%;
-    padding-top: 5%;
+    padding-right: 15vw;
+    width: 150%;
+    height: 70vh;
+    /* padding-top: 5%; */
 }
 
+.portfolio__header__button {
+    font-size: 0.5em;
+    padding-right: 5%;
+}

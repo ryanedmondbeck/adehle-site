@@ -4,7 +4,8 @@
     flex-direction: column;
     text-align: left;
     padding-left: 10%;
-    padding-right: 40%;
+    /* padding-right: 40%; */
+    max-width: 50%;
     padding-top: 10px;
     padding-bottom: 10px; 
     overflow: hidden;
@@ -20,9 +21,9 @@
 .collection {
     display: flex;
     flex-direction: column;
-    padding-left: 40%;
+    padding-left: 20%;
     padding-right: 5%;
-    text-align: right;
+    text-align: left;
     overflow: hidden;
     max-height: 1000px;
     transition: max-height 3s ease-in-out;
