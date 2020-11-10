@@ -27,15 +27,17 @@
 .portfolio__list {
     /* border-style: solid; */
     /* display: flex; */
+    /* min-width: 25vw; */
     max-width: 100%;
+    width: 25vw;
     flex-basis: 100%;
     /* position: absolute; */
 }
 .portfolio__image {
     display: flex;
     /* border-style: solid; */
-    padding-right: 15vw;
-    width: 150%;
+    /* padding-right: 15vw; */
+    width: 150vw;
     height: 70vh;
     /* padding-top: 5%; */
 }

@@ -1,13 +1,13 @@
 .description {
     /* border-style: solid; */
-    display: flex;
+    display: block;
     flex-direction: column;
     text-align: left;
     padding-left: 10%;
-    /* padding-right: 40%; */
+    /* width: 50%; */
+    min-width: 50%;
     max-width: 50%;
     padding-top: 10px;
-    padding-bottom: 10px; 
     overflow: hidden;
     max-height: 1000px;
     transition: max-height 1s ease-in-out, padding 1.2s;
@@ -23,15 +23,17 @@
     flex-direction: column;
     padding-left: 20%;
     padding-right: 5%;
+    padding-bottom: 1em;
     text-align: left;
     overflow: hidden;
     max-height: 1000px;
-    transition: max-height 3s ease-in-out;
+    transition: max-height 3s ease-in-out, padding 1s;
     transition-delay: 1s;
 }
 .collection--collapsed {
+    padding: 0;
     max-height: 0;
-    transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out, padding 1s;
 }
 button {
     appearance: none;
