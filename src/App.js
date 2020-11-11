@@ -4,10 +4,13 @@ import Portfolio from './Portfolio';
 import './Portfolio.css';
 import CMS from './CMS';
 import './CMS.css';
+import Splash from './Splash';
+import './Splash.css';
 import { ArtworkProvider } from './contexts/ArtworkContext';
 import { PageContext } from './contexts/PageContext';
 import { render } from '@testing-library/react';
 import { CMSPageProvider } from './contexts/CMSPageContext';
+
 
 function App() {
     const [page] = useContext(PageContext);
@@ -25,6 +28,11 @@ function App() {
                     <CMS />
                 </CMSPageProvider>
             )    
+        }
+        if (page === 'splash') {
+            return (
+                <Splash />
+            )
         }
     }
     return (

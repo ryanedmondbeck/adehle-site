@@ -38,7 +38,6 @@
 button {
     appearance: none;
     -webkit-appearance: none;
-    color: black;
     background-color: white;
     border: none;
     text-align: left;
@@ -46,10 +45,13 @@ button {
     padding-top: 10px;
     padding-left: 0px;
     font-family: 'UxumR';
+    color: black;
+    transition: color 1s;
 }
 button:hover {
     cursor: pointer;
     color: gray;
+    transition: color 0.2s;
     /* font-family: 'UxumUL'; */
 }
 button:focus {
