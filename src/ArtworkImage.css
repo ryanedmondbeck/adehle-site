@@ -1,0 +1,12 @@
+.image {
+    position: absolute;
+    /* overflow: hidden; */
+    opacity: 1;
+    -webkit-transition: opacity 1.2s;
+    transition: opacity 1.2s;
+}
+.image--hidden {
+    opacity: 0.01;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+}
