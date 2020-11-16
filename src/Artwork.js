@@ -11,7 +11,7 @@ function Artwork() {
     }
     useEffect(() => {
         console.log(artwork);
-    })
+    });
     const renderNext = () => {
         if (artwork.imurl.length > 1) {
             return (
@@ -22,7 +22,8 @@ function Artwork() {
     if (artwork) {
         return (
             <div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}>
-                <CrossfadeImage src={artwork.imurl[artwork.index]} duration={1200}/>
+                {/* <CrossfadeImage src={artwork.imurl[artwork.index]} duration={1200}/> */}
+                <img src={artwork.imurl[artwork.index]} />
                 {renderNext()}
             </div>
         )
