@@ -39,7 +39,7 @@ function ArtworkImage() {
     }
 
     return (
-        <div>
+        <div className="image-container">
             {renderImages()}
         </div>
     )
