@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from 'react';
 import { ArtworkContext } from './contexts/ArtworkContext';
 import ArtworkImage from './ArtworkImage';
 import './ArtworkImage.css';
+import TinyCrossfade from "react-tiny-crossfade";
+
 
 function Artwork() {
     const [artwork, setArtwork] = useContext(ArtworkContext);
@@ -25,15 +27,17 @@ function Artwork() {
     }
     if (artwork) {
         return (
-            <div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}>
-                <ArtworkImage key={artwork.artID} />
+            <div className="artwork">
+                <TinyCrossfade className="component-wrapper">
+                    <ArtworkImage artwork={artwork} key={artwork.artID} />  
+                </TinyCrossfade>
                 {/* <img key={artwork.artID} src={artwork.imurl[artwork.index]} /> */}
                 {renderNext()}
             </div>
         )
     }
     else {
-        return(<div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}></div>)
+        return(<div className="artwork"></div>)
     }   
 }
 

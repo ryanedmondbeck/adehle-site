@@ -25,22 +25,25 @@ p {
     padding-top: 10px;
 }
 
-.cross-fade-leave {
+.component-wrapper {
+    transition: height 0.5s;
+    overflow: hidden;
+  }
+  
+  .before-enter {
+    opacity: 0;
+  }
+  
+  .entering {
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+  
+  .before-leave {
     opacity: 1;
   }
-.cross-fade-leave.cross-fade-leave-active {
-    opacity: 0.01;
-    transition: opacity 2s ease-in;
-}
   
-.cross-fade-enter {
-    opacity: 0.01;
-}
-.cross-fade-enter.cross-fade-enter-active {
-    opacity: 1;
-    transition: opacity 1s ease-in;
-}
-  
-.cross-fade-height {
-    transition: height 0.5s ease-in-out;
-}
+  .leaving {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
