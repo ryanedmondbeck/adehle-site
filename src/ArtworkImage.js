@@ -3,7 +3,7 @@ import React from 'react';
 function ArtworkImage({ artwork }) {
   
     return (
-            <img key={artwork.id} src={artwork.imurl[artwork.index]} />
+        <img key={artwork.id + artwork.index} src={artwork.imurl[artwork.index]} />
     )
 }
 

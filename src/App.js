@@ -10,6 +10,7 @@ import { ArtworkProvider } from './contexts/ArtworkContext';
 import { PageContext } from './contexts/PageContext';
 import { render } from '@testing-library/react';
 import { CMSPageProvider } from './contexts/CMSPageContext';
+import TinyCrossfade from "react-tiny-crossfade";
 
 
 function App() {
@@ -37,7 +38,9 @@ function App() {
     }
     return (
         <div className="app">
-            {showPage()}
+            <TinyCrossfade className="component-wrapper"> 
+                {showPage()}
+            </TinyCrossfade>
         </div>
     );
 }

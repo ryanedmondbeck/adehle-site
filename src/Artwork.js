@@ -1,8 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ArtworkContext } from './contexts/ArtworkContext';
 import ArtworkImage from './ArtworkImage';
 import './ArtworkImage.css';
 import TinyCrossfade from "react-tiny-crossfade";
+// import ReactCSSTransitionReplace from 'react-css-transition-replace';
 
 
 function Artwork() {
@@ -12,12 +13,12 @@ function Artwork() {
         let i = (artwork.index + 1) % artwork.imurl.length;
         setArtwork({...artwork, index: i});
     }
-    useEffect(() => {
-        // console.log(artwork);
-        if (artwork) {
-            console.log("id in Artwork.js:", artwork.artID);
-        }
-    });
+    // useEffect(() => {
+    //     // console.log(artwork);
+    //     if (artwork) {
+    //         console.log("id in Artwork.js:", artwork.artID);
+    //     }
+    // });
     const renderNext = () => {
         if (artwork.imurl.length > 1) {
             return (
@@ -27,17 +28,22 @@ function Artwork() {
     }
     if (artwork) {
         return (
-            <div className="artwork">
-                <TinyCrossfade className="component-wrapper">
-                    <ArtworkImage artwork={artwork} key={artwork.artID} />  
+            <div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}>
+                <TinyCrossfade className="component-wrapper"> 
+                {/* <ReactCSSTransitionReplace
+                    transitionName="cross-fade"
+                    transitionEnterTimeout={1000}
+                    transitionLeaveTimeout={1000}
+                > */}
+                    <ArtworkImage key={artwork.artID} artwork={artwork} />  
+                {/* </ReactCSSTransitionReplace> */}
                 </TinyCrossfade>
-                {/* <img key={artwork.artID} src={artwork.imurl[artwork.index]} /> */}
                 {renderNext()}
             </div>
         )
     }
     else {
-        return(<div className="artwork"></div>)
+        return(<div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}></div>)
     }   
 }
 
