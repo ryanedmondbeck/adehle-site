@@ -3,7 +3,7 @@ import './NewCollectionLoading.css';
 
 function NewCollectionLoading() {
     return (
-        <div>
+        <div className="new-collection-loading">
             <p>Uploading new collection...</p>
         </div>
     )

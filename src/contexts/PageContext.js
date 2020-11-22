@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react';
 export const PageContext = createContext();
 
 export const PageProvider = (props) => {
-    const [page, setPage] = useState('portfolio');
+    const [page, setPage] = useState('splash');
 
     return (
         <PageContext.Provider value={[page, setPage]}>

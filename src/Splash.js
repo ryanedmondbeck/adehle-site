@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import SketchSplash from './SketchSplash';
+import { PageContext } from './contexts/PageContext';
+import './Splash.css';
 
 function Splash() {
+    const [, setPage] = useContext(PageContext);
     
     return (
-        <div>
-            splash test
-            {/* <P5Wrapper sketch={sketch} /> */}
+        <div className="splash">
+            
+            <div className="splash__menu">
+                <button className="splash__portfolio" onClick={() => setPage('portfolio')}>Portfolio</button>
+                <button className="splash__portfolio" onClick={() => setPage('other')}>Other</button>
+            </div>
+           
+            <div className="splash__p5">
+                <SketchSplash />
+            </div>
+            
         </div>
     )
 }

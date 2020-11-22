@@ -77,9 +77,7 @@ function EditArtwork({ collectionID, expanded }) {
     }
 
     return (
-        <div 
-            className={`edit-artwork ${(expanded === collectionID) ? "" : "edit-artwork--collapsed"}`}
-        >
+        <div className={`edit-artwork ${(expanded === collectionID) ? "" : "edit-artwork--collapsed"}`}>
             {renderCollection()}
         </div>
     )

@@ -5,7 +5,6 @@ import './Portfolio.css';
 import CMS from './CMS';
 import './CMS.css';
 import Splash from './Splash';
-import './Splash.css';
 import { ArtworkProvider } from './contexts/ArtworkContext';
 import { PageContext } from './contexts/PageContext';
 import { render } from '@testing-library/react';

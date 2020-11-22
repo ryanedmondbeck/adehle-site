@@ -1,0 +1,23 @@
+.splash {
+    position: relative;
+    font-size: 2em;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+}
+.splash__menu {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 60vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+.splash__portfolio {
+    /* position: absolute; */
+    background-color: rgba(0,0,0,0);
+}
+.splash__p5 {
+    /* top: 0; */
+    position: relative;
+    z-index: -3;
+}
