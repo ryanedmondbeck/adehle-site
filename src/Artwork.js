@@ -22,7 +22,7 @@ function Artwork() {
     const renderNext = () => {
         if (artwork.imurl.length > 1) {
             return (
-                <button onClick={() => handleClick()}className="artwork__next">next</button>
+                <button onClick={() => handleClick()}className="artwork__next">more images »</button>
             )
         }
     }

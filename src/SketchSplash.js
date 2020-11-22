@@ -6,9 +6,9 @@ const SketchSplash = () => {
     const Sketch = p5 => {
         let uxumreg;
         let font_size = 400;
-        let f_top = 500;
-        let f_bottom = 150;
-        let f_move = 1;
+        // let f_top = 500;
+        // let f_bottom = 150;
+        // let f_move = 1;
         let resolution = 0.0001;
         let r_top = 0.015;
         let r_bottom = 0.0001;
