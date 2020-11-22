@@ -5,6 +5,13 @@
     height: 100vh;
     width: 100vw;
 }
+.splash__title {
+    /* padding-top: 50vh; */
+}
+.splash__menu > p {
+    color: black;
+    font-size: 4em;
+}
 .splash__menu {
     display: flex;
     justify-content: space-between;

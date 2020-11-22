@@ -8,8 +8,9 @@ function Splash() {
     
     return (
         <div className="splash">
-            
+             
             <div className="splash__menu">
+                {/* <p>Adehle Daley</p> */}
                 <button className="splash__portfolio" onClick={() => setPage('portfolio')}>Portfolio</button>
                 <button className="splash__portfolio" onClick={() => setPage('other')}>Other</button>
             </div>

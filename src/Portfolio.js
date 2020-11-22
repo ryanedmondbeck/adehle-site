@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import CollectionList from './CollectionList';
 import './CollectionList.css';
 import Artwork from './Artwork';
 import './Artwork.css';
 import Contact from './Contact';
 import './Contact.css';
+import { PageContext } from './contexts/PageContext';
 
 function Portfolio() {
+    const [, setPage] = useContext(PageContext);
     const [contact, setContact] = useState(false);
     const handleClick = () => {
         setContact(true);
@@ -18,7 +20,7 @@ function Portfolio() {
         <div className="portfolio">
             <Contact contact={contact} />
             <div className="portfolio__header">
-                <p>Adehle Daley</p>
+                <button className="portfolio__header__adehle" onClick={() => setPage('splash')}>Adehle Daley</button>
                 <button className="portfolio__header__button" onClick={() => handleClick()}>info</button>
                 
             </div>
