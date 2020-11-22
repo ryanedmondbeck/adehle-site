@@ -5,12 +5,14 @@ import Uxumreg from './fonts/UxumGrotesque-Regular.otf';
 const SketchSplash = () => {
     const Sketch = p5 => {
         let uxumreg;
-        let font_size = 450;
-        // let t_array;
+        let font_size = 400;
+        let f_top = 500;
+        let f_bottom = 150;
+        let f_move = 1;
         let resolution = 0.0001;
-        // let a = [];
-        let i = 0;
-        let w = 3;
+        let r_top = 0.015;
+        let r_bottom = 0.0001;
+        let r_move = 0.0001;
 
         p5.preload = () => {
             uxumreg = p5.loadFont(Uxumreg, font => {
@@ -25,26 +27,38 @@ const SketchSplash = () => {
             let canvas = p5.createCanvas(p5.windowWidth, p5.windowHeight);
             canvas.position(0, 0);
             canvas.style('z-index', '-1');
-            // p5.textSize(67);
-            // p5.textFont(uxumreg);
-            
         };
         
         p5.draw = () => {
             p5.background(255);
-            // p5.textFont(uxumreg);
             
-            // p5.text('rrRsfeff', 150, 150);
-            let a = uxumreg.textToPoints("Adehle Daley", p5.width/7, p5.height/3, font_size, {
+            //----------------------------------------
+            //oscillator for font size
+            // if (font_size > f_top) {
+            //     f_move = -1;
+            // }
+            // if (font_size < f_bottom) {
+            //     f_move = 1;
+            // }
+            // font_size += f_move;
+            //----------------------------------------
+
+            let a = uxumreg.textToPoints("Adehle", p5.width/7, p5.height/3, font_size, {
                 sampleFactor: resolution
             });
-            if (resolution < 0.05) {
-                resolution += 0.0001;
+
+            //----------------------------------------
+            //oscillator for resolution
+            if (resolution > r_top) {
+                r_move = -0.0001;
             }
-            else {
-                resolution = 0.0001;
-                i = 0;
+            if (resolution < r_bottom) {
+                r_move = 0.0001;
             }
+            resolution += r_move;
+            // console.log(resolution, move);
+            //----------------------------------------
+
             p5.strokeWeight(1);
             p5.beginShape();
             for (let i = 0; i < a.length; i++) {

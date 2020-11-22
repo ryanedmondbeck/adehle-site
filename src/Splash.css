@@ -1,6 +1,6 @@
 .splash {
     position: relative;
-    font-size: 2em;
+    
     color: white;
     height: 100vh;
     width: 100vw;
@@ -19,9 +19,15 @@
     padding-left: 10vw;
     padding-right: 10vw;
 }
-.splash__portfolio {
+.splash__button {
     /* position: absolute; */
+    font-size: 2em;
     background-color: rgba(0,0,0,0);
+    transition: font-size 0.5s ease-in-out;
+}
+.splash__button:hover {
+    font-size: 2.2em;
+    transition: font-size 0.5s ease-in-out;
 }
 .splash__p5 {
     /* top: 0; */
