@@ -38,13 +38,13 @@ const SketchSplash = () => {
             let a = uxumreg.textToPoints("Adehle Daley", p5.width/7, p5.height/3, font_size, {
                 sampleFactor: resolution
             });
-            if (resolution < 0.2) {
+            if (resolution < 0.05) {
                 resolution += 0.0001;
             }
-            // else {
-            //     resolution = 0.0001;
-            //     i = 0;
-            // }
+            else {
+                resolution = 0.0001;
+                i = 0;
+            }
             p5.strokeWeight(1);
             p5.beginShape();
             for (let i = 0; i < a.length; i++) {
