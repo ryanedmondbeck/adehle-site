@@ -1,18 +1,17 @@
 import React, { useContext } from 'react';
 import SketchSplash from './SketchSplash';
-import { PageContext } from './contexts/PageContext';
 import './Splash.css';
+import { Link } from "react-router-dom";
 
 function Splash() {
-    const [, setPage] = useContext(PageContext);
     
     return (
         <div className="splash">
              
             <div className="splash__menu">
                 {/* <p>Adehle Daley</p> */}
-                <button className="splash__button" onClick={() => setPage('portfolio')}>Portfolio</button>
-                <button className="splash__button" onClick={() => setPage('other')}>Other</button>
+                <Link className="splash__button" to="/portfolio">Portfolio</Link>
+                <Link className="splash__button" to="/">Other</Link>
             </div>
            
             <div className="splash__p5">

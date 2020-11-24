@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { PageProvider } from './contexts/PageContext';
 import './fonts/UxumGrotesque-Regular.otf';
 import './fonts/UxumGrotesque-UltraLight.otf';
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-    <PageProvider>
-        <React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
             <App />
-        </React.StrictMode>
-    </PageProvider>,
+        </BrowserRouter>
+    </React.StrictMode>,
   document.getElementById('root')
 );
 

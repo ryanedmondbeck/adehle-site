@@ -5,10 +5,9 @@ import Artwork from './Artwork';
 import './Artwork.css';
 import Contact from './Contact';
 import './Contact.css';
-import { PageContext } from './contexts/PageContext';
+import { Link } from "react-router-dom";
 
 function Portfolio() {
-    const [, setPage] = useContext(PageContext);
     const [contact, setContact] = useState(false);
     const handleClick = () => {
         setContact(true);
@@ -20,7 +19,7 @@ function Portfolio() {
         <div className="portfolio">
             <Contact contact={contact} />
             <div className="portfolio__header">
-                <button className="portfolio__header__adehle" onClick={() => setPage('splash')}>Adehle Daley</button>
+                <Link className="portfolio__header__adehle" to="/">Adehle Daley</Link>
                 <button className="portfolio__header__button" onClick={() => handleClick()}>info</button>
                 
             </div>

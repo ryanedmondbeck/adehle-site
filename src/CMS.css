@@ -4,3 +4,6 @@
 .cms > button {
     font-family: Arial;
 }
+.cms__portfolio {
+    padding: 10%;
+}

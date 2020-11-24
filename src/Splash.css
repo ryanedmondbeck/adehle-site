@@ -25,6 +25,13 @@
     background-color: rgba(0,0,0,0);
     transition: font-size 0.5s ease-in-out;
 }
+a {
+    text-decoration: none;
+    padding: 0;
+}
+a:visited {
+    color: black;
+}
 .splash__button:hover {
     font-size: 2.2em;
     transition: font-size 0.5s ease-in-out;

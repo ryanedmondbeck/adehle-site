@@ -7,14 +7,13 @@ import EditCollection from './EditCollection';
 import './EditCollection.css';
 import CMSMenu from './CMSMenu';
 import './CMSMenu.css';
-import { PageContext } from './contexts/PageContext';
 import { CMSPageContext } from './contexts/CMSPageContext';
 import NewUploadLoading from './NewUploadLoading';
 import NewCollectionLoading from './NewCollectionLoading';
+import { Link } from "react-router-dom";
 
 
 function CMS() {
-    const [, setPage] = useContext(PageContext);
     const [cmsPage] = useContext(CMSPageContext);
 
     const renderCMS = () => {
@@ -38,7 +37,7 @@ function CMS() {
         <div className="cms">
             <CMSMenu />
             {renderCMS()}
-            <button onClick={() => setPage('portfolio')}>Return to Portfolio</button>
+            <Link className="cms__portfolio" to="/portfolio">Return to Portfolio</Link>
         </div>
     )
 }
