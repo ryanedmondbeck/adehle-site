@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import CollectionList from './CollectionList';
 import './CollectionList.css';
 import Artwork from './Artwork';

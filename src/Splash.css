@@ -23,18 +23,24 @@
     /* position: absolute; */
     font-size: 2em;
     background-color: rgba(0,0,0,0);
-    transition: font-size 0.5s ease-in-out;
+    transition: font-size 0.5s ease-in-out, color 0.2s;
 }
 a {
     text-decoration: none;
     padding: 0;
+    transition: color 0.2s ease-in-out;
 }
 a:visited {
     color: black;
+    transition: color 0.2s ease-in-out;
+}
+a:hover {
+    color: gray;
+    transition: color 0.2s ease-in-out;
 }
 .splash__button:hover {
     font-size: 2.2em;
-    transition: font-size 0.5s ease-in-out;
+    transition: font-size 0.5s ease-in-out
 }
 .splash__p5 {
     /* top: 0; */
