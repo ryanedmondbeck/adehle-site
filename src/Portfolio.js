@@ -17,10 +17,10 @@ function Portfolio() {
     })
     return (
         <div className="portfolio">
-            <Contact contact={contact} />
+            {/* <Contact contact={contact} /> */}
             <div className="portfolio__header">
                 <Link className="portfolio__header__adehle" to="/">Adehle Daley</Link>
-                <button className="portfolio__header__button" onClick={() => handleClick()}>info</button>
+                {/* <button className="portfolio__header__button" onClick={() => handleClick()}>info</button> */}
                 
             </div>
             <div className="portfolio__content">

@@ -22,8 +22,9 @@ function App() {
                     key={location.key}
                     classNames="fade"
                     timeout={1000}
-                    in={true}
+                    // in={true}
                 >
+                    <div className="container">
                     <Switch location={location}>
                         <Route path="/portfolio">
                             <ArtworkProvider>   
@@ -39,6 +40,7 @@ function App() {
                             <Splash />
                         </Route>
                     </Switch>
+                    </div>
                 </CSSTransition>
             </TransitionGroup>
         </div>
