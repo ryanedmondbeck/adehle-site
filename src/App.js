@@ -18,13 +18,11 @@ function App() {
     // console.log(location);
     return (
         <div>
-            <TransitionGroup>
-                <CSSTransition
-                    key={location.key}
-                    classNames={transition}
-                    timeout={500}
-                    // in={true}
-                >
+            <TransitionGroup childFactory={child => React.cloneElement(child, { 
+                classNames: transition,
+                timeout: 500
+            })}>
+                <CSSTransition key={location.key} >
                     <div className="container">
                     <Switch location={location}>
                         <Route path="/portfolio">
