@@ -1,6 +1,7 @@
 .portfolio {
     /* border-style: solid;
     border-color: green; */
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 1% 2%;

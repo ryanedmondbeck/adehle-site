@@ -15,7 +15,7 @@ function Splash() {
             </div>
            
             <div className="splash__p5">
-                <SketchSplash />
+                {/* <SketchSplash /> */}
             </div>
             
         </div>

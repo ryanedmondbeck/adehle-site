@@ -6,16 +6,19 @@ html, body, #app, #app>div {
     position: relative;
 }
 .fade-enter {
-    opacity: 0;
-  }
-  .fade-enter-active {
-    opacity: 1;
-    transition: opacity 2s;
-  }
-  .fade-exit {
-    opacity: 1;
-  }
-  .fade-exit-active {
-    opacity: 0;
-    transition: opacity 2s;
-  }
+    position: absolute;
+    left: -100vw;
+}
+.fade-enter.fade-enter-active {
+    left: 0;
+    transition: 0.5s;
+}
+
+.fade-exit {
+    position: absolute;
+    left: 0;
+}
+.fade-exit.fade-exit-active {
+    left: 100vw;
+    transition: 0.5s;
+}
