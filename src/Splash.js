@@ -3,14 +3,14 @@ import SketchSplash from './SketchSplash';
 import './Splash.css';
 import { Link } from "react-router-dom";
 
-function Splash() {
+function Splash({ setTransition }) {
     
     return (
         <div className="splash">
              
             <div className="splash__menu">
                 {/* <p>Adehle Daley</p> */}
-                <Link className="splash__button" to="/portfolio">Portfolio</Link>
+                <Link onClick={() => setTransition('stp')} className="splash__button" to="/portfolio">Portfolio</Link>
                 <Link className="splash__button" to="/">Other</Link>
             </div>
            

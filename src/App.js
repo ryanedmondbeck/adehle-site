@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Portfolio from './Portfolio';
 import './Portfolio.css';
@@ -14,21 +14,22 @@ import { Switch, Route, useLocation } from "react-router-dom";
 
 function App() {
     let location = useLocation();
+    const [transition, setTransition] = useState('stp');
     // console.log(location);
     return (
         <div>
             <TransitionGroup>
                 <CSSTransition
                     key={location.key}
-                    classNames="fade"
-                    timeout={1000}
+                    classNames={transition}
+                    timeout={500}
                     // in={true}
                 >
                     <div className="container">
                     <Switch location={location}>
                         <Route path="/portfolio">
                             <ArtworkProvider>   
-                                <Portfolio />
+                                <Portfolio setTransition={setTransition} />
                             </ArtworkProvider>
                         </Route>
                         <Route path="/cms">
@@ -37,7 +38,7 @@ function App() {
                             </CMSPageProvider>
                         </Route>
                         <Route path="/">
-                            <Splash />
+                            <Splash setTransition={setTransition} />
                         </Route>
                     </Switch>
                     </div>

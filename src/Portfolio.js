@@ -7,7 +7,7 @@ import Contact from './Contact';
 import './Contact.css';
 import { Link } from "react-router-dom";
 
-function Portfolio() {
+function Portfolio({ setTransition }) {
     const [contact, setContact] = useState(false);
     const handleClick = () => {
         setContact(true);
@@ -19,9 +19,8 @@ function Portfolio() {
         <div className="portfolio">
             {/* <Contact contact={contact} /> */}
             <div className="portfolio__header">
-                <Link className="portfolio__header__adehle" to="/">Adehle Daley</Link>
+                <Link onClick={() => setTransition('pts')} className="portfolio__header__adehle" to="/">Adehle Daley</Link>
                 {/* <button className="portfolio__header__button" onClick={() => handleClick()}>info</button> */}
-                
             </div>
             <div className="portfolio__content">
                 <div className="portfolio__list">
