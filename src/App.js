@@ -17,7 +17,7 @@ function App() {
     const [transition, setTransition] = useState('stp');
     // console.log(location);
     return (
-        <div>
+        <div className="fade">
             <TransitionGroup childFactory={child => React.cloneElement(child, { 
                 classNames: transition,
                 timeout: 500

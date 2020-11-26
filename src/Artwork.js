@@ -30,13 +30,7 @@ function Artwork() {
         return (
             <div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}>
                 <TinyCrossfade className="component-wrapper"> 
-                {/* <ReactCSSTransitionReplace
-                    transitionName="cross-fade"
-                    transitionEnterTimeout={1000}
-                    transitionLeaveTimeout={1000}
-                > */}
                     <ArtworkImage key={artwork.artID} artwork={artwork} />  
-                {/* </ReactCSSTransitionReplace> */}
                 </TinyCrossfade>
                 {renderNext()}
             </div>

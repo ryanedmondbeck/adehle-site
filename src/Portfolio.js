@@ -13,6 +13,7 @@ function Portfolio({ setTransition }) {
         setContact(true);
     }
     useEffect(() => {
+        setTimeout(() => {setTransition('pts')}, 1000);
         setTimeout(() => {setContact(false)}, 6000);
     })
     return (

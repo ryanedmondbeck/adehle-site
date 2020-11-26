@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import './fonts/UxumGrotesque-Regular.otf';
 import './fonts/UxumGrotesque-UltraLight.otf';
+import './fonts/UxumGrotesque-Light.otf';
+import './fonts/Nord.otf';
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(

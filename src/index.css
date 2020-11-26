@@ -21,3 +21,13 @@ code {
     font-family: 'UxumUL';
     src: url('./fonts/UxumGrotesque-UltraLight.otf') format('opentype');
 }
+
+@font-face {
+    font-family: 'UxumL';
+    src: url('./fonts/UxumGrotesque-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Nord';
+    src: url('./fonts/Nord.otf') format('opentype');
+}

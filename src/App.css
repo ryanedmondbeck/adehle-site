@@ -1,5 +1,5 @@
 html, body, #app, #app>div {
-    height: 100vh
+    height: 100vh;
 }
 .container {
     position: relative;
@@ -12,7 +12,7 @@ html, body, #app, #app>div {
 }
 .stp-enter.stp-enter-active {
     transform: translate(0, 0);
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
 }
 .stp-exit {
     position: absolute;
@@ -21,7 +21,7 @@ html, body, #app, #app>div {
 }
 .stp-exit.stp-exit-active {
     transform: translate(0, 100vh);
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
 }
 /* from portfolio to splash  */
 .pts-enter {
@@ -31,7 +31,7 @@ html, body, #app, #app>div {
 }
 .pts-enter.pts-enter-active {
     transform: translate(0, 0);
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
 }
 .pts-exit {
     position: absolute;
@@ -40,5 +40,17 @@ html, body, #app, #app>div {
 }
 .pts-exit.pts-exit-active {
     transform: translate(-100vw, 0);
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
+}
+
+.fade {
+    -webkit-animation: fadein 2s;
+       -moz-animation: fadein 2s;
+        -ms-animation: fadein 2s;
+         -o-animation: fadein 2s; 
+            animation: fadein 2s;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
