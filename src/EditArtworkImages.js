@@ -43,7 +43,7 @@ function EditArtworkImages({ collID, artID, images, urls }) {
     const renderImages = () => {
         const image_list = [];
         for (let i in urls) {
-            console.log("url:", urls[i]);
+            // console.log("url:", urls[i]);
             image_list.push(
                 <div key={i} className="edit-artwork-images__image">
                     <p>{images[i]}</p>
