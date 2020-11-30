@@ -38,19 +38,19 @@ function App() {
             })}>
                 <CSSTransition key={location.key} >
                     <div className="container">
-                    <Switch location={location}>
-                        <Route path="/portfolio">
-                            <ArtworkProvider>   
-                                <Portfolio setTransition={setTransition} />
-                            </ArtworkProvider>
-                        </Route>
-                        <Route path="/cms">
-                            {toCMS()}
-                        </Route>
-                        <Route path="/">
-                            <Splash setTransition={setTransition} />
-                        </Route>
-                    </Switch>
+                        <Switch location={location}>
+                            <Route path="/portfolio">
+                                <ArtworkProvider>   
+                                    <Portfolio setTransition={setTransition} />
+                                </ArtworkProvider>
+                            </Route>
+                            <Route path="/cms">
+                                {toCMS()}
+                            </Route>
+                            <Route path="/">
+                                <Splash setTransition={setTransition} />
+                            </Route>
+                        </Switch>
                     </div>
                 </CSSTransition>
             </TransitionGroup>

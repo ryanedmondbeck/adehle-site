@@ -4,6 +4,7 @@ import ArtworkImage from './ArtworkImage';
 import './ArtworkImage.css';
 import TinyCrossfade from "react-tiny-crossfade";
 // import ReactCSSTransitionReplace from 'react-css-transition-replace';
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 
 function Artwork() {
@@ -13,12 +14,6 @@ function Artwork() {
         let i = (artwork.index + 1) % artwork.imurl.length;
         setArtwork({...artwork, index: i});
     }
-    // useEffect(() => {
-    //     // console.log(artwork);
-    //     if (artwork) {
-    //         console.log("id in Artwork.js:", artwork.artID);
-    //     }
-    // });
     const renderNext = () => {
         if (artwork.imurl.length > 1) {
             return (
@@ -29,9 +24,18 @@ function Artwork() {
     if (artwork) {
         return (
             <div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}>
-                <TinyCrossfade className="component-wrapper"> 
-                    <ArtworkImage key={artwork.artID} artwork={artwork} />  
-                </TinyCrossfade>
+                {/* <TinyCrossfade className="component-wrapper">  */} 
+                {/* <TransitionGroup>
+                    <CSSTransition
+                        key={artwork.id + artwork.index}
+                        classNames="crossfade"
+                        timeout={1000} >
+                        <div className="container"> */}
+                            <ArtworkImage key={artwork.artID} artwork={artwork} />  
+                        {/* </div>
+                    </CSSTransition>
+                </TransitionGroup> */}
+                {/* </TinyCrossfade> */}
                 {renderNext()}
             </div>
         )
