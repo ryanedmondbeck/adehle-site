@@ -1,4 +1,6 @@
 .artwork {
+    display: flex;
+    flex-direction: column;
     opacity: 1;
     -webkit-transition: opacity 1.2s;
     transition: opacity 1.2s;
