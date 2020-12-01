@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import SketchSplash from './SketchSplash';
+import React from 'react';
+// import SketchSplash from './SketchSplash';
 import './Splash.css';
 import { Link } from "react-router-dom";
 

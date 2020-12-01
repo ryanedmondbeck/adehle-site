@@ -20,6 +20,7 @@ function useCollection(collectionID) {
                 setCollection(artwork_list);
             })
         return () => unsubscribe();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return collection;
 }

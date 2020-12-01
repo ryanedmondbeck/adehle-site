@@ -9,7 +9,7 @@ function EditArtworkImages({ collID, artID, images, urls }) {
             const new_images = [];
             const new_urls = [];
             for (let j = 0; j < urls.length; j++) {
-                if (i != j) {
+                if (i !== j) {
                     new_images.push(images[j]);
                     new_urls.push(urls[j]);
                 }
@@ -26,7 +26,7 @@ function EditArtworkImages({ collID, artID, images, urls }) {
                     images: new_images,
                     imurl: new_urls
                 }, { merge: true });
-                // console.log(res);
+                console.log(res);
             } catch (error) { console.log(error); }    
             
             console.log("deleting " + images[i] + " from storage.");
@@ -98,7 +98,7 @@ function EditArtworkImages({ collID, artID, images, urls }) {
                 imurl: urls
             }, { merge: true });
             setLoading(false);
-            // console.log(res);
+            console.log(res);
         } catch (error) { console.log(error); }   
     }
     

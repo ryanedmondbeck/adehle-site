@@ -14,11 +14,11 @@ function EditCollectionDescription({ id, description }) {
         e.preventDefault();
         // console.log(i
         try {
-            const res = await db
+            await db
                 .collection('collection_list')
                 .doc(id)
                 .set(data, { merge: true });
-            console.log(res);
+            // console.log(res);
             setEdit(false);
         } catch (error) { console.log(error); }
     }

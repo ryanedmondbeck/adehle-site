@@ -7,7 +7,7 @@ import './CMS.css';
 import CMSLoggin from './CMSLoggin';
 import Splash from './Splash';
 import { ArtworkProvider } from './contexts/ArtworkContext';
-import { render } from '@testing-library/react';
+// import { render } from '@testing-library/react';
 import { CMSPageProvider } from './contexts/CMSPageContext';
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Switch, Route, useLocation } from "react-router-dom";

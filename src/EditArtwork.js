@@ -24,6 +24,7 @@ function useCollection(collectionID) {
                 setCollection(artwork_list);
             })
         return () => unsubscribe();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return collection;
 }
@@ -34,7 +35,7 @@ function EditArtwork({ collectionID, expanded }) {
         // console.log(id);
         if (window.confirm('Are you sure you want to delete this artwork?')) {
             try {
-                const res = await db
+                await db
                     .collection('collection_list')
                     .doc(collID)
                     .collection('collection')

@@ -24,10 +24,10 @@ function NewCollection() {
         e.preventDefault();
         setCmsPage('uploading-collection');
         try {
-            const res = await db
+            await db
                 .collection('collection_list')
                 .add(form); 
-            console.log(res);  
+            // console.log(res);  
             setCmsPage('edit');
         } catch (error) { console.log(error); }   
     }
@@ -54,7 +54,6 @@ function NewCollection() {
                 <div className="submit">
                     <input type="submit" value="Submit" />  
                 </div>
-                
             </form>
         </div>
     )

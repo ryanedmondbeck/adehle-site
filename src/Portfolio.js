@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import CollectionList from './CollectionList';
 import './CollectionList.css';
 import Artwork from './Artwork';
 import './Artwork.css';
-import Contact from './Contact';
+// import Contact from './Contact';
 import './Contact.css';
 import { Link } from "react-router-dom";
 
 function Portfolio({ setTransition }) {
-    const [contact, setContact] = useState(false);
-    const handleClick = () => {
-        setContact(true);
-    }
+    // const [contact, setContact] = useState(false);
+    // const handleClick = () => {
+    //     setContact(true);
+    // }
     useEffect(() => {
         setTimeout(() => {setTransition('pts')}, 1000);
-        setTimeout(() => {setContact(false)}, 6000);
+        // setTimeout(() => {setContact(false)}, 6000);
     })
     return (
         <div className="portfolio">

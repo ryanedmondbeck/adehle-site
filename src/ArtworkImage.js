@@ -9,7 +9,7 @@ function ArtworkImage({ artwork }) {
         //     effect="blur"
         //     placeholderSrc={artwork.imurl[artwork.index]}
         //     src={artwork.imurl[artwork.index]} />
-        <img key={artwork.id + artwork.index} src={artwork.imurl[artwork.index]} />
+        <img key={artwork.id + artwork.index} src={artwork.imurl[artwork.index]} alt="" />
     )
 }
 

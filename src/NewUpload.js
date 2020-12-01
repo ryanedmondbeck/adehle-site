@@ -86,7 +86,7 @@ function NewUpload() {
                 // console.log("im:", image[i], "image: ", image);
                 await storage.ref(image[i].name).put(image[i])
                     .then(async (snapshot) => {
-                        console.log(snapshot);
+                        // console.log(snapshot);
                         const url = await storage.ref(image[i].name).getDownloadURL();
                         imurl.push(url);
                     })
@@ -101,10 +101,10 @@ function NewUpload() {
                     .doc(collection)
                     .collection('collection')
                     .add(form);
-                console.log(res);
+                // console.log(res);
                 // console.log(res.id); 
                 // add the download url array to the object
-                const res2 = await db
+                await db
                     .collection('collection_list')
                     .doc(collection)
                     .collection('collection')
@@ -112,7 +112,7 @@ function NewUpload() {
                     .set({
                         imurl: imurl
                     }, { merge: true });
-                console.log(res2);
+                // console.log(res2);
                 setCmsPage('edit');
             } catch (error) { console.log(error); }  
         }

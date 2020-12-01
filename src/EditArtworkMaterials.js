@@ -13,13 +13,13 @@ function EditArtworkMaterials({ collID, artID, materials}) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await db
+            await db
                 .collection('collection_list')
                 .doc(collID)
                 .collection('collection')
                 .doc(artID)
                 .set(data, { merge: true });
-            console.log(res);
+            // console.log(res);
             setEdit(false);
         } catch (error) { console.log(error); }
     }

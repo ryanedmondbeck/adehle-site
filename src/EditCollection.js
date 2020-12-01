@@ -34,11 +34,11 @@ function EditCollection() {
         // console.log(id);
         if (window.confirm('Are you sure you want to delete this collection?')) {
             try {
-                const res = await db
+                await db
                     .collection('collection_list')
                     .doc(id)
                     .delete();
-                console.log(res);
+                // console.log(res);
             } catch (error) { console.log(error); }
         }
     }

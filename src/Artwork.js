@@ -1,10 +1,10 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { ArtworkContext } from './contexts/ArtworkContext';
 import ArtworkImage from './ArtworkImage';
 import './ArtworkImage.css';
-import TinyCrossfade from "react-tiny-crossfade";
+// import TinyCrossfade from "react-tiny-crossfade";
 // import ReactCSSTransitionReplace from 'react-css-transition-replace';
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
+// import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 
 function Artwork() {
@@ -25,17 +25,17 @@ function Artwork() {
         return (
             <div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}>
                 {/* <TinyCrossfade className="component-wrapper">  */} 
-                {/* <TransitionGroup>
-                    <CSSTransition
+                {/* <TransitionGroup> */}
+                    {/* <CSSTransition
                         key={artwork.id + artwork.index}
                         classNames="crossfade"
-                        timeout={1000} >
-                        <div className="container"> */}
+                        timeout={1000} > */}
+                        {/* <div> */}
                             <ArtworkImage key={artwork.artID} artwork={artwork} />  
-                        {/* </div>
-                    </CSSTransition>
-                </TransitionGroup> */}
-                {/* </TinyCrossfade> */}
+                        {/* </div> */}
+                    {/* </CSSTransition> */}
+                {/* </TransitionGroup> */} 
+                {/* { </TinyCrossfade> */}
                 {renderNext()}
             </div>
         )
