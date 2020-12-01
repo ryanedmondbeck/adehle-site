@@ -24,19 +24,12 @@ function Artwork() {
     if (artwork) {
         return (
             <div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}>
-                {/* <TinyCrossfade className="component-wrapper">  */} 
-                {/* <TransitionGroup> */}
-                    {/* <CSSTransition
-                        key={artwork.id + artwork.index}
-                        classNames="crossfade"
-                        timeout={1000} > */}
-                        {/* <div> */}
-                            <ArtworkImage key={artwork.artID} artwork={artwork} />  
-                        {/* </div> */}
-                    {/* </CSSTransition> */}
-                {/* </TransitionGroup> */} 
-                {/* { </TinyCrossfade> */}
-                {renderNext()}
+                <div>
+                    <ArtworkImage key={artwork.artID} artwork={artwork} />  
+                </div>
+                <div>
+                    {renderNext()} 
+                </div>     
             </div>
         )
     }
