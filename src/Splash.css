@@ -18,6 +18,7 @@
 }
 .splash__title > p {
     font-size: 1.5em;
+    color: white;
 }
 .splash__menu {
     position: absolute;
@@ -39,17 +40,17 @@
 }
 a {
     font-family: 'UxumR';
-    color: black;
+    color: rgba(255,255,255,1);
     text-decoration: none;
     padding: 0;
     transition: color 0.2s ease-in-out;
 }
-a:visited {
-    color: black;
+.splash > a:visited {
+    color: rgba(255,255,255,1);
     transition: color 0.2s ease-in-out;
 }
 a:hover {
-    color: gray;
+    color: rgba(255,255,255,0.25);
     transition: color 0.2s ease-in-out;
 }
 .splash__button:hover {

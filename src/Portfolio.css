@@ -9,6 +9,10 @@
     /* background: rgba(255,255,255,1);
     transition: background 1s; */
 }
+.portfolio > a:visited{
+    color: rgba(0,0,0,1);;
+}
+
 .portfolio__header {
     font-family: 'UxumR';
     /* border-style: solid; */
@@ -18,7 +22,14 @@
     align-items: center;
     height: 5%;
 }
+.portfolio__header__adehle > a:visited {
+    color: rgba(0,0,0,1);
+}
+.portfolio__header__adehle > a:hover {
+    color: rgba(0,0,0,1);
+}
 .portfolio__header__adehle {
+    color: rgba(0,0,0,1);
     font-size: 1.4em;
 }
 .portfolio__content {
