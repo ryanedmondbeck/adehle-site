@@ -1,5 +1,5 @@
 import React from 'react';
-// import SketchSplash from './SketchSplash';
+import SketchSplash from './SketchSplash';
 import './Splash.css';
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,8 @@ function Splash({ setTransition }) {
     return (
         <div className="splash">
             <div className="splash__title">
-                <p>Adehle Daley</p>
+                <p>ADEHLE DALEY</p>
+                <Link>ABOUT</Link>
             </div>
             <div className="splash__menu">
                 <Link onClick={() => setTransition('stp')} className="splash__button" to="/portfolio">PORTFOLIO</Link>
@@ -16,7 +17,7 @@ function Splash({ setTransition }) {
             </div>
            
             <div className="splash__p5">
-                {/* <SketchSplash /> */}
+                <SketchSplash />
             </div>
             
         </div>

@@ -6,13 +6,18 @@
 }
 .splash__title {
     position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    color: black;
-    font-size: 5em;
-    text-align: center;
-    font-family: 'UxumR';
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    top: 15%;
+    transform: translateY(15%);
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 2em;
+}
+.splash__title > p {
+    font-size: 1.5em;
 }
 .splash__menu {
     position: absolute;

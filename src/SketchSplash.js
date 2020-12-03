@@ -1,70 +1,80 @@
 import React, { useEffect } from "react";
 import * as p5 from "p5";
-import Uxumreg from './fonts/UxumGrotesque-Regular.otf';
+// import Uxumreg from './fonts/UxumGrotesque-Regular.otf';
+import im from './images/aa16.jpg';
  
 const SketchSplash = () => {
     const Sketch = p5 => {
-        let uxumreg;
-        let font_size = 400;
-        // let f_top = 500;
-        // let f_bottom = 150;
-        // let f_move = 1;
-        let resolution = 0.0001;
-        let r_top = 0.015;
-        let r_bottom = 0.0001;
-        let r_move = 0.0001;
+        // speed of the wobble
+        let speed = 0.4;
+
+        // tiling of the wobble
+        let tiling = 10;
+
+        // stength of the wobble
+        let strength = 2;
+
+        // the shader
+        let sh;
+
+        // an image
+        let img;
+
+        let vert = 'attribute vec4 aPosition;'+
+        'varying vec4 v_uv;'+
+        'void main() {'+
+        'v_uv = aPosition;'+
+        'v_uv.y *= -1.0;'+
+        'v_uv.x = v_uv.x * 0.5 + 0.5;'+
+        'v_uv.y = v_uv.y * 0.5 + 0.5;'+ 
+            'gl_Position = aPosition;'+
+        '}';
+
+        let frag = 'precision mediump float;'+
+
+        'uniform sampler2D uSampler;'+
+        'uniform float u_time;'+
+
+        'uniform float u_speed;'+
+        'uniform float u_tiling;'+
+        'uniform float u_strength;'+
+
+        'varying vec4 v_uv;'+
+
+        'void main() {'+
+        'vec2 texcoord = vec2(v_uv.x-sin(u_time*u_speed)*0.05*cos(v_uv.y*u_tiling)*u_strength, v_uv.y-cos(u_time*u_speed)*0.05*sin(v_uv.x*u_tiling)*u_strength);'+
+        'vec4 col = texture2D(uSampler, texcoord);'+
+        'gl_FragColor = col;'+
+        '}'
+
 
         p5.preload = () => {
-            uxumreg = p5.loadFont(Uxumreg, font => {
-                console.log('Successfully loaded font', uxumreg);
-            })
+            // load the image
+            img = p5.loadImage(im);
         }
         p5.windowResized = () => {
             p5.resizeCanvas(window.innerWidth, window.innerHeight);
         }
 
         p5.setup = () => {
-            let canvas = p5.createCanvas(p5.windowWidth, p5.windowHeight);
+            let canvas = p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL);
+            sh = p5.createShader(vert, frag);
+		    p5.background(0);
             canvas.position(0, 0);
             canvas.style('z-index', '-1');
         };
         
         p5.draw = () => {
-            p5.background(255);
+            // set uniforms
+            sh.setUniform("uSampler", img);
+            sh.setUniform("u_time", p5.millis()/1000);
+            sh.setUniform("u_speed", speed);
+            sh.setUniform("u_tiling", tiling + p5.mouseY*0.001);
+            sh.setUniform("u_strength", strength + p5.mouseX*0.001);
             
-            //----------------------------------------
-            //oscillator for font size
-            // if (font_size > f_top) {
-            //     f_move = -1;
-            // }
-            // if (font_size < f_bottom) {
-            //     f_move = 1;
-            // }
-            // font_size += f_move;
-            //----------------------------------------
-
-            let a = uxumreg.textToPoints("Adehle", p5.width/7, p5.height/3, font_size, {
-                sampleFactor: resolution
-            });
-
-            //----------------------------------------
-            //oscillator for resolution
-            if (resolution > r_top) {
-                r_move = -0.0001;
-            }
-            if (resolution < r_bottom) {
-                r_move = 0.0001;
-            }
-            resolution += r_move;
-            // console.log(resolution, move);
-            //----------------------------------------
-
-            p5.strokeWeight(1);
-            p5.beginShape();
-            for (let i = 0; i < a.length; i++) {
-                p5.vertex(a[i].x, a[i].y)
-            }
-            p5.endShape();
+            // render on a quad
+            p5.shader(sh);
+            p5.quad(-1, -1, 1, -1, 1, 1, -1, 1);
         };
     };
  
