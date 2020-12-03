@@ -58,10 +58,14 @@ const SketchSplash = () => {
 
         p5.setup = () => {
             let canvas = p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL);
+            // let canvas = p5.createCanvas(500, 500, p5.WEBGL);
+            // canvas.parent("splash__p5");
             sh = p5.createShader(vert, frag);
-		    p5.background(0);
-            canvas.position(0, 0);
+		    p5.background(255);
+            canvas.position(0, 0, 'fixed');
+            canvas.style('display', 'block');
             canvas.style('z-index', '-1');
+            // canvas.styel('position', 'relative');
         };
         
         p5.draw = () => {
@@ -79,12 +83,13 @@ const SketchSplash = () => {
     };
  
     useEffect(() => {
-        new p5(Sketch);
+        new p5(Sketch, 'p5div');
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
  
     return (
-  	    <></>
+        <div id='p5div'></div>
+  	    // <></>
     );
 };
  

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Portfolio from './Portfolio';
 import './Portfolio.css';
@@ -11,13 +11,15 @@ import { ArtworkProvider } from './contexts/ArtworkContext';
 import { CMSPageProvider } from './contexts/CMSPageContext';
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Switch, Route, useLocation } from "react-router-dom";
+// import SketchSplash from './SketchSplash';
 
 
 function App() {
     let location = useLocation();
     const [transition, setTransition] = useState('stp');
     const [auth, setAuth] = useState(false);
-    // console.log(location);
+    // const [dtrue, setDtrue] = useState(true);
+   
     const toCMS = () => {
         if (auth) {
             return (
@@ -54,6 +56,7 @@ function App() {
                     </div>
                 </CSSTransition>
             </TransitionGroup>
+            
         </div>
     )
 }
