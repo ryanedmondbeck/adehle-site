@@ -18,19 +18,23 @@ html, body, #app, #app>div, #root {
     position: absolute;
     max-width: 100vw;
     transform: translate(0, 0);
+    opacity: 1;
 }
 .stp-exit.stp-exit-active {
-    transform: translate(100vw, 0);
+    /* transform: translate(100vw, 0); */
+    opacity: 0;
     transition: 0.5s ease-in-out;
 }
 /* from portfolio to splash  */
 .pts-enter {
     position: absolute;
     max-width: 100vw;
-    transform: translate(100vw, 0);
+    opacity: 0;
+    /* transform: translate(100vw, 0); */
 }
 .pts-enter.pts-enter-active {
-    transform: translate(0, 0);
+    /* transform: translate(0, 0); */
+    opacity: 1;
     transition: 0.5s ease-in-out;
 }
 .pts-exit {

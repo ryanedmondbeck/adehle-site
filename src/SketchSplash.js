@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import * as p5 from "p5";
 // import Uxumreg from './fonts/UxumGrotesque-Regular.otf';
-import im from './images/aa16.jpg';
+import im from './images/asplash.jpg';
  
 const SketchSplash = () => {
     const Sketch = p5 => {
         // speed of the wobble
-        let speed = 0.4;
+        let speed = 0.3;
 
         // tiling of the wobble
         let tiling = 10;
 
         // stength of the wobble
-        let strength = 2;
+        let strength = 1.5;
 
         // the shader
         let sh;
