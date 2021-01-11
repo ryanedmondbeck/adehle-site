@@ -36,7 +36,7 @@ function App() {
         <div className="fade">
             <TransitionGroup childFactory={child => React.cloneElement(child, { 
                 classNames: transition,
-                timeout: 500
+                timeout: 1000
             })}>
                 <CSSTransition key={location.key} >
                     <div className="container">

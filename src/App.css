@@ -36,6 +36,7 @@ html, body, #app, #app>div, #root {
     /* transform: translate(0, 0); */
     opacity: 1;
     transition: 0.5s ease-in-out;
+    transition-delay: 0.5s;
 }
 .pts-exit {
     position: absolute;
