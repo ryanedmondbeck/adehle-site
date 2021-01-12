@@ -1,5 +1,7 @@
 html, body, #app, #app>div, #root {
     height: 100vh;
+    /* this may cause errors for different screen size */
+    overflow: hidden; 
 }
 .container {
     position: relative;
@@ -36,7 +38,7 @@ html, body, #app, #app>div, #root {
     /* transform: translate(0, 0); */
     opacity: 1;
     transition: 0.5s ease-in-out;
-    transition-delay: 0.5s;
+    transition-delay: 0.25s;
 }
 .pts-exit {
     position: absolute;
@@ -79,7 +81,7 @@ html, body, #app, #app>div, #root {
     /* transform: translate(0, 0); */
     opacity: 1;
     transition: 0.5s ease-in-out;
-    transition-delay: 0.5s;
+    transition-delay: 0.25s;
 }
 .ats-exit {
     position: absolute;
