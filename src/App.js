@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Portfolio from './Portfolio';
 import './Portfolio.css';
 import CMS from './CMS';
 import './CMS.css';
+import About from './About';
+import './About.css';
 import CMSLoggin from './CMSLoggin';
 import Splash from './Splash';
 import { ArtworkProvider } from './contexts/ArtworkContext';
@@ -45,6 +47,9 @@ function App() {
                                 <ArtworkProvider>   
                                     <Portfolio setTransition={setTransition} />
                                 </ArtworkProvider>
+                            </Route>
+                            <Route path="/about">
+                                <About setTransition={setTransition} />
                             </Route>
                             <Route path="/cms">
                                 {toCMS()}
