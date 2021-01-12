@@ -15,7 +15,7 @@
 .about__right {
     max-width: 25%;
     margin-top: 10%;
-    margin-right: 10%;
+    margin-right: 5%;
 }
 .about__right > img {
     max-width: 100%;
@@ -24,4 +24,11 @@
 }
 .about__social > a {
     margin-left: 3%;
+}
+.about__back {
+    margin-top: 5%;
+    margin-right: 5%;
+}
+.about__back > a {
+    font-size: 2em;
 }

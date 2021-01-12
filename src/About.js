@@ -3,6 +3,8 @@ import im from './images/profile.jpg';
 import EmailIcon from '@material-ui/icons/Email';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import CloseIcon from '@material-ui/icons/Close';
+import { Link } from "react-router-dom";
 
 function About({ setTransition }) {
 
@@ -28,6 +30,9 @@ function About({ setTransition }) {
             </div>
             <div className="about__right">
                 <img key="profile_image" src={im} alt="profile" />
+            </div>
+            <div className="about__back">
+                <Link onClick={() => setTransition('ats')} className="portfolio__header__adehle" to="/"><CloseIcon fontSize="large"/></Link>
             </div>
         </div>
     )
