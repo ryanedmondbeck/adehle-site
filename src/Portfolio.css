@@ -24,7 +24,8 @@
 }
 a {
     text-decoration: none;
-    
+    color: rgba(0,0,0,1);
+    transition: color 0.5s;
 }
 .portfolio__header__adehle a {
     color: rgba(0,0,0,1);
