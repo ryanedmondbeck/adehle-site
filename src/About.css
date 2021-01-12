@@ -22,3 +22,6 @@
     height: auto;
     display: block;
 }
+.about__social > a {
+    margin-left: 3%;
+}

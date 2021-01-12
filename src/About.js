@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import im from './images/profile.jpg';
+import EmailIcon from '@material-ui/icons/Email';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import FacebookIcon from '@material-ui/icons/Facebook';
 
 function About({ setTransition }) {
 
@@ -10,12 +13,18 @@ function About({ setTransition }) {
     return (
         <div className="about">
             <div className="about__left">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <ul className="about__social">
-                    <li><a href="" className="about__social--icon">
-                        <img />
-                        </a></li>
-                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                    Excepteur sint occaecat cupidatat non proident, 
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div className="about__social">
+                    <a href="mailto:adehlerose@gmail.com"><EmailIcon /></a>
+                    <a href="https://www.instagram.com/adehledaley/" target="_blank"><InstagramIcon /></a>
+                    <a href="https://www.facebook.com/pages/category/Artist/Adehle-Daley-Paintings-663358720698293/" 
+                        target="_blank"><FacebookIcon /></a>
+                </div>
             </div>
             <div className="about__right">
                 <img key="profile_image" src={im} alt="profile" />
