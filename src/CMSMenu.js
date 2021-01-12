@@ -14,6 +14,9 @@ function CMSMenu() {
             <button onClick={() => setCmsPage('edit')}
             className={`cms-menu__button ${(cmsPage === 'edit') ? "cms-menu__button--selected" : ""}`}>
                 Edit Artwork and Collections</button>
+            <button onClick={() => setCmsPage('profile')}
+            className={`cms-menu__button ${(cmsPage === 'profile') ? "cms-menu__button--selected" : ""}`}>
+                Edit Profile</button>
         </div>
     )
 }

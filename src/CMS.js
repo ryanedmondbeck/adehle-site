@@ -5,6 +5,8 @@ import NewCollection from './NewCollection';
 import './NewCollection.css';
 import EditCollection from './EditCollection';
 import './EditCollection.css';
+import EditProfile from './EditProfile';
+import './EditProfile.css';
 import CMSMenu from './CMSMenu';
 import './CMSMenu.css';
 import { CMSPageContext } from './contexts/CMSPageContext';
@@ -25,6 +27,9 @@ function CMS() {
         }
         if (cmsPage === 'edit') {
             return (<EditCollection />)
+        } 
+        if (cmsPage === 'profile') {
+            return (<EditProfile />)
         } 
         if (cmsPage === 'loading') {
             return(<NewUploadLoading />)

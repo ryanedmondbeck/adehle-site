@@ -23,16 +23,16 @@ function App() {
     // const [dtrue, setDtrue] = useState(true);
    
     const toCMS = () => {
-        if (auth) {
+        // if (auth) {   
             return (
                 <CMSPageProvider>
                     <CMS />
                 </CMSPageProvider>
             )
-        }
-        else {
-            return (<CMSLoggin setAuth={setAuth} />);
-        }
+        // }
+        // else {
+        //     return (<CMSLoggin setAuth={setAuth} />);
+        // }
     }
     return (
         <div className="fade">
