@@ -7,3 +7,14 @@
     padding-top: 2.5%;
     padding-bottom: 2.5%;
 }
+.edit-profile__image {
+    max-width: 25%;
+}
+.edit-profile__image > img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.submit {
+    max-width: 25%;
+}

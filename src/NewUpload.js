@@ -69,7 +69,6 @@ function NewUpload() {
             im.push(fileInput.current.files[i].name);
         }
         setForm({ ...form, [e.target.name]: im});
-        
     }
     
     const handleSubmit = async (e) => {

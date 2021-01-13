@@ -1,7 +1,7 @@
 html, body, #app, #app>div, #root {
     height: 100vh;
     /* this may cause errors for different screen size */
-    overflow: hidden; 
+    /* overflow: hidden;  */
 }
 .container {
     position: relative;

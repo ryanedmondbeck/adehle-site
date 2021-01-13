@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import im from './images/profile.jpg';
+// import im from './images/profile.jpg';
 import EmailIcon from '@material-ui/icons/Email';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -34,6 +34,7 @@ function About({ setTransition }) {
 
     const info = useBio();
     const bio = info.map(a => (a.bio));
+    const image = info.map(a => (a.url));
 
     return (
         <div className="about">
@@ -47,7 +48,7 @@ function About({ setTransition }) {
                 </div>
             </div>
             <div className="about__right">
-                <img key="profile_image" src={im} alt="profile" />
+                <img key="profile_image" src={image} alt="profile" />
             </div>
             <div className="about__back">
                 <Link onClick={() => setTransition('ats')} className="portfolio__header__adehle" to="/"><CloseIcon fontSize="large"/></Link>

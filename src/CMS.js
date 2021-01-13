@@ -42,7 +42,9 @@ function CMS() {
         <div className="cms">
             <CMSMenu />
             {renderCMS()}
-            <Link className="cms__portfolio" to="/portfolio">Return to Portfolio</Link>
+            <Link className="cms__portfolio" to="/portfolio">Go to Portfolio Page</Link>
+            <Link className="cms__portfolio" to="/splash">Go to Splash Page</Link>
+            <Link className="cms__portfolio" to="/about">Go to About Page</Link>
         </div>
     )
 }
