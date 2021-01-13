@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import CollectionList from './CollectionList';
-import './CollectionList.css';
-import Artwork from './Artwork';
-import './Artwork.css';
+// import CollectionList from './CollectionList';
+// import './CollectionList.css';
+// import Artwork from './Artwork';
+// import './Artwork.css';
 import { Link } from "react-router-dom";
 
 function Portfolio({ setTransition }) {
-    
+  
     useEffect(() => {
         setTimeout(() => {setTransition('pts')}, 1000);
     })
@@ -19,11 +19,11 @@ function Portfolio({ setTransition }) {
             </div>
             <div className="portfolio__content">
                 <div className="portfolio__list">
-                    <CollectionList />
+                    {/* <CollectionList /> */}
                 </div>
                 
                 <div className="portfolio__image" >
-                    <Artwork />
+                    {/* <Artwork /> */}
                 </div> 
             </div>
         </div>

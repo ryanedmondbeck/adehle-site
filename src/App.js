@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Portfolio from './Portfolio';
 import './Portfolio.css';
@@ -15,13 +15,16 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Switch, Route, useLocation } from "react-router-dom";
 // import SketchSplash from './SketchSplash';
 
+// import PortfolioM from './mobile/PortfolioM.js';
+import SplashM from './mobile/SplashM.js';
+
 
 function App() {
     let location = useLocation();
     const [transition, setTransition] = useState('stp');
     const [auth, setAuth] = useState(false);
-    // const [dtrue, setDtrue] = useState(true);
-   
+    // const [dtrue, setDtrue] = useState(true);\
+    
     const toCMS = () => {
         if (auth) {   
             return (
@@ -34,36 +37,81 @@ function App() {
             return (<CMSLoggin setAuth={setAuth} />);
         }
     }
-    return (
-        <div className="fade">
-            <TransitionGroup childFactory={child => React.cloneElement(child, { 
-                classNames: transition,
-                timeout: 750
-            })}>
-                <CSSTransition key={location.key} >
-                    <div className="container">
-                        <Switch location={location}>
-                            <Route path="/portfolio">
-                                <ArtworkProvider>   
-                                    <Portfolio setTransition={setTransition} />
-                                </ArtworkProvider>
-                            </Route>
-                            <Route path="/about">
-                                <About setTransition={setTransition} />
-                            </Route>
-                            <Route path="/cms">
-                                {toCMS()}
-                            </Route>
-                            <Route path="/">
-                                <Splash setTransition={setTransition} />
-                            </Route>
-                        </Switch>
-                    </div>
-                </CSSTransition>
-            </TransitionGroup>
-            
-        </div>
-    )
+
+    const [width, setWidth] = useState();
+    const [isMobile, setIsMobile] = useState();
+    const handleResize = () => {
+        setWidth(window.innerWidth);
+    };
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        (width <= 500) ? setIsMobile(true) : setIsMobile(false);
+        console.log(isMobile, width);
+    });
+    
+    if (isMobile) {
+        return (
+            <div className="fade">
+                <TransitionGroup childFactory={child => React.cloneElement(child, { 
+                    classNames: transition,
+                    timeout: 750
+                })}>
+                    <CSSTransition key={location.key} >
+                        <div className="container">
+                            <Switch location={location}>
+                                <Route path="/portfolio">
+                                    <ArtworkProvider>   
+                                        <Portfolio setTransition={setTransition} />
+                                    </ArtworkProvider>
+                                </Route>
+                                <Route path="/about">
+                                    <About setTransition={setTransition} />
+                                </Route>
+                                <Route path="/cms">
+                                    {toCMS()}
+                                </Route>
+                                <Route path="/">
+                                    <SplashM setTransition={setTransition} />
+                                </Route>
+                            </Switch>
+                        </div>
+                    </CSSTransition>
+                </TransitionGroup>
+            </div>
+        )
+    }
+    else {
+        return (
+            <div className="fade">
+                <TransitionGroup childFactory={child => React.cloneElement(child, { 
+                    classNames: transition,
+                    timeout: 750
+                })}>
+                    <CSSTransition key={location.key} >
+                        <div className="container">
+                            <Switch location={location}>
+                                <Route path="/portfolio">
+                                    <ArtworkProvider>   
+                                        <Portfolio setTransition={setTransition} />
+                                    </ArtworkProvider>
+                                </Route>
+                                <Route path="/about">
+                                    <About setTransition={setTransition} />
+                                </Route>
+                                <Route path="/cms">
+                                    {toCMS()}
+                                </Route>
+                                <Route path="/">
+                                    <Splash setTransition={setTransition} />
+                                </Route>
+                            </Switch>
+                        </div>
+                    </CSSTransition>
+                </TransitionGroup>
+            </div>
+        )
+    }
+    
 }
 
 export default App;
