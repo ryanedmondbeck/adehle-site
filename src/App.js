@@ -44,9 +44,13 @@ function App() {
         setWidth(window.innerWidth);
     };
     useEffect(() => {
+        handleResize();
         window.addEventListener('resize', handleResize);
         (width <= 500) ? setIsMobile(true) : setIsMobile(false);
         console.log(isMobile, width);
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
     });
     
     if (isMobile) {
