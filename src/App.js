@@ -68,7 +68,7 @@ function App() {
                                         <Portfolio setTransition={setTransition} />
                                     </ArtworkProvider>
                                 </Route>
-                                <Route path="/about">
+                                <Route path="/about-mobile">
                                     <AboutM setTransition={setTransition} />
                                 </Route>
                                 <Route path="/cms">

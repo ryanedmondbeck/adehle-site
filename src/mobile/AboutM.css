@@ -31,8 +31,8 @@
     margin-right: 3%;
 }
 .about__back--m {
-    /* margin-top: 5%;
-    margin-right: 5%; */
+    padding-top: 5%;
+    padding-left: 5%;
 }
 /* .about__back_m > a {
     font-size: 2em;
