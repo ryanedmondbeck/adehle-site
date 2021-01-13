@@ -1,0 +1,39 @@
+.about--m {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about__top {
+    max-width: 50%;
+    margin: auto;
+}
+.about__top > img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.about__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 50%;
+    margin: auto;
+    margin-top: 10%;
+    text-align: left;
+}
+.about__bottom > p {
+    margin-bottom: 1em;
+}
+.about__social {
+    justify-content: center;
+}
+.about__social > a {
+    margin-right: 3%;
+}
+.about__back--m {
+    /* margin-top: 5%;
+    margin-right: 5%; */
+}
+/* .about__back_m > a {
+    font-size: 2em;
+} */

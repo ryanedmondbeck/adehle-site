@@ -5,7 +5,6 @@ import './Portfolio.css';
 import CMS from './CMS';
 import './CMS.css';
 import About from './About';
-import './About.css';
 import CMSLoggin from './CMSLoggin';
 import Splash from './Splash';
 import { ArtworkProvider } from './contexts/ArtworkContext';
@@ -17,6 +16,7 @@ import { Switch, Route, useLocation } from "react-router-dom";
 
 // import PortfolioM from './mobile/PortfolioM.js';
 import SplashM from './mobile/SplashM.js';
+import AboutM from './mobile/AboutM.js';
 
 
 function App() {
@@ -69,7 +69,7 @@ function App() {
                                     </ArtworkProvider>
                                 </Route>
                                 <Route path="/about">
-                                    <About setTransition={setTransition} />
+                                    <AboutM setTransition={setTransition} />
                                 </Route>
                                 <Route path="/cms">
                                     {toCMS()}

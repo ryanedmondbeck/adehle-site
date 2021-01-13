@@ -5,9 +5,9 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link } from "react-router-dom";
-import './About.css';
+import './AboutM.css';
 
-import firebase from './firebase';
+import firebase from '../firebase';
 
 function useBio() {
     const [bio, setBio] = useState([]);
@@ -38,8 +38,14 @@ function About({ setTransition }) {
     const image = info.map(a => (a.url));
 
     return (
-        <div className="about">
-            <div className="about__left">
+        <div className=".about--m">
+            <div className="about__back--m">
+                <Link onClick={() => setTransition('ats')} className="portfolio__header__adehle" to="/"><CloseIcon fontSize="large"/></Link>
+            </div>
+            <div className="about__top">
+                <img key="profile_image" src={image} alt="profile" />
+            </div>
+            <div className="about__bottom">
                 <p>{bio}</p>
                 <div className="about__social">
                     <a href="mailto:adehlerose@gmail.com"><EmailIcon /></a>
@@ -47,12 +53,6 @@ function About({ setTransition }) {
                     <a href="https://www.facebook.com/pages/category/Artist/Adehle-Daley-Paintings-663358720698293/" 
                         target="_blank" rel="noopener noreferrer"><FacebookIcon /></a>
                 </div>
-            </div>
-            <div className="about__right">
-                <img key="profile_image" src={image} alt="profile" />
-            </div>
-            <div className="about__back">
-                <Link onClick={() => setTransition('ats')} className="portfolio__header__adehle" to="/"><CloseIcon fontSize="large"/></Link>
             </div>
         </div>
     )
