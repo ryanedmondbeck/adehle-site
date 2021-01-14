@@ -9,6 +9,7 @@ html, body, #app, #app>div, #root {
 /* from splash to portfolio transition --------------------------------------------- */
 .stp-enter {
     position: absolute;
+    width: 100vw;
     max-width: 100vw;
     transform: translate(-100vw, 0);
 }
@@ -42,6 +43,7 @@ html, body, #app, #app>div, #root {
 }
 .pts-exit {
     position: absolute;
+    width: 100vw;
     max-width: 100vw;
     transform: translate(0, 0);
 }

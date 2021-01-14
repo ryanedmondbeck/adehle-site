@@ -2,7 +2,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 1% 2%;
     height: 100%;
 }
 .portfolio-m > a:visited{
@@ -18,7 +17,7 @@
     justify-content: space-between;
     align-items: center;
     /* height: 5%; */
-    padding: 10% 5% 5% 5%;
+    padding: 5%;
     /* position: fixed; */
 }
 a {
