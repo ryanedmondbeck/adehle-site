@@ -84,9 +84,7 @@ function EditProfile() {
 
     const handleImSubmit = async (e) => {
         e.preventDefault();
-        // console.log("submit clicked: ", image, pname);
         setCmsPage('loading');
-
         //delete the old image from image storage
         console.log("deleting " + pname[0] + " from storage.");
         storage.ref(pname[0]).delete()

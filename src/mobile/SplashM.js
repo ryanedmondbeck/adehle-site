@@ -13,7 +13,7 @@ function Splash({ setTransition }) {
                 <Link onClick={() => setTransition('sta')} className="splash__button" to="/about-mobile">ABOUT</Link>
             </div>
             <div className="splash__portfolio">
-                <Link onClick={() => setTransition('stp')} className="splash__button" to="/portfolio">PORTFOLIO</Link>
+                <Link onClick={() => setTransition('stp')} className="splash__button" to="/portfolio-mobile">PORTFOLIO</Link>
             </div>
             <div className="splash__explore">
                 <Link className="splash__button" to="/">EXPLORE</Link>

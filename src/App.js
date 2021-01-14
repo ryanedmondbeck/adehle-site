@@ -14,7 +14,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Switch, Route, useLocation } from "react-router-dom";
 // import SketchSplash from './SketchSplash';
 
-// import PortfolioM from './mobile/PortfolioM.js';
+import PortfolioM from './mobile/PortfolioM.js';
 import SplashM from './mobile/SplashM.js';
 import AboutM from './mobile/AboutM.js';
 
@@ -63,9 +63,9 @@ function App() {
                     <CSSTransition key={location.key} >
                         <div className="container">
                             <Switch location={location}>
-                                <Route path="/portfolio">
+                                <Route path="/portfolio-mobile">
                                     <ArtworkProvider>   
-                                        <Portfolio setTransition={setTransition} />
+                                        <PortfolioM setTransition={setTransition} />
                                     </ArtworkProvider>
                                 </Route>
                                 <Route path="/about-mobile">
