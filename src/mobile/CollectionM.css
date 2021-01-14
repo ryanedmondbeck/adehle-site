@@ -1,0 +1,76 @@
+.description {
+    /* border-style: solid; */
+    display: block;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 10%;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* width: 50%; */
+    min-width: 50%;
+    max-width: 50%;
+    padding-top: 10px;
+    overflow: hidden;
+    max-height: 1000px;
+    transition: max-height 1s ease-in-out, padding 1.2s;
+}
+.description--collapsed {
+    max-height: 0;
+    padding: 0;
+    transition: max-height 0.5s ease-in-out, padding 1s;
+    
+}
+.collection-m {
+    display: flex;
+    flex-direction: column;
+    /* padding-left: 20%;
+    padding-right: 5%; */
+    padding-bottom: 1em;
+    text-align: left;
+    overflow: hidden;
+    max-height: 10000px;
+    transition: max-height 3s ease-in-out, padding 1s;
+    transition-delay: 1s;
+}
+.collection-m > p {
+    font-size: 0.8em;
+    padding-left: 5%;
+    margin-bottom: 5%;
+}
+.collection-m--collapsed {
+    padding: 0;
+    max-height: 0;
+    transition: max-height 0.5s ease-in-out, padding 1s;
+}
+/* button {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    text-align: left;
+    font-size: 1em;
+    padding-top: 10px;
+    padding-left: 0px;
+    font-family: 'UxumR';
+    color: black;
+    transition: color 1s;
+}
+button:hover {
+    cursor: pointer;
+    color: gray;
+    transition: color 0.2s;
+}
+button:focus {
+    outline: 0;
+} */
+
+.collection-m__art {
+    max-width: 100%;
+}
+.collection-m__art > img {
+    max-width: 100%;
+}
+.collection-m__art__description {
+    text-align: right;
+    font-size: 0.75em;
+    margin-bottom: 5%;
+}

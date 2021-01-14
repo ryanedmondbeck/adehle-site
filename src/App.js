@@ -46,7 +46,7 @@ function App() {
         handleResize();
         window.addEventListener('resize', handleResize);
         (width <= 500) ? setIsMobile(true) : setIsMobile(false);
-        console.log(isMobile, width);
+        // console.log(isMobile, width);
         return _ => {
             window.removeEventListener('resize', handleResize)
         }

@@ -1,9 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CollectionListM.css';
-
-// import Collection from './Collection';
-// import './Collection.css';
-import { ArtworkContext } from '../contexts/ArtworkContext';
+import CollectionM from './CollectionM';
 
 import firebase from '../firebase';
 
@@ -27,36 +24,33 @@ function useLists() {
 }
 
 function CollectionList() {
-    const [, setArtwork] = useContext(ArtworkContext);
     const [expanded, setExpanded] = useState({});
+    const [show, setShow] = useState(true);
     
     // useEffect(() => {
     //     setTimeout(() => {console.log(expanded);}, 2000);
     // })
  
     const handleClick = (id) => {
-        setArtwork(null);
-        if (expanded === id) {
-            setExpanded(null);
-        }
-        else {
-            setExpanded(id);
-        }   
+        (show) ? setShow(false) : setShow(true);
+        (expanded === id) ? setExpanded(null) : setExpanded(id);
     }
     const lists = useLists();
 
     const renderCollectionList = () => {
         const collection_list_accordion = lists.map(coll =>  (
-            <div className="collection-list-m__collection" key={coll.id}>
+            <div className={`collection-list-m__collection ${((expanded === coll.id) || (show))
+                            ? "" : "collection-list-m__collection--collapsed"}`} key={coll.id}>
                 <button onClick={() => handleClick(coll.id)} >
                     {coll.name}
                 </button>
-                {/* <p>{coll.description}</p> */}
-                {/* <Collection 
+                {/* {`${(show) ? "" : "X"}`} */}
+                {/* <p>{coll.description}</p>  */}
+                <CollectionM 
                     collectionID={coll.id} 
                     description={coll.description} 
                     expanded={expanded} 
-                /> */}
+                />
             </div>
         ));
         return collection_list_accordion;
@@ -64,8 +58,11 @@ function CollectionList() {
 
     return (
         <div className="collection-list-m">
-            {renderCollectionList()}
+            <div className="collection-list-m__list">
+                {renderCollectionList()}
+            </div>
         </div>
+        
     )
 }
 
