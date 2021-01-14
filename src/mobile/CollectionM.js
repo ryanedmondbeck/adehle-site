@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './CollectionM.css';
 import firebase from '../firebase';
-import CloseIcon from '@material-ui/icons/Close';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 
 function useCollection(collectionID) {
     const [collection, setCollection] = useState([]);
@@ -54,7 +54,7 @@ function Collection({ collectionID, description, expanded, setParentShow }) {
         <div className={`collection-m ${(expanded === collectionID) ? "" : "collection-m--collapsed"}`}>
             <p>{description}</p>
             {renderCollection()}
-            <button onClick={() => {setParentShow(true)}}><CloseIcon /></button>
+            <button onClick={() => {setParentShow(true)}}><ExpandLessIcon fontSize="large"/></button>
         </div>
     )
 }

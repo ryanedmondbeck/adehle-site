@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import './PortfolioM.css';
-import CloseIcon from '@material-ui/icons/Close';
 import CollectionListM from './CollectionListM';
-// import Artwork from './Artwork';
-// import './Artwork.css';
+import CloseIcon from '@material-ui/icons/Close';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { Link } from "react-router-dom";
 
 function Portfolio({ setTransition }) {
@@ -15,7 +14,7 @@ function Portfolio({ setTransition }) {
         <div className="portfolio-m">
             <div className="portfolio-m__header">
                 <Link onClick={() => setTransition('pts')} className="portfolio-m__header__adehle" to="/">Adehle Daley</Link>
-                <Link onClick={() => setTransition('pts')} className="portfolio-m__header__adehle" to="/"><CloseIcon /></Link>
+                <Link onClick={() => setTransition('pts')} className="portfolio-m__header__adehle" to="/"><ArrowForwardIosIcon fontSize="small"/></Link>
             </div>
             <div className="portfolio-m__content">
                 <CollectionListM />

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './CollectionListM.css';
 import CollectionM from './CollectionM';
-
 import firebase from '../firebase';
 
 function useLists() {
@@ -36,7 +35,7 @@ function CollectionList() {
         (expanded === id) ? setExpanded(null) : setExpanded(id);
     }
     const lists = useLists();
-    
+
     const setParentShow = (b) => {
         console.log(b);
         setShow(b);
