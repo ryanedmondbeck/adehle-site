@@ -47,7 +47,7 @@ function CollectionList() {
 
     const renderCollectionList = () => {
         const collection_list_accordion = lists.map(coll =>  (
-            <div key={coll.id}>
+            <div className="collection-list-m__collection" key={coll.id}>
                 <button onClick={() => handleClick(coll.id)} >
                     {coll.name}
                 </button>

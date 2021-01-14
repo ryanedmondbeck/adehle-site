@@ -24,9 +24,7 @@ function Artwork() {
     if (artwork) {
         return (
             <div className={`artwork ${(artwork) ? "" : "artwork--hidden"}`}>
-                <div>
-                    <ArtworkImage key={artwork.artID} artwork={artwork} />  
-                </div>
+                <ArtworkImage key={artwork.artID} artwork={artwork} />  
                 <div>
                     {renderNext()} 
                 </div>     

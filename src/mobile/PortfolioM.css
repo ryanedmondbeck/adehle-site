@@ -10,6 +10,7 @@
 }
 
 .portfolio-m__header {
+    /* min-width: 100%; */
     font-family: 'UxumR';
     /* border-style: solid; */
     display: flex;
@@ -44,7 +45,7 @@ a:hover {
     display: flex;
     flex-direction: row;
     max-width: 100%;
-    padding: 5%;
+    padding: 0 5%;
     font-size: 1.2em;
     /* flex-basis: 100%; */
 }

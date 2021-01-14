@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Portfolio from './Portfolio';
-import './Portfolio.css';
 import CMS from './CMS';
 import './CMS.css';
 import About from './About';

@@ -4,6 +4,7 @@ import './CollectionList.css';
 import Artwork from './Artwork';
 import './Artwork.css';
 import { Link } from "react-router-dom";
+import './Portfolio.css';
 
 function Portfolio({ setTransition }) {
     
