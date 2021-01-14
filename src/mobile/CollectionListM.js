@@ -36,6 +36,12 @@ function CollectionList() {
         (expanded === id) ? setExpanded(null) : setExpanded(id);
     }
     const lists = useLists();
+    
+    const setParentShow = (b) => {
+        console.log(b);
+        setShow(b);
+        setExpanded(null);
+    }
 
     const renderCollectionList = () => {
         const collection_list_accordion = lists.map(coll =>  (
@@ -50,6 +56,7 @@ function CollectionList() {
                     collectionID={coll.id} 
                     description={coll.description} 
                     expanded={expanded} 
+                    setParentShow={setParentShow}
                 />
             </div>
         ));

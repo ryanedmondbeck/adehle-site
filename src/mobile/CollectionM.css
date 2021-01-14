@@ -41,27 +41,6 @@
     max-height: 0;
     transition: max-height 0.5s ease-in-out, padding 1s;
 }
-/* button {
-    appearance: none;
-    -webkit-appearance: none;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    text-align: left;
-    font-size: 1em;
-    padding-top: 10px;
-    padding-left: 0px;
-    font-family: 'UxumR';
-    color: black;
-    transition: color 1s;
-}
-button:hover {
-    cursor: pointer;
-    color: gray;
-    transition: color 0.2s;
-}
-button:focus {
-    outline: 0;
-} */
 
 .collection-m__art {
     max-width: 100%;
