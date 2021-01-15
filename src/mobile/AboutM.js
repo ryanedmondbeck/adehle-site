@@ -38,16 +38,16 @@ function About({ setTransition }) {
     const image = info.map(a => (a.url));
 
     return (
-        <div className=".about--m">
-            <div className="about__back--m">
+        <div className=".about-m">
+            <div className="about-m__back">
                 <Link onClick={() => setTransition('ats')} className="portfolio__header__adehle" to="/"><CloseIcon fontSize="large"/></Link>
             </div>
-            <div className="about__top">
+            <div className="about-m__top">
                 <img key="profile_image" src={image} alt="profile" />
             </div>
-            <div className="about__bottom">
+            <div className="about-m__bottom">
                 <p>{bio}</p>
-                <div className="about__social">
+                <div className="about-m__social">
                     <a href="mailto:adehlerose@gmail.com"><EmailIcon /></a>
                     <a href="https://www.instagram.com/adehledaley/" target="_blank" rel="noopener noreferrer"><InstagramIcon /></a>
                     <a href="https://www.facebook.com/pages/category/Artist/Adehle-Daley-Paintings-663358720698293/" 

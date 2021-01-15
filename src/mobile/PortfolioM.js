@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './PortfolioM.css';
 import CollectionListM from './CollectionListM';
-import CloseIcon from '@material-ui/icons/Close';
+// import CloseIcon from '@material-ui/icons/Close';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { Link } from "react-router-dom";
 

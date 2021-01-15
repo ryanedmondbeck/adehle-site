@@ -17,13 +17,13 @@ import PortfolioM from './mobile/PortfolioM.js';
 import SplashM from './mobile/SplashM.js';
 import AboutM from './mobile/AboutM.js';
 
-
 function App() {
     let location = useLocation();
     const [transition, setTransition] = useState('stp');
     const [auth, setAuth] = useState(false);
     // const [dtrue, setDtrue] = useState(true);\
     
+
     const toCMS = () => {
         if (auth) {   
             return (
