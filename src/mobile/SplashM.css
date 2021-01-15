@@ -1,11 +1,10 @@
 .splash {
-    /* position: relative; */
     height: 100vh;
     width: 100vw;
     max-width: 100vw;
     position: fixed;
     overflow: scroll;
-    
+    /* min-height: -webkit-fill-available; */
 }
 .splash__title {
     position: absolute;
@@ -13,7 +12,7 @@
     justify-content: space-between;
     box-sizing: border-box;
     width: 100%;
-    top: 15%;
+    top: 10%;
     transform: translateY(15%);
     padding-left: 10%;
     padding-right: 10%;
@@ -29,7 +28,7 @@
     justify-content: flex-end;
     box-sizing: border-box;
     width: 100%;
-    top: 35%;
+    top: 30%;
     transform: translateY(-15%);
     padding-left: 10%;
     padding-right: 10%;
@@ -40,7 +39,7 @@
     justify-content: flex-start;
     box-sizing: border-box;
     width: 100%;
-    top: 55%;
+    top: 50%;
     transform: translateY(-15%);
     padding-left: 10%;
     padding-right: 10%;
@@ -51,7 +50,7 @@
     justify-content: flex-end;
     box-sizing: border-box;
     width: 100%;
-    top: 75%;
+    top: 70%;
     transform: translateY(-15%);
     padding-left: 10%;
     padding-right: 10%;
