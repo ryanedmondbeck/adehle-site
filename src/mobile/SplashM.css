@@ -1,4 +1,4 @@
-.splash {
+.splash-m {
     height: 100vh;
     width: 100vw;
     max-width: 100vw;
@@ -6,7 +6,7 @@
     overflow: scroll;
     /* min-height: -webkit-fill-available; */
 }
-.splash__title {
+.splash-m__title {
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -18,11 +18,11 @@
     padding-right: 10%;
     font-size: 2em;
 }
-.splash__title > p {
+.splash-m__title > p {
     font-size: 1.5em;
     color: white;
 }
-.splash__about {
+.splash-m__about {
     position: absolute;
     display: flex;
     justify-content: flex-end;
@@ -33,7 +33,7 @@
     padding-left: 10%;
     padding-right: 10%;
 }
-.splash__portfolio {
+.splash-m__portfolio {
     position: absolute;
     display: flex;
     justify-content: flex-start;
@@ -44,7 +44,7 @@
     padding-left: 10%;
     padding-right: 10%;
 }
-.splash__explore {
+.splash-m__explore {
     position: absolute;
     display: flex;
     justify-content: flex-end;
@@ -55,32 +55,29 @@
     padding-left: 10%;
     padding-right: 10%;
 }
-.splash__button {
+.splash-m__button {
     /* position: absolute; */
     font-size: 2em;
     background-color: rgba(0,0,0,0);
     transition: font-size 0.5s ease-in-out, color 0.2s;
 }
-.splash a {
+.splash-m a {
     font-family: 'UxumR';
     color: rgba(255,255,255,1);
     text-decoration: none;
     padding: 0;
     transition: color 0.2s ease-in-out;
 }
-.splash a:hover {
+/* .splash a:hover {
     color: rgba(255,255,255,0.25);
     transition: color 0.2s ease-in-out;
-}
-.splash a:visited {
+} */
+.splash-m a:visited {
     color: rgba(255,255,255,1);
     transition: color 0.2s ease-in-out;
 }
-/* .splash__button:hover {
-    font-size: 2.2em;
-    transition: font-size 0.5s ease-in-out
-} */
-.splash__p5 {
+
+.splash-m__p5 {
     /* top: 0; */
     /* transform: translate(50%, 50%); */
     position: absolute;
