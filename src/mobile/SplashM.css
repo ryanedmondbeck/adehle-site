@@ -5,6 +5,8 @@
     position: fixed;
     overflow: scroll;
     /* min-height: -webkit-fill-available; */
+    /* background-color: rgba(255,255,255,0);
+    transition: background-color 1s; */
 }
 .splash-m__title {
     position: absolute;
@@ -81,5 +83,5 @@
     /* top: 0; */
     /* transform: translate(50%, 50%); */
     position: absolute;
-    /* z-index: -3; */
+    z-index: -3;
 }

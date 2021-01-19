@@ -63,9 +63,7 @@ function App() {
                         <div className="container">
                             <Switch location={location}>
                                 <Route path="/portfolio-mobile">
-                                    <ArtworkProvider>   
-                                        <PortfolioM setTransition={setTransition} />
-                                    </ArtworkProvider>
+                                    <PortfolioM setTransition={setTransition} />
                                 </Route>
                                 <Route path="/about-mobile">
                                     <AboutM setTransition={setTransition} />
@@ -76,6 +74,7 @@ function App() {
                                 <Route path="/">
                                     <SplashM setTransition={setTransition} />
                                 </Route>
+                                {/* <RefreshRoute path="/" /> */}
                             </Switch>
                         </div>
                     </CSSTransition>

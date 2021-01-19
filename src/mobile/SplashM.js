@@ -1,9 +1,10 @@
 import React from 'react';
 import './SplashM.css';
 import { Link } from "react-router-dom";
-import SketchSplash from '../SketchSplash';
+import SketchSplashM from './SketchSplashM';
 
-function Splash({ setTransition }) {
+function Splash({ setTransition, p, setP }) {
+    
     return (
         <div className="splash-m">
             <div className="splash-m__title">
@@ -19,7 +20,7 @@ function Splash({ setTransition }) {
                 <Link className="splash-m__button" to="/">EXPLORE</Link>
             </div>     
             <div className="splash-m__p5">
-                <SketchSplash />
+                <SketchSplashM />
             </div>
         </div>
     )
