@@ -71,7 +71,7 @@ function App() {
                                 <Route path="/cms">
                                     {toCMS()}
                                 </Route>
-                                <Route path="/">
+                                <Route exact path="/">
                                     <SplashM setTransition={setTransition} />
                                 </Route>
                                 {/* <RefreshRoute path="/" /> */}
@@ -103,7 +103,7 @@ function App() {
                                 <Route path="/cms">
                                     {toCMS()}
                                 </Route>
-                                <Route path="/">
+                                <Route exact path="/">
                                     <Splash setTransition={setTransition} />
                                 </Route>
                             </Switch>
