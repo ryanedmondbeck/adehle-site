@@ -26,6 +26,7 @@ function NewUpload() {
         title: '',
         dimensions: '',
         materials: '',
+        purchase: false,
         index: 0,
         images: [],
         imurl: []
@@ -60,6 +61,11 @@ function NewUpload() {
     const handleNumChange = (e) => {
         e.preventDefault();
         setForm({ ...form, [e.target.name]: parseInt(e.target.value) })
+    }
+    const handleBoolChange = (e) => {
+        e.preventDefault();
+        let setBool = (e.target.value === 'true');
+        setForm({ ...form, [e.target.name]: setBool });
     }
     const handleImage = (e) => {
         e.preventDefault();
@@ -139,6 +145,18 @@ function NewUpload() {
                     <input type="text" name="materials" placeholder="Materials"
                     value={form.materials} 
                     onChange={handleChange} />
+                </label>
+                <label>
+                    <select 
+                        type='text'
+                        name='purchase'
+                        value={form.purchase} 
+                        onChange={handleBoolChange}
+                    >
+                        <option value={'empty'} key={'empty'} selected disabled>Purchase option available?</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
                 </label>
                 <label>
                     <p>Images</p>

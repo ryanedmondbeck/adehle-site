@@ -9,7 +9,6 @@ function EditArtworkPurchaseOption({ collID, artID, purchase}) {
     const handleChange = (e) => {
         e.preventDefault();
         let setBool = (e.target.value === 'true');
-        console.log(setBool);
         setData({[e.target.name]: setBool });
     }
     const handleSubmit = async (e) => {
@@ -39,7 +38,7 @@ function EditArtworkPurchaseOption({ collID, artID, purchase}) {
                                 value={data.purchase} 
                                 onChange={handleChange}
                             >
-                                <option disabled>Purchase option available?</option>
+                                <option value={'empty'} key={'empty'} selected disabled>Purchase option available?</option>
                                 <option value="true">Yes</option>
                                 <option value="false">No</option>
                             </select>
