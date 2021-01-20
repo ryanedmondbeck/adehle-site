@@ -36,6 +36,18 @@ function Collection({ collectionID, description, expanded, setParentShow }) {
         }
         return images;
     }
+    const renderPurchaseOption = (purchase) => {
+        if (purchase) {
+            return (
+                <button>Available for purchase -- see options</button>
+            )
+        }
+        else {
+            return (
+                <p>Unavailable for purchase</p>
+            )
+        }
+    }
 
     const renderCollection = () => {
         const artwork_list = collection.map(art => (
@@ -45,6 +57,7 @@ function Collection({ collectionID, description, expanded, setParentShow }) {
                 <div className="collection-m__art__description">
                     <p>{art.dimensions}</p>
                     <p>{art.materials} </p>
+                    {renderPurchaseOption(art.purchase)}
                 </div>
             </div>
         ));

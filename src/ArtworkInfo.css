@@ -17,3 +17,8 @@
     display: table;
     background-color: white;
 }
+
+.artwork-info > button {
+    color: rgb(35, 145, 77);
+    padding: 0;
+}

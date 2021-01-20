@@ -56,7 +56,8 @@ function Collection({ collectionID, description, expanded }) {
                     dimensions={art.dimensions} 
                     materials={art.materials} 
                     id={art.id}
-                    show={show} />
+                    show={show}
+                    purchase={art.purchase} />
             </div>
         ));
         return artwork_list;
