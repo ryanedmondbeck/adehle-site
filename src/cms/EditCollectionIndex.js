@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { db } from './firebase';
-import './EditCollectionName.css';
+import { db } from '../firebase';
+import './EditCollectionIndex.css';
 
-function EditCollectionName({ id, name }) {
+function EditCollectionIndex({ id, index }) {
     const [edit, setEdit] = useState(false);
     const [data, setData] = useState({});
         
-    const handleChange = (e) => {
+    const handleNumChange = (e) => {
         e.preventDefault();
-        setData({[e.target.name]: e.target.value })
+        setData({[e.target.name]: parseInt(e.target.value) })
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-        await db
+            await db
                 .collection('collection_list')
                 .doc(id)
                 .set(data, { merge: true });
@@ -22,15 +22,15 @@ function EditCollectionName({ id, name }) {
         } catch (error) { console.log(error); }
     }
 
-    const renderEditName = () => {
+    const renderEditIndex = () => {
         if (edit) {
             return (
-                <div className="edit-collection-name">
+                <div>
                     <form onSubmit={handleSubmit}>
                         <label>
-                            <input type="text" name="name" placeholder={name}
-                                value={data.name} 
-                                onChange={handleChange}/>
+                            <input type="number" name="index" 
+                                value={data.index} 
+                                onChange={handleNumChange}/>
                         </label>
                         <input type="submit" value="Save" />
                     </form>
@@ -39,17 +39,16 @@ function EditCollectionName({ id, name }) {
         }
         else {
             return (
-                <div className="edit-collection-name">
-                    <p>Name:</p>
-                    <p>{name}</p>
+                <div className="edit-collection-index">
+                    <p className="edit-collection-index__index">{index}</p>
                     <button onClick={() => setEdit(true)}>Edit</button>
                 </div>   
             )
         }
     }
     return (
-        <div>{renderEditName()}</div>
+        <div>{renderEditIndex()}</div>
     )
 }
 
-export default EditCollectionName;
+export default EditCollectionIndex;

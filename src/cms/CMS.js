@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import './CMS.css';
 import NewUpload from './NewUpload';
 import './NewUpload.css';
 import NewCollection from './NewCollection';
@@ -9,7 +10,7 @@ import EditProfile from './EditProfile';
 import './EditProfile.css';
 import CMSMenu from './CMSMenu';
 import './CMSMenu.css';
-import { CMSPageContext } from './contexts/CMSPageContext';
+import { CMSPageContext } from '../contexts/CMSPageContext';
 import NewUploadLoading from './NewUploadLoading';
 import NewCollectionLoading from './NewCollectionLoading';
 import { Link } from "react-router-dom";

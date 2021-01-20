@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import EditCollectionName from './EditCollectionName';
 import EditCollectionDescription from './EditCollectionDescription';
 import EditCollectionIndex from './EditCollectionIndex';
-import { db } from './firebase';
+import { db } from '../firebase';
 
 import EditArtwork from './EditArtwork';
 import './EditArtwork.css';

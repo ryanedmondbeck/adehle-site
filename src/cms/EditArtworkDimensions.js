@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { db } from './firebase';
-import './EditCollectionDescription.css';
+import { db } from '../firebase';
+import './EditArtworkDimensions.css';
 
-function EditCollectionDescription({ id, description }) {
+function EditArtworkDimensions({ collID, artID, dimensions}) {
     const [edit, setEdit] = useState(false);
     const [data, setData] = useState({});
         
@@ -12,28 +12,27 @@ function EditCollectionDescription({ id, description }) {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log(i
         try {
             await db
                 .collection('collection_list')
-                .doc(id)
+                .doc(collID)
+                .collection('collection')
+                .doc(artID)
                 .set(data, { merge: true });
             // console.log(res);
             setEdit(false);
         } catch (error) { console.log(error); }
     }
 
-    const renderEditDescription = () => {
+    const renderEditDimensions = () => {
         if (edit) {
             return (
-                <div className="edit-collection-description">
+                <div className="edit-artwork-dimensions">
                     <form onSubmit={handleSubmit}>
                         <label>
-                            <textarea 
-                                className="edit-collection-description__text-area"
-                                type="text" name="description" 
-                                value={data.description} 
-                                onChange={handleChange}>{description}</textarea>
+                            <textarea type="text" name="dimensions" 
+                                value={data.dimensions} 
+                                onChange={handleChange}>{dimensions}</textarea>
                         </label>
                         <input type="submit" value="Save" />
                     </form>
@@ -42,17 +41,17 @@ function EditCollectionDescription({ id, description }) {
         }
         else {
             return (
-                <div className="edit-collection-description">
-                    <p>Description:</p>
-                    <p>{description}</p>
+                <div className="edit-artwork-dimensions">
+                    <p>Dimensions:</p>
+                    <p>{dimensions}</p>
                     <button onClick={() => setEdit(true)}>Edit</button>
                 </div>   
             )
         }
     }
     return (
-        <div>{renderEditDescription()}</div>
+        <div>{renderEditDimensions()}</div>
     )
 }
 
-export default EditCollectionDescription;
+export default EditArtworkDimensions;

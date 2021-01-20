@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createRef, useContext } from 'react';
-import { db, storage } from './firebase';
-import { CMSPageContext } from './contexts/CMSPageContext';
+import { db, storage } from '../firebase';
+import { CMSPageContext } from '../contexts/CMSPageContext';
 
 function useLists() {
     const [collectionList, setCollectionList] = useState([]);

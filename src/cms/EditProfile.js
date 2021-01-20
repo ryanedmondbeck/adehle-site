@@ -1,6 +1,6 @@
 import React, { useEffect, useState, createRef, useContext } from 'react'
-import firebase, { db, storage } from './firebase';
-import { CMSPageContext } from './contexts/CMSPageContext';
+import firebase, { db, storage } from '../firebase';
+import { CMSPageContext } from '../contexts/CMSPageContext';
 
 function useBio() {
     const [bio, setBio] = useState([]);
@@ -84,7 +84,7 @@ function EditProfile() {
 
     const handleImSubmit = async (e) => {
         e.preventDefault();
-        setCmsPage('loading');
+        setCmsPage('loading'); 
         //delete the old image from image storage
         console.log("deleting " + pname[0] + " from storage.");
         storage.ref(pname[0]).delete()

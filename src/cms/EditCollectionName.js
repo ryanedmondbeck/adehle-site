@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { db } from './firebase';
-import './EditArtworkDimensions.css';
+import { db } from '../firebase';
+import './EditCollectionName.css';
 
-function EditArtworkDimensions({ collID, artID, dimensions}) {
+function EditCollectionName({ id, name }) {
     const [edit, setEdit] = useState(false);
     const [data, setData] = useState({});
         
@@ -13,26 +13,24 @@ function EditArtworkDimensions({ collID, artID, dimensions}) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await db
+        await db
                 .collection('collection_list')
-                .doc(collID)
-                .collection('collection')
-                .doc(artID)
+                .doc(id)
                 .set(data, { merge: true });
             // console.log(res);
             setEdit(false);
         } catch (error) { console.log(error); }
     }
 
-    const renderEditDimensions = () => {
+    const renderEditName = () => {
         if (edit) {
             return (
-                <div className="edit-artwork-dimensions">
+                <div className="edit-collection-name">
                     <form onSubmit={handleSubmit}>
                         <label>
-                            <textarea type="text" name="dimensions" 
-                                value={data.dimensions} 
-                                onChange={handleChange}>{dimensions}</textarea>
+                            <input type="text" name="name" placeholder={name}
+                                value={data.name} 
+                                onChange={handleChange}/>
                         </label>
                         <input type="submit" value="Save" />
                     </form>
@@ -41,17 +39,17 @@ function EditArtworkDimensions({ collID, artID, dimensions}) {
         }
         else {
             return (
-                <div className="edit-artwork-dimensions">
-                    <p>Dimensions:</p>
-                    <p>{dimensions}</p>
+                <div className="edit-collection-name">
+                    <p>Name:</p>
+                    <p>{name}</p>
                     <button onClick={() => setEdit(true)}>Edit</button>
                 </div>   
             )
         }
     }
     return (
-        <div>{renderEditDimensions()}</div>
+        <div>{renderEditName()}</div>
     )
 }
 
-export default EditArtworkDimensions;
+export default EditCollectionName;

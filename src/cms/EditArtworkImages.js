@@ -1,5 +1,5 @@
 import React, { useState, createRef } from 'react';
-import { db, storage } from './firebase';
+import { db, storage } from '../firebase';
 import './EditArtworkImages.css';
 
 function EditArtworkImages({ collID, artID, images, urls }) {

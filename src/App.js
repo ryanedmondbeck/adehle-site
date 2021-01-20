@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Portfolio from './Portfolio';
-import CMS from './CMS';
-import './CMS.css';
+import CMS from './cms/CMS';
 import About from './About';
-import CMSLoggin from './CMSLoggin';
+import CMSLoggin from './cms/CMSLoggin';
 import Splash from './Splash';
 import { ArtworkProvider } from './contexts/ArtworkContext';
 // import { render } from '@testing-library/react';
@@ -25,16 +24,16 @@ function App() {
     
 
     const toCMS = () => {
-        if (auth) {   
+        // if (auth) {   
             return (
                 <CMSPageProvider>
                     <CMS />
                 </CMSPageProvider>
             )
-        }
-        else {
-            return (<CMSLoggin setAuth={setAuth} />);
-        }
+        // }
+        // else {
+        //     return (<CMSLoggin setAuth={setAuth} />);
+        // }
     }
 
     const [width, setWidth] = useState();

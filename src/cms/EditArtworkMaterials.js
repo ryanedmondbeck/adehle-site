@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { db } from './firebase';
-import './EditArtworkIndex.css';
+import { db } from '../firebase';
+import './EditArtworkMaterials.css';
 
-function EditArtworkIndex({ collID, artID, index}) {
+function EditArtworkMaterials({ collID, artID, materials}) {
     const [edit, setEdit] = useState(false);
     const [data, setData] = useState({});
         
-    const handleNumChange = (e) => {
+    const handleChange = (e) => {
         e.preventDefault();
-        setData({[e.target.name]: parseInt(e.target.value) })
+        setData({[e.target.name]: e.target.value })
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,15 +24,15 @@ function EditArtworkIndex({ collID, artID, index}) {
         } catch (error) { console.log(error); }
     }
 
-    const renderEditIndex = () => {
+    const renderEditMaterials = () => {
         if (edit) {
             return (
-                <div>
+                <div className="edit-artwork-materials">
                     <form onSubmit={handleSubmit}>
                         <label>
-                            <input type="number" name="index" 
-                                value={data.index} 
-                                onChange={handleNumChange}/>
+                            <textarea type="text" name="materials" 
+                                value={data.materials} 
+                                onChange={handleChange}>{materials}</textarea>
                         </label>
                         <input type="submit" value="Save" />
                     </form>
@@ -41,16 +41,17 @@ function EditArtworkIndex({ collID, artID, index}) {
         }
         else {
             return (
-                <div>
-                    <p className="edit-artwork-index__index">{index}</p>
+                <div className="edit-artwork-materials">
+                    <p>Materials:</p>
+                    <p>{materials}</p>
                     <button onClick={() => setEdit(true)}>Edit</button>
                 </div>   
             )
         }
     }
     return (
-        <div>{renderEditIndex()}</div>
+        <div>{renderEditMaterials()}</div>
     )
 }
 
-export default EditArtworkIndex;
+export default EditArtworkMaterials;

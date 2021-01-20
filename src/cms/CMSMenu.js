@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { CMSPageContext } from './contexts/CMSPageContext';
+import { CMSPageContext } from '../contexts/CMSPageContext';
 
 function CMSMenu() {
     const [cmsPage, setCmsPage] = useContext(CMSPageContext);

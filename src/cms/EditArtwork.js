@@ -5,7 +5,7 @@ import EditArtworkMaterials from './EditArtworkMaterials';
 import EditArtworkIndex from './EditArtworkIndex';
 import EditArtworkImages from './EditArtworkImages';
 
-import firebase, { db } from './firebase';
+import firebase, { db } from '../firebase';
 
 function useCollection(collectionID) {
     const [collection, setCollection] = useState([]);

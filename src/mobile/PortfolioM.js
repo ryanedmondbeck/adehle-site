@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import './PortfolioM.css';
 import CollectionListM from './CollectionListM';
 // import CloseIcon from '@material-ui/icons/Close';

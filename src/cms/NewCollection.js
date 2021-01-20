@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { db } from './firebase';
-import { CMSPageContext } from './contexts/CMSPageContext';
+import { db } from '../firebase';
+import { CMSPageContext } from '../contexts/CMSPageContext';
 
 function NewCollection() {
     const [form, setForm] = useState({
