@@ -22,7 +22,7 @@ function useLists() {
     return collectionList;
 }
 
-function CollectionList() {
+function CollectionList({ setTransition }) {
     const [expanded, setExpanded] = useState({});
     const [show, setShow] = useState(true);
     
@@ -56,6 +56,7 @@ function CollectionList() {
                     description={coll.description} 
                     expanded={expanded} 
                     setParentShow={setParentShow}
+                    setTransition={setTransition}
                 />
             </div>
         ));

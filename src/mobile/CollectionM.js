@@ -26,7 +26,7 @@ function useCollection(collectionID) {
     return collection;
 }
 
-function Collection({ collectionID, description, expanded, setParentShow }) {
+function Collection({ collectionID, description, expanded, setParentShow, setTransition }) {
 
     const collection = useCollection(collectionID);
 
@@ -38,7 +38,7 @@ function Collection({ collectionID, description, expanded, setParentShow }) {
         return images;
     }
 
-    const renderPurchaseOption = (purchase, title, dimensions, materials) => {
+    const renderPurchaseOption = (purchase, title, dimensions, materials, id, index, imurl) => {
         if (purchase) {
             return (
                 <div>
@@ -48,7 +48,10 @@ function Collection({ collectionID, description, expanded, setParentShow }) {
                             purchase: purchase,
                             title: title,
                             dimensions: dimensions,
-                            materials: materials
+                            materials: materials,
+                            id: id,
+                            index: index,
+                            imurl: imurl
                         }
                     }}>Available for purchase -- see details</Link>
                 </div>
@@ -69,7 +72,7 @@ function Collection({ collectionID, description, expanded, setParentShow }) {
                 <div className="collection-m__art__description">
                     <p>{art.dimensions}</p>
                     <p>{art.materials} </p>
-                    {renderPurchaseOption(art.purchase, art.title, art.dimensions, art.materials)}
+                    {renderPurchaseOption(art.purchase, art.title, art.dimensions, art.materials, art.id, art.index, art.imurl)}
                 </div>
             </div>
         ));

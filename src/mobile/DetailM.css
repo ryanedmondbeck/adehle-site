@@ -1,0 +1,17 @@
+.detail-m {
+    margin: 5%;
+    display: flex;
+    flex-direction: row;
+}
+.detail-m__left {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+}
+.detail-m__left > img {
+    width: 100%;
+}
+.detail-m__right {
+    margin-left: 5%;
+    max-width: 50%;
+}

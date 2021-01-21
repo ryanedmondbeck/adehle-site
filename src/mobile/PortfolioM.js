@@ -19,7 +19,7 @@ function Portfolio({ setTransition, p, setP }) {
                 <Link onClick={() => setTransition('pts')} className="portfolio-m__header__adehle" to="/"><ArrowForwardIosIcon fontSize="small"/></Link>
             </div>
             <div className="portfolio-m__content">
-                <CollectionListM />
+                <CollectionListM setTransition={setTransition} />
             </div>
         </div>
     )
