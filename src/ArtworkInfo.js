@@ -4,11 +4,11 @@ import { ArtworkContext } from './contexts/ArtworkContext';
 
 function ArtworkInfo({ dimensions, materials, id, show, purchase }) {
     const [artwork] = useContext(ArtworkContext);
-    
+
     const renderPurchaseOption = () => {
         if (purchase) {
             return (
-                <button>Available for purchase -- see options</button>
+                <button>Available for purchase -- see details</button>
             )
         }
         else {

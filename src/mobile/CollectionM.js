@@ -39,7 +39,7 @@ function Collection({ collectionID, description, expanded, setParentShow }) {
     const renderPurchaseOption = (purchase) => {
         if (purchase) {
             return (
-                <button>Available for purchase -- see options</button>
+                <button>Available for purchase -- see details</button>
             )
         }
         else {
