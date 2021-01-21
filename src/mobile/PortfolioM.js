@@ -6,7 +6,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { Link } from "react-router-dom";
 
 function Portfolio({ setTransition, p, setP }) {
-    console.log('mobile portfolio page');
+    // console.log('mobile portfolio page');
 
     // useEffect(() => {
     //     window.scrollTo(0, 0)

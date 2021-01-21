@@ -9,12 +9,13 @@ import { ArtworkProvider } from './contexts/ArtworkContext';
 // import { render } from '@testing-library/react';
 import { CMSPageProvider } from './contexts/CMSPageContext';
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Switch, Route, useLocation, useRouteMatch } from "react-router-dom";
 // import SketchSplash from './SketchSplash';
 
 import PortfolioM from './mobile/PortfolioM.js';
 import SplashM from './mobile/SplashM.js';
 import AboutM from './mobile/AboutM.js';
+import DetailM from './mobile/DetailM';
 
 function App() {
     let location = useLocation();
@@ -50,7 +51,7 @@ function App() {
             window.removeEventListener('resize', handleResize)
         }
     });
-    
+    let { path, url } = useRouteMatch();
     if (isMobile) {
         return (
             <div className="fade">
@@ -69,6 +70,12 @@ function App() {
                                 </Route>
                                 <Route path="/cms">
                                     {toCMS()}
+                                </Route>
+                                {/* <Route path={`${path}/purchase`}>
+                                    <DetailM />
+                                </Route> */}
+                                <Route path="/detail-mobile">
+                                    <DetailM />
                                 </Route>
                                 <Route exact path="/">
                                     <SplashM setTransition={setTransition} />

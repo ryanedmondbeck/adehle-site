@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './CollectionM.css';
 import firebase from '../firebase';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import { Link } from "react-router-dom";
 
 function useCollection(collectionID) {
     const [collection, setCollection] = useState([]);
@@ -36,10 +37,21 @@ function Collection({ collectionID, description, expanded, setParentShow }) {
         }
         return images;
     }
-    const renderPurchaseOption = (purchase) => {
+
+    const renderPurchaseOption = (purchase, title, dimensions, materials) => {
         if (purchase) {
             return (
-                <button>Available for purchase -- see details</button>
+                <div>
+                    <Link to={{
+                        pathname: '/detail-mobile',
+                        state: {
+                            purchase: purchase,
+                            title: title,
+                            dimensions: dimensions,
+                            materials: materials
+                        }
+                    }}>Available for purchase -- see details</Link>
+                </div>
             )
         }
         else {
@@ -57,7 +69,7 @@ function Collection({ collectionID, description, expanded, setParentShow }) {
                 <div className="collection-m__art__description">
                     <p>{art.dimensions}</p>
                     <p>{art.materials} </p>
-                    {renderPurchaseOption(art.purchase)}
+                    {renderPurchaseOption(art.purchase, art.title, art.dimensions, art.materials)}
                 </div>
             </div>
         ));
