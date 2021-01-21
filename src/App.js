@@ -54,7 +54,7 @@ function App() {
     let { path, url } = useRouteMatch();
     if (isMobile) {
         return (
-            <div className="fade">
+            // <div className="fade">
                 <TransitionGroup childFactory={child => React.cloneElement(child, { 
                     classNames: transition,
                     timeout: 750
@@ -75,7 +75,7 @@ function App() {
                                     <DetailM />
                                 </Route> */}
                                 <Route path="/detail-mobile">
-                                    <DetailM />
+                                    <DetailM setTransition={setTransition} />
                                 </Route>
                                 <Route exact path="/">
                                     <SplashM setTransition={setTransition} />
@@ -85,7 +85,7 @@ function App() {
                         </div>
                     </CSSTransition>
                 </TransitionGroup>
-            </div>
+            // </div>
         )
     }
     else {

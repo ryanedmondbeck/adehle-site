@@ -3,9 +3,19 @@
     display: flex;
     flex-direction: column;
 }
+.detail-m__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.detail-m > p {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
 .detail-m__preview {
     display: flex;
     flex-direction: row;
+    margin-bottom: 1em;
 }
 .detail-m__left {
     display: flex;
@@ -18,4 +28,11 @@
 .detail-m__right {
     margin-left: 5%;
     max-width: 50%;
+}
+.detail-m__right > p {
+    margin-bottom: 0.8em;
+}
+.detail-m__email > p {
+    font-size: 1em;
+    margin-bottom: 0.5em;
 }

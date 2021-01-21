@@ -38,23 +38,23 @@ function Collection({ collectionID, description, expanded, setParentShow, setTra
         return images;
     }
 
-    const renderPurchaseOption = (purchase, title, dimensions, materials, id, index, imurl) => {
+    const renderPurchaseOption = (purchase, title, dimensions, materials, price, id, index, imurl) => {
         if (purchase) {
             return (
-                <div>
-                    <Link to={{
+                <Link onClick={() => setTransition('ptd')} 
+                    to={{
                         pathname: '/detail-mobile',
                         state: {
                             purchase: purchase,
                             title: title,
                             dimensions: dimensions,
                             materials: materials,
+                            price: price,
                             id: id,
                             index: index,
                             imurl: imurl
-                        }
-                    }}>Available for purchase -- see details</Link>
-                </div>
+                    }
+                }} >Available for purchase -- see details</Link>
             )
         }
         else {
@@ -72,7 +72,7 @@ function Collection({ collectionID, description, expanded, setParentShow, setTra
                 <div className="collection-m__art__description">
                     <p>{art.dimensions}</p>
                     <p>{art.materials} </p>
-                    {renderPurchaseOption(art.purchase, art.title, art.dimensions, art.materials, art.id, art.index, art.imurl)}
+                    {renderPurchaseOption(art.purchase, art.title, art.dimensions, art.materials, art.price, art.id, art.index, art.imurl)}
                 </div>
             </div>
         ));
