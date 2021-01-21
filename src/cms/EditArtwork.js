@@ -5,6 +5,7 @@ import EditArtworkMaterials from './EditArtworkMaterials';
 import EditArtworkIndex from './EditArtworkIndex';
 import EditArtworkImages from './EditArtworkImages';
 import EditArtworkPurchaseOption from './EditArtworkPurchaseOption';
+import EditArtworkPrice from './EditArtworkPrice';
 
 import firebase, { db } from '../firebase';
 
@@ -65,6 +66,9 @@ function EditArtwork({ collectionID, expanded }) {
                         </div>
                         <div>
                             <EditArtworkMaterials collID={collectionID} artID={art.id} materials={art.materials}/>
+                        </div>
+                        <div>
+                            <EditArtworkPrice collID={collectionID} artID={art.id} price={art.price}/>
                         </div>
                         <div>
                             <EditArtworkPurchaseOption collID={collectionID} artID={art.id} purchase={art.purchase}/>

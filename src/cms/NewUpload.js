@@ -26,6 +26,7 @@ function NewUpload() {
         title: '',
         dimensions: '',
         materials: '',
+        price: 0,
         purchase: false,
         index: 0,
         images: [],
@@ -145,6 +146,12 @@ function NewUpload() {
                     <input type="text" name="materials" placeholder="Materials"
                     value={form.materials} 
                     onChange={handleChange} />
+                </label>
+                <label>
+                    <p>Price</p>
+                    <input type="number" name="price"
+                    value={form.price} 
+                    onChange={handleNumChange} />
                 </label>
                 <label>
                     <select 

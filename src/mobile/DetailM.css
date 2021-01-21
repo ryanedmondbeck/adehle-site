@@ -1,6 +1,10 @@
 .detail-m {
     margin: 5%;
     display: flex;
+    flex-direction: column;
+}
+.detail-m__preview {
+    display: flex;
     flex-direction: row;
 }
 .detail-m__left {
