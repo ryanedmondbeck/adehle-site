@@ -50,7 +50,7 @@ function EditArtworkTitle({ collID, artID, title}) {
         }
     }
     return (
-        <div>{renderEditTitle()}</div>
+        renderEditTitle()
     )
 }
 

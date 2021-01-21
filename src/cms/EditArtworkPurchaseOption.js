@@ -59,7 +59,7 @@ function EditArtworkPurchaseOption({ collID, artID, purchase}) {
         }
     }
     return (
-        <div>{renderPurchaseOption()}</div>
+        renderPurchaseOption()
     )
 }
 

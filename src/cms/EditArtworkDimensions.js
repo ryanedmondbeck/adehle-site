@@ -50,7 +50,7 @@ function EditArtworkDimensions({ collID, artID, dimensions}) {
         }
     }
     return (
-        <div>{renderEditDimensions()}</div>
+        renderEditDimensions()
     )
 }
 

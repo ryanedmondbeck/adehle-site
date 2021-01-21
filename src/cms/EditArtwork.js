@@ -58,21 +58,11 @@ function EditArtwork({ collectionID, expanded }) {
                         <EditArtworkIndex collID={collectionID} artID={art.id} index={art.index}/>
                     </div>
                     <div className="edit-artwork__right">
-                        <div>
-                            <EditArtworkTitle collID={collectionID} artID={art.id} title={art.title}/>
-                        </div>
-                        <div>
-                            <EditArtworkDimensions collID={collectionID} artID={art.id} dimensions={art.dimensions}/>
-                        </div>
-                        <div>
-                            <EditArtworkMaterials collID={collectionID} artID={art.id} materials={art.materials}/>
-                        </div>
-                        <div>
-                            <EditArtworkPrice collID={collectionID} artID={art.id} price={art.price}/>
-                        </div>
-                        <div>
-                            <EditArtworkPurchaseOption collID={collectionID} artID={art.id} purchase={art.purchase}/>
-                        </div>
+                        <EditArtworkTitle collID={collectionID} artID={art.id} title={art.title}/>
+                        <EditArtworkDimensions collID={collectionID} artID={art.id} dimensions={art.dimensions}/>
+                        <EditArtworkMaterials collID={collectionID} artID={art.id} materials={art.materials}/>
+                        <EditArtworkPrice collID={collectionID} artID={art.id} price={art.price}/>
+                        <EditArtworkPurchaseOption collID={collectionID} artID={art.id} purchase={art.purchase}/>
                     </div>
                 </div>
                 <div className="edit-artwork__images">

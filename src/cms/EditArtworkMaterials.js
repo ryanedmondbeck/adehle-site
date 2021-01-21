@@ -50,7 +50,7 @@ function EditArtworkMaterials({ collID, artID, materials}) {
         }
     }
     return (
-        <div>{renderEditMaterials()}</div>
+        renderEditMaterials()
     )
 }
 
