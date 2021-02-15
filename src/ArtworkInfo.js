@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import './ArtworkInfo.css';
 import { ArtworkContext } from './contexts/ArtworkContext';
 
-function ArtworkInfo({ dimensions, materials, id, show, purchase }) {
+function ArtworkInfo({ detail, setDetail, dimensions, materials, id, show, purchase }) {
     const [artwork] = useContext(ArtworkContext);
 
     const renderPurchaseOption = () => {
         if (purchase) {
             return (
-                <button>Available for purchase -- see details</button>
+                <button onClick={() => setDetail(!detail)}>Available for purchase -- see details</button>
             )
         }
         else {

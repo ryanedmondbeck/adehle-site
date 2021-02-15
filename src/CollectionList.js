@@ -3,6 +3,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import Collection from './Collection';
 import './Collection.css';
 import { ArtworkContext } from './contexts/ArtworkContext';
+import Detail from './Detail';
 
 import firebase from './firebase';
 
@@ -28,12 +29,16 @@ function useLists() {
 function CollectionList() {
     const [, setArtwork] = useContext(ArtworkContext);
     const [expanded, setExpanded] = useState({});
+    const [detail, setDetail] = useState(false);
+    const [price, setPrice] = useState();
+    const [title, setTitle] = useState();
     
     // useEffect(() => {
     //     setTimeout(() => {console.log(expanded);}, 2000);
     // })
  
     const handleClick = (id) => {
+        setDetail(false);
         setArtwork(null);
         if (expanded === id) {
             setExpanded(null);
@@ -55,15 +60,21 @@ function CollectionList() {
                     collectionID={coll.id} 
                     description={coll.description} 
                     expanded={expanded} 
+                    detail={detail}
+                    setDetail={setDetail}
+                    setPrice={setPrice}
+                    setTitle={setTitle}
                 />
             </div>
         ));
         return collection_list_accordion;
     }
-
     return (
         <div className="collectionList">
             {renderCollectionList()}
+            <div className={`detail ${(detail) ? "" : "detail--collapsed"}`}>
+                <Detail detail={detail} price={price} title={title} />
+            </div>
         </div>
     )
 }

@@ -25,16 +25,16 @@ function App() {
     
 
     const toCMS = () => {
-        // if (auth) {   
+        if (auth) {   
             return (
                 <CMSPageProvider>
                     <CMS />
                 </CMSPageProvider>
             )
-        // }
-        // else {
-        //     return (<CMSLoggin setAuth={setAuth} />);
-        // }
+        }
+        else {
+            return (<CMSLoggin setAuth={setAuth} />);
+        }
     }
 
     const [width, setWidth] = useState();
@@ -71,9 +71,6 @@ function App() {
                                 <Route path="/cms">
                                     {toCMS()}
                                 </Route>
-                                {/* <Route path={`${path}/purchase`}>
-                                    <DetailM />
-                                </Route> */}
                                 <Route path="/detail-mobile">
                                     <DetailM setTransition={setTransition} />
                                 </Route>

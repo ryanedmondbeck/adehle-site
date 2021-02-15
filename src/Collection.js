@@ -25,11 +25,14 @@ function useCollection(collectionID) {
     return collection;
 }
 
-function Collection({ collectionID, description, expanded }) {
+function Collection({ collectionID, description, expanded, detail, setDetail, setPrice, setTitle}) {
     const [, setArtwork] = useContext(ArtworkContext);
     const [show, setShow] = useState({});
 
-    const handleClick = (collID, artID, materials, dimensions, images, imurl) => {
+    const handleClick = (collID, artID, materials, dimensions, images, imurl, price, title) => {
+        setDetail(false);
+        setPrice(price);
+        setTitle(title);
         setArtwork({collID, artID, materials, dimensions, images, imurl, index: 0});
         if (show === artID) {
             setShow(null);
@@ -50,14 +53,18 @@ function Collection({ collectionID, description, expanded }) {
                     art.materials, 
                     art.dimensions, 
                     art.images,
-                    art.imurl
+                    art.imurl,
+                    art.price,
+                    art.title
                 )}>{art.title}</button>
                 <ArtworkInfo 
+                    detail={detail}
+                    setDetail={setDetail}
                     dimensions={art.dimensions} 
                     materials={art.materials} 
                     id={art.id}
                     show={show}
-                    purchase={art.purchase} />
+                    purchase={art.purchase}/>
             </div>
         ));
         return artwork_list;
@@ -68,7 +75,6 @@ function Collection({ collectionID, description, expanded }) {
                 <p>{description}</p>
             </div>
             <div className={`collection ${(expanded === collectionID) ? "" : "collection--collapsed"}`}>
-                {/* <p>Artwork:</p> */}
                 {renderCollection()}
             </div>
         </div>
