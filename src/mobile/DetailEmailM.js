@@ -8,17 +8,31 @@ function DetailEmailM({ title, price, setTransition}) {
 
     emailjs.init("user_4knm2h4SRCFyntFJjrMFB");
 
+    const validEmail = (email) => {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
     const sendEmail = (e) => {
         e.preventDefault();
-        setStatus('loading');
-        console.log('sending email...');
-        emailjs.sendForm('contact_service', 'contact_template', e.target, 'user_4knm2h4SRCFyntFJjrMFB')
-            .then((result) => {
-                setStatus('sent');
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-        });
+        if (e.target.from_name.value && e.target.user_email.value && e.target.message.value) {
+            if (validEmail(e.target.user_email.value)) {
+                setStatus('loading');
+                console.log('sending email...');
+                emailjs.sendForm('contact_service', 'contact_template', e.target, 'user_4knm2h4SRCFyntFJjrMFB')
+                    .then((result) => {
+                        setStatus('sent');
+                        console.log(result.text);
+                    }, (error) => {
+                        console.log(error.text);
+                });
+            }
+            else{
+                alert("Please enter a valid email address.")
+            }
+        }
+        else {
+            alert("Please fill out all fields of form before sending.")
+        }
     }
     if (status === 'loading') {
         return (
