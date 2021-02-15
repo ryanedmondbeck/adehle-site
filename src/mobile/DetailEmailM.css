@@ -1,0 +1,45 @@
+.detail-email-m {
+    width: 100%;
+    max-width: 100%;
+    font-size: 1em;
+}
+.detail-email-m > input {
+    font-family: 'UxumR';
+    box-sizing: border-box;
+    height: 1.75em;
+    width: 100%;
+    max-width: 100%;
+    padding: 5px;
+    margin-bottom: 1em;
+}
+.detail-email-m > textarea {
+    font-family: 'UxumR';
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    height: 15vh;
+    padding: 5px;
+    margin-bottom: 1em;
+}
+.detail-email-m__send {
+    height: 3em;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: white;
+    appearance: none;
+    font-family: 'UxumR';
+    border-width: 1px;
+    border-color: rgb(118, 118, 118);
+    color: rgb(0,0,0)
+}
+.detail-email-m--loading {
+    font-size: 0.8em;
+}
+.detail-email-m--sent > p {
+    font-size: 1em;
+    margin-bottom: 0.5em;
+}
+.detail-email-m--sent > a {
+    font-size: 1em;
+}
