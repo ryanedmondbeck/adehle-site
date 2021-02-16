@@ -32,13 +32,11 @@ function CollectionList() {
     const [detail, setDetail] = useState(false);
     const [price, setPrice] = useState();
     const [title, setTitle] = useState();
-    
-    // useEffect(() => {
-    //     setTimeout(() => {console.log(expanded);}, 2000);
-    // })
+    const [status, setStatus] = useState('empty');
  
     const handleClick = (id) => {
         setDetail(false);
+        setTimeout(() => setStatus('empty'), 2000);
         setArtwork(null);
         if (expanded === id) {
             setExpanded(null);
@@ -64,6 +62,8 @@ function CollectionList() {
                     setDetail={setDetail}
                     setPrice={setPrice}
                     setTitle={setTitle}
+                    status={status}
+                    setStatus={setStatus}
                 />
             </div>
         ));
@@ -73,7 +73,7 @@ function CollectionList() {
         <div className="collectionList">
             {renderCollectionList()}
             <div className={`detail ${(detail) ? "" : "detail--collapsed"}`}>
-                <Detail detail={detail} price={price} title={title} />
+                <Detail detail={detail} price={price} title={title} status={status} setStatus={setStatus}/>
             </div>
         </div>
     )

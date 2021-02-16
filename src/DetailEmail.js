@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import './DetailEmail.css';
 import emailjs from 'emailjs-com';
 
-function DetailEmail({ title, price, setTransition}) {
-    const [status, setStatus] = useState();
-
+function DetailEmail({ title, price, status, setStatus }) {
     emailjs.init("user_4knm2h4SRCFyntFJjrMFB");
 
     const validEmail = (email) => {
@@ -17,13 +15,14 @@ function DetailEmail({ title, price, setTransition}) {
             if (validEmail(e.target.user_email.value)) {
                 setStatus('loading');
                 console.log('sending email...');
-                emailjs.sendForm('contact_service', 'contact_template', e.target, 'user_4knm2h4SRCFyntFJjrMFB')
-                    .then((result) => {
-                        setStatus('sent');
-                        console.log(result.text);
-                    }, (error) => {
-                        console.log(error.text);
-                });
+                setStatus('sent');
+                // emailjs.sendForm('contact_service', 'contact_template', e.target, 'user_4knm2h4SRCFyntFJjrMFB')
+                //     .then((result) => {
+                //         setStatus('sent');
+                //         console.log(result.text);
+                //     }, (error) => {
+                //         console.log(error.text);
+                // });
             }
             else{
                 alert("Please enter a valid email address.")

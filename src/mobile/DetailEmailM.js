@@ -4,7 +4,7 @@ import emailjs from 'emailjs-com';
 import { Link } from "react-router-dom";
 
 function DetailEmailM({ title, price, setTransition}) {
-    const [status, setStatus] = useState();
+    const [status, setStatus] = useState('empty');
 
     emailjs.init("user_4knm2h4SRCFyntFJjrMFB");
 

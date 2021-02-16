@@ -25,12 +25,13 @@ function useCollection(collectionID) {
     return collection;
 }
 
-function Collection({ collectionID, description, expanded, detail, setDetail, setPrice, setTitle}) {
+function Collection({ collectionID, description, expanded, detail, setDetail, setPrice, setTitle, status, setStatus }) {
     const [, setArtwork] = useContext(ArtworkContext);
     const [show, setShow] = useState({});
 
     const handleClick = (collID, artID, materials, dimensions, images, imurl, price, title) => {
         setDetail(false);
+        setTimeout(() => setStatus('empty'), 2000);
         setPrice(price);
         setTitle(title);
         setArtwork({collID, artID, materials, dimensions, images, imurl, index: 0});
