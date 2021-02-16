@@ -25,7 +25,9 @@
     margin-bottom: 1em;
 }
 .about-m__social {
-    justify-content: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5% 0 5%;
 }
 .about-m__social > a {
     margin-right: 3%;

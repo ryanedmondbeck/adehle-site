@@ -29,10 +29,6 @@ function useBio() {
 
 function About({ setTransition }) {
 
-    useEffect(() => {
-        setTimeout(() => {setTransition('ats')}, 1000);
-    })
-
     const info = useBio();
     const bio = info.map(a => (a.bio));
     const image = info.map(a => (a.url));
@@ -48,10 +44,10 @@ function About({ setTransition }) {
             <div className="about-m__bottom">
                 <p>{bio}</p>
                 <div className="about-m__social">
-                    <a href="mailto:adehlerose@gmail.com"><EmailIcon /></a>
                     <a href="https://www.instagram.com/adehledaley/" target="_blank" rel="noopener noreferrer"><InstagramIcon /></a>
                     <a href="https://www.facebook.com/pages/category/Artist/Adehle-Daley-Paintings-663358720698293/" 
                         target="_blank" rel="noopener noreferrer"><FacebookIcon /></a>
+                    <Link onClick={() => setTransition('sta')} className="portfolio__header__adehle" to="/about-email-mobile"><EmailIcon /></Link>
                 </div>
             </div>
         </div>

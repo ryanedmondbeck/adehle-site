@@ -1,9 +1,10 @@
-.detail-email-m {
-    width: 100%;
-    max-width: 100%;
+.about-email-m {
+    width: 90%;
+    max-width: 90%;
+    padding: 5%;
     font-size: 1em;
 }
-.detail-email-m > input {
+.about-email-m > input {
     font-family: 'UxumR';
     box-sizing: border-box;
     height: 1.75em;
@@ -12,7 +13,7 @@
     padding: 5px;
     margin-bottom: 1em;
 }
-.detail-email-m > textarea {
+.about-email-m > textarea {
     font-family: 'UxumR';
     box-sizing: border-box;
     width: 100%;
@@ -22,7 +23,8 @@
     padding: 5px;
     margin-bottom: 1em;
 }
-.detail-email-m__send {
+.about-email-m__send {
+    display: block;
     margin-top: -1%;
     height: 3em;
     padding: 5px;
@@ -34,13 +36,18 @@
     border-color: rgb(118, 118, 118);
     color: rgb(0,0,0)
 }
-.detail-email-m--loading {
-    font-size: 0.8em;
+.about-email-m--loading {
+    padding: 5%;
+    font-size: 1em;
 }
-.detail-email-m--sent > p {
+.about-email-m--sent {
+    padding: 5%;
+}
+.about-email-m--sent > p {
+    padding: 1em 0 0 0.5em;
     font-size: 1em;
     margin-bottom: 0.5em;
 }
-.detail-email-m--sent > a {
+.about-email-m--sent > a {
     font-size: 1em;
 }

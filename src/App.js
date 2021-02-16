@@ -16,6 +16,7 @@ import PortfolioM from './mobile/PortfolioM.js';
 import SplashM from './mobile/SplashM.js';
 import AboutM from './mobile/AboutM.js';
 import DetailM from './mobile/DetailM';
+import AboutEmailM from './mobile/AboutEmailM';
 
 function App() {
     let location = useLocation();
@@ -65,14 +66,17 @@ function App() {
                                 <Route path="/portfolio-mobile">
                                     <PortfolioM setTransition={setTransition} />
                                 </Route>
+                                <Route path="/detail-mobile">
+                                    <DetailM setTransition={setTransition} />
+                                </Route>
                                 <Route path="/about-mobile">
                                     <AboutM setTransition={setTransition} />
                                 </Route>
+                                <Route path="/about-email-mobile">
+                                    <AboutEmailM setTransition={setTransition} />
+                                </Route>
                                 <Route path="/cms">
                                     {toCMS()}
-                                </Route>
-                                <Route path="/detail-mobile">
-                                    <DetailM setTransition={setTransition} />
                                 </Route>
                                 <Route exact path="/">
                                     <SplashM setTransition={setTransition} />

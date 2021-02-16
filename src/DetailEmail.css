@@ -33,9 +33,10 @@
     margin-bottom: 1em;
 }
 .detail-email__send {
+    margin-top: -1%;
     appearance: none;
     outline: none;
-    height: 2.5em;
+    height: 2em;
     border-color: rgb(118, 118, 118);
     border-width: 1px;
     border-radius: 3px;
