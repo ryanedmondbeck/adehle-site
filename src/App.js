@@ -9,7 +9,7 @@ import { ArtworkProvider } from './contexts/ArtworkContext';
 // import { render } from '@testing-library/react';
 import { CMSPageProvider } from './contexts/CMSPageContext';
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
-import { Switch, Route, useLocation, useRouteMatch } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 // import SketchSplash from './SketchSplash';
 
 import PortfolioM from './mobile/PortfolioM.js';
@@ -51,8 +51,8 @@ function App() {
         return _ => {
             window.removeEventListener('resize', handleResize)
         }
-    });
-    let { path, url } = useRouteMatch();
+    }, [width]);
+    // let { path, url } = useRouteMatch();
     if (isMobile) {
         return (
             // <div className="fade">

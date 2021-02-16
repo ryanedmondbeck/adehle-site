@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './DetailEmail.css';
 import emailjs from 'emailjs-com';
 
