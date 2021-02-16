@@ -12,7 +12,7 @@ function Splash({ setTransition }) {
             </div>
             <div className="splash__bottom">
                 <p>ADEHLE DALEY</p>
-                <Link className="splash__button" to="/">EXPLORE</Link>
+                <Link onClick={() => setTransition('ste')} className="splash__button" to="/explore">EXPLORE</Link>
             </div>     
             <div className="splash__p5">
                 <SketchSplash />

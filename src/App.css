@@ -134,6 +134,24 @@ html, body, #app, #app>div, #root {
     transform: translate(-100vw, 0);
     transition: 0.5s ease-in-out;
 }
+/* from splash to explore transition --------------------------------------------- */
+.ste-enter {
+    position: absolute;
+    opacity: 0;
+}
+.ste-enter.ste-enter-active {
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+}
+.ste-exit {
+    position: absolute;
+    opacity: 1;
+}
+.ste-exit.ste-exit-active {
+    /* transform: translate(100vw, 0); */
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
 
 .fade {
     height: 100vh;

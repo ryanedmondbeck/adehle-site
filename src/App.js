@@ -3,6 +3,7 @@ import './App.css';
 import Portfolio from './Portfolio';
 import CMS from './cms/CMS';
 import About from './About';
+import Explore from './explore/Explore';
 import CMSLoggin from './cms/CMSLoggin';
 import Splash from './Splash';
 import { ArtworkProvider } from './contexts/ArtworkContext';
@@ -109,6 +110,9 @@ function App() {
                                 </Route>
                                 <Route path="/cms">
                                     {toCMS()}
+                                </Route>
+                                <Route exact path="/explore">
+                                    <Explore setTransition={setTransition} />
                                 </Route>
                                 <Route exact path="/">
                                     <Splash setTransition={setTransition} />
