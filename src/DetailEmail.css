@@ -28,7 +28,9 @@
     width: 100%;
     max-width: 100%;
     min-width: 100%;
+    min-height: 2em;
     height: 15vh;
+    max-height: 18vh;
     padding: 5px;
     margin-bottom: 1em;
 }

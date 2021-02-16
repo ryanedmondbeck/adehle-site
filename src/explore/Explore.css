@@ -3,5 +3,37 @@
     width: 100vw;
     max-width: 100vw;
     background-color: rgb(0,0,0);
-    color: rgb(255,255,255);
+}
+.explore__object {
+    width: 10%;
+    height: 10%;
+    border-radius: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255,255,255);
+    opacity: 0.5;
+
+    position: fixed;
+    animation: FloatAround 5s linear infinite;
+    -webkit-animation: FloatAround 20s linear infinite;
+    animation-play-state: running;
+    transition:  1s ease-in-out;
+    transition-delay: 0.3s;
+}
+.explore__object:hover {
+    width: 15%;
+    height: 15%;
+    animation-play-state: paused;
+    transition: 1s ease-in-out;
+    transition-delay: 0.3s;
+}
+
+@keyframes FloatAround {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(880px);
+    }
 }
