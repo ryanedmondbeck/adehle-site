@@ -3,8 +3,13 @@
     max-width: 100%;
     font-size: 1em;
 }
-.detail-email > input {
+.detail-email__input{
+    appearance: none;
+    outline: none;
     font-family: 'UxumR';
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: rgb(118, 118, 118);
     box-sizing: border-box;
     height: 1.75em;
     width: 100%;
@@ -12,8 +17,13 @@
     padding: 5px;
     margin-bottom: 1em;
 }
-.detail-email > textarea {
+.detail-email__text-area {
+    appearance: none;
+    outline: none;
     font-family: 'UxumR';
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: rgb(118, 118, 118);
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
@@ -23,15 +33,19 @@
     margin-bottom: 1em;
 }
 .detail-email__send {
-    height: 3em;
-    padding: 5px;
+    appearance: none;
+    outline: none;
+    height: 2.5em;
+    border-color: rgb(118, 118, 118);
+    border-width: 1px;
     border-radius: 3px;
     background-color: rgb(255,255,255);
-    appearance: none;
     font-family: 'UxumR';
     border-width: 1px;
     border-color: rgb(118, 118, 118);
     color: rgb(0,0,0);
+    width: 100%;
+    padding: 5px;
     cursor: pointer;
     transition: 0.5s ease-in-out;
 }

@@ -6,12 +6,12 @@ import SketchSplash from './SketchSplash';
 function Splash({ setTransition }) {
     return (
         <div className="splash">
-            <div className="splash__title">
-                <p>ADEHLE DALEY</p>
+            <div className="splash__top">
+                <Link onClick={() => setTransition('stp')} to="/portfolio">PORTFOLIO</Link>
                 <Link onClick={() => setTransition('sta')} to="/about">ABOUT</Link>
             </div>
-            <div className="splash__menu">
-                <Link onClick={() => setTransition('stp')} className="splash__button" to="/portfolio">PORTFOLIO</Link>
+            <div className="splash__bottom">
+                <p>ADEHLE DALEY</p>
                 <Link className="splash__button" to="/">EXPLORE</Link>
             </div>     
             <div className="splash__p5">

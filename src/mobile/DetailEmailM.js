@@ -4,9 +4,8 @@ import emailjs from 'emailjs-com';
 import { Link } from "react-router-dom";
 
 function DetailEmailM({ title, price, setTransition}) {
+    const user_id = process.env.REACT_APP_EMAILJS_USER_ID;
     const [status, setStatus] = useState('empty');
-
-    emailjs.init("user_4knm2h4SRCFyntFJjrMFB");
 
     const validEmail = (email) => {
         const re = /\S+@\S+\.\S+/;
@@ -18,7 +17,7 @@ function DetailEmailM({ title, price, setTransition}) {
             if (validEmail(e.target.user_email.value)) {
                 setStatus('loading');
                 console.log('sending email...');
-                emailjs.sendForm('contact_service', 'contact_template', e.target, 'user_4knm2h4SRCFyntFJjrMFB')
+                emailjs.sendForm('contact_service', 'contact_template', e.target, user_id)
                     .then((result) => {
                         setStatus('sent');
                         console.log(result.text);

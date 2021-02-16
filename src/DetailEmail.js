@@ -56,9 +56,9 @@ function DetailEmail({ title, price, status, setStatus }) {
             <form className="detail-email" onSubmit={sendEmail}>
                 <input type="hidden" name="artwork" value={title} />
                 <input type="hidden" name="price" value={price} />
-                <input type="text" name="from_name" placeholder="Name"/>
-                <input type="email" name="user_email" placeholder="Email"/>
-                <textarea name="message" placeholder="Message" />
+                <input className="detail-email__input" type="text" name="from_name" placeholder="Name"/>
+                <input className="detail-email__input" type="email" name="user_email" placeholder="Email"/>
+                <textarea className="detail-email__text-area" name="message" placeholder="Message" />
                 <input className="detail-email__send" type="submit" value="Send" />
             </form>
         )
