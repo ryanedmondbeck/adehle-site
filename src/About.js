@@ -6,6 +6,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link } from "react-router-dom";
 import './About.css';
+import AboutEmail from './AboutEmail';
 
 import firebase from './firebase';
 
@@ -28,7 +29,7 @@ function useBio() {
 }
 
 function About({ setTransition }) {
-
+    
     useEffect(() => {
         setTimeout(() => {setTransition('ats')}, 1000);
     })
@@ -37,16 +38,23 @@ function About({ setTransition }) {
     const bio = info.map(a => (a.bio));
     const image = info.map(a => (a.url));
 
+    const [email, showEmail] = useState(false);
+    const [status, setStatus] = useState('empty');
+
     return (
         <div className="about">
             <div className="about__left">
                 <p>{bio}</p>
                 <div className="about__social">
-                    <a href="mailto:adehlerose@gmail.com"><EmailIcon /></a>
+                    <button onClick={() => showEmail(!email)}><EmailIcon /></button>
                     <a href="https://www.instagram.com/adehledaley/" target="_blank" rel="noopener noreferrer"><InstagramIcon /></a>
                     <a href="https://www.facebook.com/pages/category/Artist/Adehle-Daley-Paintings-663358720698293/" 
                         target="_blank" rel="noopener noreferrer"><FacebookIcon /></a>
                 </div>
+                <div className={`about__email ${(email) ? "" : "about__email--collapsed"}`}>
+                    <AboutEmail status={status} setStatus={setStatus} showEmail={showEmail} />
+                </div>
+                
             </div>
             <div className="about__right">
                 <img key="profile_image" src={image} alt="profile" />

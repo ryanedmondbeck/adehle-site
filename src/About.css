@@ -25,6 +25,23 @@
 .about__social > a {
     margin-left: 3%;
 }
+.about__email {
+    margin-top: 1em;
+    border-top: 1.5px solid rgb(118, 118, 118);
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+.about__email--collapsed {
+    border: 0;
+    max-height: 0px;
+    /* padding: 0; */
+    /* margin: 0; */
+    transition: max-height 0.5s ease-in-out;
+}
 .about__back {
     margin-top: 5%;
     margin-right: 5%;
