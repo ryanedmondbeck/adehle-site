@@ -3,26 +3,26 @@ import './DetailEmail.css';
 import emailjs from 'emailjs-com';
 
 function DetailEmail({ title, price, status, setStatus }) {
-    emailjs.init("user_4knm2h4SRCFyntFJjrMFB");
-
+    const user_id = process.env.REACT_APP_EMAILJS_USER_ID;
     const validEmail = (email) => {
         const re = /\S+@\S+\.\S+/;
         return re.test(email);
     }
     const sendEmail = (e) => {
         e.preventDefault();
+        // console.log(user_id);
         if (e.target.from_name.value && e.target.user_email.value && e.target.message.value) {
             if (validEmail(e.target.user_email.value)) {
                 setStatus('loading');
                 console.log('sending email...');
-                setStatus('sent');
-                // emailjs.sendForm('contact_service', 'contact_template', e.target, 'user_4knm2h4SRCFyntFJjrMFB')
-                //     .then((result) => {
-                //         setStatus('sent');
-                //         console.log(result.text);
-                //     }, (error) => {
-                //         console.log(error.text);
-                // });
+                emailjs.sendForm('contact_service', 'contact_template', e.target, user_id)
+                    .then((result) => {
+                        setStatus('sent');
+                        console.log(result.text);
+                    }, (error) => {
+                        setStatus('error');
+                        console.log(error.text);
+                });
             }
             else{
                 alert("Please enter a valid email address.")
@@ -41,6 +41,13 @@ function DetailEmail({ title, price, status, setStatus }) {
         return (
             <div className="detail-email--sent">
                 <p>Your message has been sent to Adehle.</p>
+            </div>
+        )
+    }
+    else if (status === 'error') {
+        return (
+            <div className="detail-email--sent">
+                <p>There was an error sending your message. Please email Adehle directly at adehlerose@gmail.com</p>
             </div>
         )
     }
