@@ -4,6 +4,9 @@
     padding: 5%;
     font-size: 1em;
 }
+.about-email-m > p {
+    margin: 1em 0 1em 0;
+}
 .about-email-m > input {
     font-family: 'UxumR';
     box-sizing: border-box;

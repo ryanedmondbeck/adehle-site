@@ -51,6 +51,7 @@ function AboutEmailM({ setTransition}) {
         return (
             <form className="about-email-m" onSubmit={sendEmail}>
                 <Link onClick={() => setTransition('ats')} className="portfolio__header__adehle" to="/about-mobile"><CloseIcon fontSize="large"/></Link>
+                <p>Send a message to Adehle</p>
                 <input type="text" name="from_name" placeholder="Name"/>
                 <input type="email" name="user_email" placeholder="Email"/>
                 <textarea name="message" placeholder="Ask me anything!" />
