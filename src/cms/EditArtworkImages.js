@@ -48,7 +48,7 @@ function EditArtworkImages({ collID, artID, images, urls }) {
                 <div key={i} className="edit-artwork-images__image">
                     <p>{images[i]}</p>
                     <img src={urls[i]} alt="" />
-                    <button onClick={() => handleDelete(i)}>Delete</button>
+                    <button onClick={() => handleDelete(i)}>Delete Artwork</button>
                 </div>
             )
         }
