@@ -27,16 +27,16 @@ function App() {
     
 
     const toCMS = () => {
-        if (auth) {   
+        // if (auth) {   
             return (
                 <CMSPageProvider>
                     <CMS />
                 </CMSPageProvider>
             )
-        }
-        else {
-            return (<CMSLoggin setAuth={setAuth} />);
-        }
+        // }
+        // else {
+        //     return (<CMSLoggin setAuth={setAuth} />);
+        // }
     }
 
     const [width, setWidth] = useState();

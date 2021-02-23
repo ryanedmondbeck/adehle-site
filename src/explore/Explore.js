@@ -1,12 +1,12 @@
 import React from 'react';
 import './Explore.css';
+import CommentCloud from './CommentCloud';
 
 function Explore() {
+    
     return (
         <div className="explore">
-            <div className="explore__object">
-                explore
-            </div>
+            <CommentCloud />
         </div>
     )
 }

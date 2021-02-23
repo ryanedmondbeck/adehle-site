@@ -13,6 +13,7 @@ import './CMSMenu.css';
 import { CMSPageContext } from '../contexts/CMSPageContext';
 import NewUploadLoading from './NewUploadLoading';
 import NewCollectionLoading from './NewCollectionLoading';
+import EditComments from './EditComments';
 import { Link } from "react-router-dom";
 
 
@@ -32,12 +33,16 @@ function CMS() {
         if (cmsPage === 'profile') {
             return (<EditProfile />)
         } 
+        if (cmsPage === 'comments') {
+            return(<EditComments />)
+        }
         if (cmsPage === 'loading') {
             return(<NewUploadLoading />)
         }
         if (cmsPage === 'uploading-collection') {
             return(<NewCollectionLoading />)
         }
+        
     }
     return ( 
         <div className="cms">

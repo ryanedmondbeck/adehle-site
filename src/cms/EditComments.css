@@ -1,0 +1,18 @@
+.edit-comments {
+    border-style: solid;
+    border-width: 1px;
+    margin: 1% 5% 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+.edit-comments__comment {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1em;
+}
+.edit-comments__comment > button {
+    padding: 0;
+    margin-right: 2%;
+}
