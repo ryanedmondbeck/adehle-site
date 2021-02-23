@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import firebase, { db, storage } from '../firebase';
 import DeleteIcon from '@material-ui/icons/Delete';
 import './EditComments.css';
+import { AddComment } from '@material-ui/icons';
 
 function useComments() {
     const [comments, setComments] = useState([]);
@@ -35,6 +36,7 @@ const handleDelete = async (commentID, e) => {
 }
 
 function EditComments() {
+    
     const comments = useComments();
     const renderComments = () => {
         const c_list = comments.map(c => (
@@ -46,9 +48,40 @@ function EditComments() {
         ));
         return c_list;
     }
+
+    const [newComment, setNewComment] = useState({
+        comment: ''
+    });
+    const handleChange = (e) => {
+        e.preventDefault();
+        setNewComment({ ...newComment, [e.target.name]: e.target.value })
+        console.log(e, newComment)
+    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await db
+                .collection('comments')
+                .add(newComment); 
+                setNewComment({comment: '' });
+            // console.log(res);  
+        } catch (error) { console.log(error); } 
+    }
+    const addComment = () => {
+        return (
+            <form onSubmit={handleSubmit} > 
+                <input type="text" name="comment" placeholder="Add a comment"
+                    value={newComment.comment} 
+                    onChange={handleChange}/>
+                <input type="submit" value="Submit" />
+            </form>
+            
+        )
+    }
     return (
         <div className="edit-comments">
             {renderComments()}
+            {addComment()}
         </div>
     )
 }
