@@ -38,7 +38,7 @@ function CommentCloud() {
     const renderComments = () => {
         const c_list = comments.map(c => (
             <div className="edit-comments__comment">
-                <Comment width={width} height={height} comment={c.comment} />
+                <Comment width={width} height={height} comment={c.comment} key={c.comment} />
             </div>
         ));
         return(c_list);
@@ -53,6 +53,7 @@ function CommentCloud() {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("form submitted: ", e);
         try {
             await db
                 .collection('comments')
@@ -75,7 +76,6 @@ function CommentCloud() {
         <div className="comment-cloud">
             {addComment()}
             {renderComments()}
-            {/* <Comment width={width} height={height} i={1} /> */}
         </div>
     )
 }
