@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import firebase, { db, storage } from '../firebase';
+import firebase, { db } from '../firebase';
 import DeleteIcon from '@material-ui/icons/Delete';
 import './EditComments.css';
-import { AddComment } from '@material-ui/icons';
 
 function useComments() {
     const [comments, setComments] = useState([]);
@@ -44,7 +43,6 @@ function EditComments() {
                 <button onClick={(e) => handleDelete(c.id, e)}><DeleteIcon /></button>
                 <p>{c.comment}</p>
             </div>
-            
         ));
         return c_list;
     }
@@ -55,7 +53,6 @@ function EditComments() {
     const handleChange = (e) => {
         e.preventDefault();
         setNewComment({ ...newComment, [e.target.name]: e.target.value })
-        console.log(e, newComment)
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -75,7 +72,6 @@ function EditComments() {
                     onChange={handleChange}/>
                 <input type="submit" value="Submit" />
             </form>
-            
         )
     }
     return (
