@@ -4,7 +4,7 @@ import * as d3 from "d3-timer";
 
 function Comment({ width, height, comment }) {
     
-    const MAXV = 3;
+    const MAXV = 2;
     const [pos, setPos] = useState({
         x: width/4,
         vx: Math.random() * MAXV * (Math.round(Math.random()) ? 1 : -1),
