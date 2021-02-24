@@ -1,0 +1,12 @@
+.edit-network-description > button {
+    padding: 0;
+}
+.edit-network-description {
+    padding-bottom: 1em;
+}
+.edit-network-description > label {
+    width: 100%;
+}
+.edit-network-description__text-area {
+    width: 100%;
+}

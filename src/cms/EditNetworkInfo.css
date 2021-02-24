@@ -1,0 +1,8 @@
+.edit-network-info {
+    /* border-style: solid;
+    border-width: 1px; */
+    padding-bottom: 1em;
+}
+.edit-network-info > button {
+    padding: 0;
+}

@@ -7,3 +7,8 @@
     padding-top: 2.5%;
     padding-bottom: 2.5%;
 }
+.edit-network__contact {
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid black;
+}

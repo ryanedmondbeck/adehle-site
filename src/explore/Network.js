@@ -3,7 +3,7 @@ import React from 'react';
 function Network() {
     return (
         <div className="network">
-            <p>Network</p>
+            {/* <p>Network</p> */}
         </div>
     )
 }
