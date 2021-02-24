@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { db } from '../firebase';
 import { CMSPageContext } from '../contexts/CMSPageContext';
+import './EditNetworkNewContact.css';
 
 function EditNetworkNewContact() {
     const [form, setForm] = useState({
@@ -28,7 +29,7 @@ function EditNetworkNewContact() {
     }
 
     return (
-        <div className="new-collection">
+        <div className="edit-network-new-contact">
             <form onSubmit={handleSubmit} >
                 <label>
                     <input type="text" name="name" placeholder="Name"
