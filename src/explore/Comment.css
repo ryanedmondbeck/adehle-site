@@ -1,24 +1,22 @@
 .comment {
-    max-width: 20%;
+    max-width: 40%;
     /* height: 10%; */
     /* border-radius: 25%; */
     display: flex;
     justify-content: center;
     align-items: center;
     /* background-color: rgb(255,255,255); */
-    /* opacity: 0.9; */
-    font-size: 1em;
+    opacity: 0.7;
+    /* font-size: 1em; */
     position: fixed;
     top: 0;
     left: 0;
     cursor: pointer;
-    transition: font-size 0.5s ease-in-out;
+    transition: font-size 0.1s;
 
 }
-.comment:hover {
+/* .comment:hover {
     font-size: 2em;
     cursor: pointer;
     transition: font-size 0.5s ease-in-out;
-    
-
-}
+} */

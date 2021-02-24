@@ -38,7 +38,7 @@ function CommentCloud() {
     const renderComments = () => {
         const c_list = comments.map(c => (
             <div className="edit-comments__comment">
-                <Comment width={width} height={height} comment={c.comment} key={c.comment} />
+                <Comment width={width*0.85} height={height*0.78} comment={c.comment} key={c.comment} />
             </div>
         ));
         return(c_list);

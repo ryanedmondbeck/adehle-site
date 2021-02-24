@@ -6,16 +6,18 @@ function Comment({ width, height, comment }) {
     
     const MAXV = 2;
     const [pos, setPos] = useState({
-        x: width/4,
+        x: Math.floor(Math.random() * width),
         vx: Math.random() * MAXV * (Math.round(Math.random()) ? 1 : -1),
         y: height/4,
-        vy: Math.random() * MAXV * (Math.round(Math.random()) ? 1 : -1)
+        vy: Math.random() * MAXV * (Math.round(Math.random()) ? 1 : -1),
+        fs: Math.random() + 1,
+        vfs: Math.random() * 0.05
     })
 
     function tickAnimation() {
 
         setPos(function(pos) {
-            let {x, vx, y, vy} = pos
+            let {x, vx, y, vy, fs, vfs} = pos
             if (x > width || x < 0) {
                 vx = -1 * vx;
             }
@@ -24,7 +26,11 @@ function Comment({ width, height, comment }) {
             }
             x += vx;
             y += vy;
-            return {x, vx, y, vy};
+            if (fs >= 14 || fs <= 0.9) {
+                vfs = -1 * vfs;
+            }
+            fs += vfs;
+            return {x, vx, y, vy, fs, vfs};
         })
     }
     
@@ -33,8 +39,12 @@ function Comment({ width, height, comment }) {
         return () => t.stop();
     }, []);
 
+    const trans = {transform: `translate(${pos.x}px, ${pos.y}px)`};
+    // const size = Math.random() + 1;
+    const fontSize = {fontSize: `${pos.fs}em`}
+
     return (
-        <div className="comment" style={{transform: `translate(${pos.x}px, ${pos.y}px)`}}>
+        <div className="comment" style={{...trans, ...fontSize}}>
             {comment}
         </div>
     )

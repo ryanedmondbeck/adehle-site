@@ -20,6 +20,9 @@ function CMSMenu() {
             <button onClick={() => setCmsPage('comments')}
                 className={`cms-menu__button ${(cmsPage === 'comments') ? "cms-menu__button--selected" : ""}`}>
                 Edit Comments</button>
+            <button onClick={() => setCmsPage('network')}
+                className={`cms-menu__button ${(cmsPage === 'network') ? "cms-menu__button--selected" : ""}`}>
+                Edit Network</button>
         </div>
     )
 }

@@ -14,6 +14,7 @@ import { CMSPageContext } from '../contexts/CMSPageContext';
 import NewUploadLoading from './NewUploadLoading';
 import NewCollectionLoading from './NewCollectionLoading';
 import EditComments from './EditComments';
+import EditNetwork from './EditNetwork';
 import { Link } from "react-router-dom";
 
 
@@ -35,6 +36,9 @@ function CMS() {
         } 
         if (cmsPage === 'comments') {
             return(<EditComments />)
+        }
+        if (cmsPage === 'network') {
+            return(<EditNetwork/>)
         }
         if (cmsPage === 'loading') {
             return(<NewUploadLoading />)
