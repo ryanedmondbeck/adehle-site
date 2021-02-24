@@ -4,6 +4,8 @@ import './Network.css';
 import EmailIcon from '@material-ui/icons/Email';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import HttpIcon from '@material-ui/icons/Http';
+import LanguageIcon from '@material-ui/icons/Language';
 
 
 function useNetwork() {
@@ -32,12 +34,12 @@ function Network() {
     const handleClick = (id) => {
         (selected === id) ? setSelected('') : setSelected(id);
     }
-    const renderWebsite = (website) => {
+    const renderWebsite = (name, website) => {
         if (website) {
-            const pretty_website = website.replace(/(^\w+:|^)\/\//, '');
+            const pretty_name = name.split(" ")[0];
             return (
                 <a className="network__contact__website" href={website} target="_blank" rel="noopener noreferrer">
-                    {pretty_website}</a>
+                   {`${pretty_name}'s website`}</a>
             )
         }
     }
@@ -71,7 +73,7 @@ function Network() {
                 <div className={`network__contact__info ${(selected === contact.id) ? '' : 'network__contact__info--collapsed'}`}>
                     <p className="network__contact__name">{contact.name}</p>
                     <p className="network__contact__description">{contact.description}</p>
-                    {renderWebsite(contact.website)}
+                    {renderWebsite(contact.name, contact.website)}
                     <div className="network__contact__info__icons">
                         {renderEmail(contact.email)}
                         {renderInstagram(contact.instagram)}
