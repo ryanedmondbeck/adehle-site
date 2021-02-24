@@ -2,11 +2,12 @@ import React from 'react';
 import './Explore.css';
 import CommentCloud from './CommentCloud';
 import Network from './Network.js'
+import ccbg from './svg/gradient-up-bg.svg';
 
 function Explore() {
     
     return (
-        <div className="explore">
+        <div className="explore" style={{backgroundImage: `url(${ccbg})`}}>
             <CommentCloud />
             <Network />
         </div>
