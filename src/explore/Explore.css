@@ -5,3 +5,8 @@
     background-size: cover;
     /* background-color: rgb(0,0,0); */
 }
+.explore__home {
+    position: absolute;
+    right: 0;
+    padding: 2em;
+}

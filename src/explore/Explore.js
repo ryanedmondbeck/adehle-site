@@ -4,11 +4,13 @@ import CommentCloud from './CommentCloud';
 import Network from './Network.js'
 import ccbg from './svg/gradient-up-bg.svg';
 import CloseIcon from '@material-ui/icons/Close';
+import { Link } from "react-router-dom";
 
-function Explore() {
+function Explore({ setTransition }) {
     
     return (
         <div className="explore" style={{backgroundImage: `url(${ccbg})`}}>
+            <Link onClick={() => setTransition('ste')} className="explore__home" to="/"><CloseIcon fontSize="large" /></Link>
             <CommentCloud />
             <Network />
         </div>

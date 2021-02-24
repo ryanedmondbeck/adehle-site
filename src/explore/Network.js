@@ -4,9 +4,7 @@ import './Network.css';
 import EmailIcon from '@material-ui/icons/Email';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import HttpIcon from '@material-ui/icons/Http';
-import LanguageIcon from '@material-ui/icons/Language';
-
+import PublicIcon from '@material-ui/icons/Public';
 
 function useNetwork() {
     const [net, setNet] = useState([]);
@@ -86,6 +84,7 @@ function Network() {
     }
     return (
         <div className="network">
+            {/* <p><PublicIcon fontSize="inherit"/></p> */}
             {renderNetwork()}
         </div>
     )
