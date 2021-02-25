@@ -2,7 +2,7 @@ import React from 'react';
 import './Explore.css';
 import CommentCloud from './CommentCloud';
 import Network from './Network.js'
-import ccbg from './svg/gradient-up-bg.svg';
+import ccbg from './svg/gradient-bg-50.svg';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link } from "react-router-dom";
 
