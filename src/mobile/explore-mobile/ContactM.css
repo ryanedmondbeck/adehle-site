@@ -1,0 +1,58 @@
+.contact-m {
+    display: flex;
+    flex-direction: row;
+    margin: 5vw 0vw 5vw 5vw;
+    padding: 1em ;
+    background-color: rgba(255,255,255,0.9);
+    color: black;
+    border-radius: 4px;
+    z-index: 4;
+    filter: none;
+    transition: padding 0.5s ease-in-out, filter 0.5s ease-in-out;
+    
+}
+.contact-m__letter {
+    font-size: 1.5em;
+    transition: font-size 0.5s ease-in-out;
+}
+.contact-m__letter--collapsed {
+    font-size: 5em;
+    transition: font-size 1s ease-in-out;
+}
+
+.contact-m__info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+    width: 75vw;
+    max-width: 500px;
+    max-height: 300px;
+    /* transition: 1s ease-in-out; */
+    transition: max-width 0.5s ease-in-out, max-height 0.75s ease-in-out;
+    /* transition-delay: max-height 1s; */
+}
+.contact-m__info--collapsed {
+    overflow: hidden;
+    margin: 0;
+    max-width: 0px;
+    max-height: 0px;
+    transition: max-width 0.25s ease-in-out, max-height 0.5s ease-in-out;
+}
+.contact-m__name {
+    font-size: 1.2em;
+    margin-bottom: 0.2em;
+}
+.contact-m__description {
+    margin-bottom: 0.2em
+}
+.contact-m__website {
+    margin-bottom: 0.2em
+}
+.contact-m__info__icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.contact-m__info__icons > a {
+    margin-right: 0.5em;
+}

@@ -17,7 +17,7 @@ function Splash({ setTransition, p, setP }) {
                 <Link onClick={() => setTransition('stp')} className="splash-m__button" to="/portfolio-mobile">PORTFOLIO</Link>
             </div>
             <div className="splash-m__explore">
-                <Link className="splash-m__button" to="/">EXPLORE</Link>
+                <Link onClick={() => setTransition('ste')} className="splash-m__button" to="/explore-mobile">EXPLORE</Link>
             </div>     
             <div className="splash-m__p5">
                 <SketchSplashM />

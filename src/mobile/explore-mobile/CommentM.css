@@ -1,0 +1,13 @@
+.comment-m {
+    max-width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    transition: font-size 0.1s;
+
+}
