@@ -37,6 +37,7 @@ function CommentM({ width, height, comment }) {
     useEffect(() => {
         const t = d3.timer(tickAnimation);
         return () => t.stop();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const trans = {transform: `translate(${pos.x}px, ${pos.y}px)`};

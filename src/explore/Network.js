@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import firebase, {db} from '../firebase';
+import firebase from '../firebase';
 import './Network.css';
 import EmailIcon from '@material-ui/icons/Email';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import PublicIcon from '@material-ui/icons/Public';
 
 function useNetwork() {
     const [net, setNet] = useState([]);

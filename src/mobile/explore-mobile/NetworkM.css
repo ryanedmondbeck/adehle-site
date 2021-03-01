@@ -6,7 +6,7 @@
     align-items: flex-end;
     overflow-x: auto;
     position: absolute;
-    bottom: 0;
+    bottom: 10vh;
     width: 100vw;
     height: 60vh;
     scroll-behavior: smooth;

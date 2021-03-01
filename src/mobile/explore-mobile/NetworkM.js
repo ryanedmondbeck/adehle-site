@@ -1,9 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import firebase from '../../firebase';
 import './NetworkM.css';
-// import EmailIcon from '@material-ui/icons/Email';
-// import InstagramIcon from '@material-ui/icons/Instagram';
-// import FacebookIcon from '@material-ui/icons/Facebook';
 import ContactM from './ContactM.js';
 
 function useNetwork() {
@@ -20,13 +17,12 @@ function useNetwork() {
                 setNet(r);
             })
         return () => unsubscribe();
-    }, []) // need empty array so that this function isn't repeatedly called
+    }, []);
     return net;
 }
 
 function NetworkM() {
     
-    // const width = window.innerWidth();
     const net = useNetwork();
     const [selected, setSelected] = useState('');
 

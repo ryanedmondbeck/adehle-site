@@ -3,8 +3,7 @@ import './ExploreM.css';
 import CommentCloudM from './CommentCloudM';
 import NetworkM from './NetworkM.js'
 import ccbg from './svg/gradient-bg-50.svg';
-import CloseIcon from '@material-ui/icons/Close';
-import { Link } from "react-router-dom";
+// import CloseIcon from '@material-ui/icons/Close';
 
 function ExploreM({ setTransition }) {
     
@@ -13,6 +12,7 @@ function ExploreM({ setTransition }) {
             {/* <Link onClick={() => setTransition('ste')} className="explore-m__home" to="/"><CloseIcon fontSize="large" /></Link> */}
             <CommentCloudM />
             <NetworkM />
+            
         </div>
     )
 }
